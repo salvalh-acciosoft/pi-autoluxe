@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_inicio-sesion.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.autoluxe.ControladorInicioSesion">
+   <children>
+      <AnchorPane prefHeight="1000.0" prefWidth="1920.0" style="-fx-background-color: #666666;">
+         <children>
+            <Pane fx:id="barraSuperior" layoutX="-5.0" layoutY="-19.0" prefHeight="200.0" prefWidth="1927.0" stylesheets="@../../../style/estilo_inicio-sesion.css">
+               <children>
+                  <ImageView fitHeight="140.0" fitWidth="370.0" layoutX="656.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../imagenes/Auto.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="113.0" fitWidth="243.0" layoutX="977.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../imagenes/LuxeNegro.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="barra1" layoutX="5.0" layoutY="183.0" prefHeight="17.0" prefWidth="1922.0" stylesheets="@../../../style/estilo_inicio-sesion.css" />
+               </children>
+            </Pane>
+            <Pane fx:id="panelInicioSesion" layoutX="383.0" layoutY="207.0" prefHeight="768.0" prefWidth="1146.0" stylesheets="@../../../style/estilo_inicio-sesion.css">
+               <children>
+                  <Pane layoutY="708.0" prefHeight="62.0" prefWidth="1146.0" style="-fx-background-color: #FFA423; -fx-background-radius: 10px;">
+                     <children>
+                        <Label fx:id="tv_email" layoutX="951.0" layoutY="23.0" onMouseClicked="#abrirGmail" stylesheets="@../../../style/estilo_inicio-sesion.css" text="autoluxe_info@autoluxe.com" underline="true">
+                           <font>
+                              <Font name="Microsoft Sans Serif" size="14.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
+                  <ImageView fitHeight="554.0" fitWidth="600.0" layoutX="277.0" layoutY="74.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../imagenes/herramientas.png" />
+                     </image>
+                  </ImageView>
+                  <Pane layoutX="206.0" layoutY="81.0" prefHeight="189.0" prefWidth="734.0">
+                     <children>
+                        <Label layoutX="149.0" layoutY="43.0" text="INICIO DE SESIÓN" textAlignment="CENTER">
+                           <font>
+                              <Font name="Microsoft New Tai Lue Bold" size="50.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="84.0" layoutY="123.0" prefHeight="0.0" prefWidth="544.0" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="206.0" layoutY="270.0" prefHeight="81.0" prefWidth="711.0">
+                     <children>
+                        <Label layoutX="84.0" layoutY="4.0" prefHeight="17.0" prefWidth="57.0" text="EMAIL:">
+                           <font>
+                              <Font name="Microsoft Sans Serif" size="14.0" />
+                           </font></Label>
+                        <TextField id="edEmail" fx:id="edEmail" layoutX="84.0" layoutY="24.0" prefHeight="34.0" prefWidth="544.0" promptText="example@gmail.com" />
+                        <Label fx:id="msgError1" layoutX="71.0" layoutY="4.0" text="*" textFill="RED" visible="false">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="206.0" layoutY="368.0" prefHeight="96.0" prefWidth="711.0">
+                     <children>
+                        <Label layoutX="84.0" layoutY="12.0" text="CONTRASEÑA:">
+                           <font>
+                              <Font name="Microsoft Sans Serif" size="14.0" />
+                           </font></Label>
+                        <Label fx:id="msgError2" layoutX="71.0" layoutY="11.0" text="*" textFill="RED" visible="false">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <PasswordField fx:id="edContraseña" layoutX="84.0" layoutY="31.0" prefHeight="34.0" prefWidth="544.0" promptText="·········">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </PasswordField>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="208.0" layoutY="482.0" prefHeight="146.0" prefWidth="707.0">
+                     <children>
+                        <Button fx:id="bt1" layoutX="193.0" layoutY="14.0" mnemonicParsing="false" onAction="#accionBt1" prefHeight="34.0" prefWidth="308.0" stylesheets="@../../../style/estilo_inicio-sesion.css" text="INICIAR SESIÓN" textFill="WHITE">
+                           <font>
+                              <Font name="Microsoft New Tai Lue Bold" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+                  <ImageView fx:id="im_instagram" fitHeight="40.0" fitWidth="36.0" layoutX="16.0" layoutY="725.0" onMouseClicked="#abrirInstagram" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../imagenes/instagram.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="im_facebook" fitHeight="40.0" fitWidth="24.0" layoutX="63.0" layoutY="727.0" onMouseClicked="#abrirFacebook" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../imagenes/facebook.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="barra2" layoutY="704.0" prefHeight="17.0" prefWidth="1146.0" stylesheets="@../../../style/estilo_inicio-sesion.css" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>

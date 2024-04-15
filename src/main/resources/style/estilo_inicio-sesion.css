@@ -1,0 +1,42 @@
+#panelInicioSesion
+{
+    -fx-background-color:linear-gradient(to bottom, #8a8a8a,#FFF);
+    -fx-background-radius:10px;
+}
+#bt1
+{
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+#barra2
+{
+    -fx-background-color:linear-gradient(to bottom, #734c0c, #FFA423);
+}
+#barra1{
+    -fx-background-color:linear-gradient(to top, #734c0c, #FFA423);
+}
+#bt1:hover
+{
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-border-color: #000000;
+    -fx-border-width: 1px;
+}
+#bt1:pressed
+{
+    -fx-background-color: #000000;
+    -fx-text-fill: white;
+}
+
+#tv_email:hover,#im_instagram:hover,#im_facebook:hover
+{
+    -fx-cursor: hand;
+}
+#barraSuperior {
+    -fx-background-color:linear-gradient(to bottom, #734c0c, #FFA423);
+}
