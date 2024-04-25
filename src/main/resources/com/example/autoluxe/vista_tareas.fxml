@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_tareas.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.autoluxe.ControladorTareas">
+   <children>
+      <AnchorPane prefHeight="1000.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_tareas.css" HBox.hgrow="ALWAYS">
+         <children>
+            <Pane fx:id="barraSuperior" prefHeight="200.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_inicio-sesion.css">
+               <children>
+                  <ImageView fitHeight="140.0" fitWidth="370.0" layoutX="656.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../imagenes/Auto.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="113.0" fitWidth="243.0" layoutX="977.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../imagenes/LuxeNegro.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="barra1" layoutY="183.0" prefHeight="17.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_inicio-sesion.css" />
+                  <ImageView fx:id="btnCerrarSesion" fitHeight="45.0" fitWidth="31.0" layoutX="1843.0" layoutY="89.0" onMouseClicked="#cerrarVentana" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../imagenes/cerrar-sesion.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <BorderPane layoutY="200.0" prefHeight="800.0" prefWidth="1920.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="200.0">
+               <left>
+                  <Pane fx:id="panelLateralMenu" prefHeight="800.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="btnInicio" layoutX="12.0" layoutY="21.0" mnemonicParsing="false" text="Inicio" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/casa.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnAltaVehiculo" layoutX="10.0" layoutY="119.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Gestión de empleados y roles" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/plus.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnAltaReparacion" layoutX="10.0" layoutY="159.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Gestión de clientes" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/plus.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnAltaParteReparacion" alignment="CENTER" layoutX="10.0" layoutY="199.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Gestión de taller" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/plus.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnBuscarVehiculo" layoutX="10.0" layoutY="322.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" text="Generar factura" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/lupa.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnTipoReparacion" layoutX="10.0" layoutY="492.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" text="Historial de servicios" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/llave.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label layoutX="14.0" layoutY="74.0" text="Gestiones" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="12.0" layoutY="273.0" text="Facturas" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="400.0" text="Servicios" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="103.0" layoutY="725.0" text="Correo electrónico">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="37.0" layoutY="715.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../imagenes/usuario.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="btnAdminTareas" alignment="CENTER" layoutX="10.0" layoutY="452.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Administración de tareas" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/plus.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </Pane>
+               </left>
+               <center>
+                  <Pane prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_tareas.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <Pane fx:id="panelCuerpo" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_tareas.css">
+                           <children>
+                              <ImageView fitHeight="554.0" fitWidth="1714.0" layoutX="139.0" layoutY="107.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../../pi-autoluxe/src/main/resources/imagenes/herramientas.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="137.0" layoutY="177.0" text="ID Empleado:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="137.0" layoutY="240.0" text="Asunto:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="139.0" layoutY="300.0" text="Descripción:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="460.0" layoutY="177.0" text="Teléfono:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="518.0" layoutX="239.0" layoutY="161.0" startX="-100.0" />
+                              <Button fx:id="btnAnadirTarea" layoutX="249.0" layoutY="126.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="174.0" stylesheets="@../../../style/estilo_tareas.css" text="AÑADIR TAREA">
+                                 <graphic>
+                                    <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../imagenes/plus_negro.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnEdicionTarea" layoutX="483.0" layoutY="126.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="187.0" text="EDITAR TAREA">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../imagenes/edicion.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <TextField layoutX="457.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
+                              <TableView layoutX="922.0" layoutY="160.0" prefHeight="455.0" prefWidth="662.0">
+                                 <columns>
+                                    <TableColumn prefWidth="214.0" text="A" />
+                                    <TableColumn minWidth="0.0" prefWidth="236.0" text="B" />
+                                    <TableColumn prefWidth="210.0" text="C" />
+                                 </columns>
+                              </TableView>
+                              <TextField layoutX="137.0" layoutY="264.0" prefHeight="30.0" prefWidth="600.0" />
+                              <TextField layoutX="136.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label alignment="CENTER" layoutX="260.0" layoutY="54.0" prefHeight="72.0" prefWidth="354.0" text="AÑADIR TAREA" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="48.0" />
+                                 </font>
+                              </Label>
+                              <TextArea layoutX="137.0" layoutY="330.0" prefHeight="200.0" prefWidth="600.0" />
+                              <Button fx:id="acAnadirTarea" layoutX="137.0" layoutY="568.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="600.0" text="AÑADIR">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <ChoiceBox layoutX="1405.0" layoutY="114.0" prefHeight="30.0" prefWidth="179.0" />
+                              <TextField layoutX="922.0" layoutY="114.0" prefHeight="31.0" prefWidth="285.0" />
+                              <Button fx:id="btnBuscar" layoutX="1207.0" layoutY="114.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: #000000;">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../imagenes/lupa.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="panelCuerpo1" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_tareas.css" visible="false">
+                           <children>
+                              <ImageView fitHeight="554.0" fitWidth="1714.0" layoutX="139.0" layoutY="107.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../../pi-autoluxe/src/main/resources/imagenes/herramientas.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="137.0" layoutY="177.0" text="ID Empleado:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="137.0" layoutY="240.0" text="Asunto:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="139.0" layoutY="300.0" text="Descripción:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="460.0" layoutY="177.0" text="Teléfono:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="518.0" layoutX="239.0" layoutY="161.0" startX="-100.0" />
+                              <Button fx:id="btnAnadirTarea1" layoutX="249.0" layoutY="126.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="174.0" stylesheets="@../../../style/estilo_tareas.css" text="AÑADIR TAREA">
+                                 <graphic>
+                                    <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../imagenes/plus_negro.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnEdicionTarea1" layoutX="483.0" layoutY="126.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="187.0" text="EDITAR TAREA">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../imagenes/edicion.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <TextField layoutX="457.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
+                              <TableView layoutX="922.0" layoutY="160.0" prefHeight="455.0" prefWidth="662.0">
+                                 <columns>
+                                    <TableColumn prefWidth="214.0" text="A" />
+                                    <TableColumn minWidth="0.0" prefWidth="236.0" text="B" />
+                                    <TableColumn prefWidth="210.0" text="C" />
+                                 </columns>
+                              </TableView>
+                              <TextField layoutX="137.0" layoutY="264.0" prefHeight="30.0" prefWidth="600.0" />
+                              <TextField layoutX="136.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label alignment="CENTER" layoutX="260.0" layoutY="54.0" prefHeight="72.0" prefWidth="354.0" text="AÑADIR TAREA" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="48.0" />
+                                 </font>
+                              </Label>
+                              <TextArea layoutX="137.0" layoutY="330.0" prefHeight="200.0" prefWidth="600.0" />
+                              <Button fx:id="acBorrarTarea" layoutX="137.0" layoutY="568.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="BORRAR">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <ChoiceBox layoutX="1405.0" layoutY="114.0" prefHeight="30.0" prefWidth="179.0" />
+                              <TextField layoutX="922.0" layoutY="114.0" prefHeight="31.0" prefWidth="285.0" />
+                              <Button fx:id="btnBuscar11" layoutX="1207.0" layoutY="114.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: #000000;">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../imagenes/lupa.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="acEditarTarea" layoutX="457.0" layoutY="568.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="EDITAR">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>

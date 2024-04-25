@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_inicio-sesion.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.autoluxe.ControladorInicioSesion">
+<HBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.autoluxe.ControladorInicioSesion">
    <children>
       <AnchorPane prefHeight="1000.0" prefWidth="1920.0" style="-fx-background-color: #666666;">
          <children>
@@ -40,7 +40,8 @@
                               <Font name="Microsoft Sans Serif" size="14.0" />
                            </font>
                         </Label>
-                     </children></Pane>
+                     </children>
+                  </Pane>
                   <ImageView fitHeight="554.0" fitWidth="600.0" layoutX="277.0" layoutY="74.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../imagenes/herramientas.png" />
@@ -61,7 +62,8 @@
                         <Label layoutX="84.0" layoutY="4.0" prefHeight="17.0" prefWidth="57.0" text="EMAIL:">
                            <font>
                               <Font name="Microsoft Sans Serif" size="14.0" />
-                           </font></Label>
+                           </font>
+                        </Label>
                         <TextField id="edEmail" fx:id="edEmail" layoutX="84.0" layoutY="24.0" prefHeight="34.0" prefWidth="544.0" promptText="example@gmail.com" />
                         <Label fx:id="msgError1" layoutX="71.0" layoutY="4.0" text="*" textFill="RED" visible="false">
                            <font>
@@ -75,7 +77,8 @@
                         <Label layoutX="84.0" layoutY="12.0" text="CONTRASEÑA:">
                            <font>
                               <Font name="Microsoft Sans Serif" size="14.0" />
-                           </font></Label>
+                           </font>
+                        </Label>
                         <Label fx:id="msgError2" layoutX="71.0" layoutY="11.0" text="*" textFill="RED" visible="false">
                            <font>
                               <Font name="System Bold" size="14.0" />

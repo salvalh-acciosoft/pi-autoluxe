@@ -16,10 +16,8 @@ import java.net.URISyntaxException;
 public class ControladorInicioSesion {
     @FXML
     private TextField edEmail;
-
     @FXML
     private TextField edContraseña;
-
     @FXML
     private Button bt1;
     @FXML
@@ -51,11 +49,11 @@ public class ControladorInicioSesion {
     @FXML
     private void abrirAplicacion() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(""));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_tareas.fxml"));
             Parent root = loader.load();
             Stage nuevaVentana = new Stage();
             nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título
-            nuevaVentana.setScene(new Scene(root));
+            nuevaVentana.setScene(new Scene(root,1920,1080));
             Stage ventanaActual = (Stage) bt1.getScene().getWindow();
             ventanaActual.close();
             nuevaVentana.show();

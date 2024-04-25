@@ -3,6 +3,7 @@ package com.example.autoluxe;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -12,7 +13,7 @@ public class InicioSesion extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         HBox root = FXMLLoader.load(getClass().getResource("vista_InicioSesion.fxml"));
-        Scene scene = new Scene(root, javafx.scene.paint.Color.WHITE);
+        Scene scene = new Scene(root,1920,1080);
         stage.setTitle("AutoLuxe");
         stage.setScene(scene);
         stage.show();
