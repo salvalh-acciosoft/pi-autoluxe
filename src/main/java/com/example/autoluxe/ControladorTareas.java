@@ -55,7 +55,7 @@ public class ControladorTareas
         panelCuerpo.setVisible(false);
     }
     /*
-    MENU 2/6
+    MENU 3/6
      */
     @FXML
     private void abrirTareas()
@@ -82,6 +82,25 @@ public class ControladorTareas
         try
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_empleadosyroles.fxml"));
+            Parent root = loader.load();
+            Stage nuevaVentana = new Stage();
+            nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título
+            nuevaVentana.setScene(new Scene(root,1920,1000));
+            Stage ventanaActual = (Stage) btnCerrarSesion.getScene().getWindow();
+            ventanaActual.close();
+            nuevaVentana.show();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void abrirInicio()
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_inicio.fxml"));
             Parent root = loader.load();
             Stage nuevaVentana = new Stage();
             nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título

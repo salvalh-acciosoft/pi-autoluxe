@@ -45,7 +45,7 @@
                <left>
                   <Pane fx:id="panelLateralMenu" prefHeight="800.0" prefWidth="300.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="btnInicio" layoutX="12.0" layoutY="21.0" mnemonicParsing="false" text="Inicio" textFill="WHITE">
+                        <Button fx:id="btnInicio" layoutX="12.0" layoutY="21.0" mnemonicParsing="false" onAction="#abrirInicio" text="Inicio" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font>

@@ -49,7 +49,7 @@ public class ControladorInicioSesion {
     @FXML
     private void abrirAplicacion() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_tareas.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_inicio.fxml"));
             Parent root = loader.load();
             Stage nuevaVentana = new Stage();
             nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título

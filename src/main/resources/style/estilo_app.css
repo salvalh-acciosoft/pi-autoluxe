@@ -87,6 +87,35 @@
 {
     -fx-cursor: hand;
 }
+@font-face {
+    font-family: 'MiFuente';
+    src: url('fonts/Balance Groovy - Sans.ttf');
+}
+#dashboard .button{
+    -fx-background-color:linear-gradient(to left top, #222222, #e49826);
+    -fx-background-radius: 20px;
+    -fx-text-fill: #ffffff; /* Color del texto */
+    -fx-border-radius: 20px; /* Radio de esquina para bordes redondeados */
+    -fx-pref-height: 250px;
+    -fx-pref-width: 400px;
+    -fx-border-width: 2px; /* Grosor del borde */
+    -fx-cursor: hand; /* Cambia el cursor al pasar por encima */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,1,1), 0, 0, 5, 10); /* Sombra suave */
+
+}
+
+/* Estilo para los botones al pasar el ratón por encima */
+#dashboard .button:hover {
+    -fx-pref-height: 265px;
+    -fx-pref-width: 415px;
+    -fx-background-color:linear-gradient(to left top, #222222, #919191);
+    -fx-text-fill: #e49826;
+}
+#dashboard .button:pressed
+{
+    -fx-background-color:linear-gradient(to right bottom, #222222, #e49826);
+    -fx-text-fill: white;
+}
 /*
 #btnAnadirEmpleado, #btnEdicionEmpleado {
     -fx-cursor: hand;

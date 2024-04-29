@@ -151,9 +151,36 @@
                         </Pane>
                     </left>
                     <center>
-                        <Pane prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" BorderPane.alignment="CENTER">
+                        <Pane fx:id="panelCuerpo" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" BorderPane.alignment="CENTER">
                             <children>
-                                <Pane fx:id="panelCuerpo1" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" />
+                                <Pane fx:id="dashboard" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css">
+                           <children>
+                              <Button layoutX="60.0" layoutY="62.0" mnemonicParsing="false" onAction="#abrirEmpleadosYRoles" prefHeight="249.0" prefWidth="400.0" text="EMPLEADOS Y ROLES">
+                                 <font>
+                                    <Font name="Balance Groovy" size="36.0" />
+                                 </font></Button>
+                              <Button layoutX="610.0" layoutY="61.0" mnemonicParsing="false" prefHeight="249.0" prefWidth="400.0" text="CLIENTES">
+                                 <font>
+                                    <Font name="Balance Groovy" size="48.0" />
+                                 </font></Button>
+                              <Button layoutX="60.0" layoutY="432.0" mnemonicParsing="false" prefHeight="249.0" prefWidth="400.0" text="FACTURAS">
+                                 <font>
+                                    <Font name="Balance Groovy" size="48.0" />
+                                 </font></Button>
+                              <Button layoutX="610.0" layoutY="431.0" mnemonicParsing="false" onAction="#abrirTareas" prefHeight="249.0" prefWidth="400.0" text="TAREAS">
+                                 <font>
+                                    <Font name="Balance Groovy" size="48.0" />
+                                 </font></Button>
+                              <Button layoutX="1160.0" layoutY="432.0" mnemonicParsing="false" prefHeight="249.0" prefWidth="400.0" text="SERVICIOS">
+                                 <font>
+                                    <Font name="Balance Groovy" size="48.0" />
+                                 </font></Button>
+                              <Button layoutX="1160.0" layoutY="62.0" mnemonicParsing="false" prefHeight="249.0" prefWidth="400.0" text="TALLER">
+                                 <font>
+                                    <Font name="Balance Groovy" size="48.0" />
+                                 </font></Button>
+                           </children>
+                                </Pane>
                             </children>
                         </Pane>
                     </center>
