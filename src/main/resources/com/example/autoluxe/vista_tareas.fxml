@@ -17,9 +17,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_tareas.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.autoluxe.ControladorTareas">
+<HBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.autoluxe.ControladorTareas">
    <children>
-      <AnchorPane prefHeight="1000.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_tareas.css" HBox.hgrow="ALWAYS">
+      <AnchorPane prefHeight="1000.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_app.css" HBox.hgrow="ALWAYS">
          <children>
             <Pane fx:id="barraSuperior" prefHeight="200.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_inicio-sesion.css">
                <children>
@@ -57,7 +57,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="btnAltaVehiculo" layoutX="10.0" layoutY="119.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Gestión de empleados y roles" textFill="WHITE">
+                        <Button layoutX="10.0" layoutY="119.0" mnemonicParsing="false" onAction="#abrirEmpleadosYRoles" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Gestión de empleados y roles" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -69,7 +69,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="btnAltaReparacion" layoutX="10.0" layoutY="159.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Gestión de clientes" textFill="WHITE">
+                        <Button layoutX="10.0" layoutY="159.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Gestión de clientes" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -81,7 +81,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="btnAltaParteReparacion" alignment="CENTER" layoutX="10.0" layoutY="199.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Gestión de taller" textFill="WHITE">
+                        <Button alignment="CENTER" layoutX="10.0" layoutY="199.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Gestión de taller" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -93,7 +93,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="btnBuscarVehiculo" layoutX="10.0" layoutY="322.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" text="Generar factura" textFill="WHITE">
+                        <Button layoutX="10.0" layoutY="322.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" text="Generar factura" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -105,7 +105,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="btnTipoReparacion" layoutX="10.0" layoutY="492.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" text="Historial de servicios" textFill="WHITE">
+                        <Button layoutX="10.0" layoutY="492.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" text="Historial de servicios" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -142,7 +142,7 @@
                               <Image url="@../../../imagenes/usuario.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="btnAdminTareas" alignment="CENTER" layoutX="10.0" layoutY="452.0" mnemonicParsing="false" onAction="#abrirTareas" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Administración de tareas" textFill="WHITE">
+                        <Button alignment="CENTER" layoutX="10.0" layoutY="452.0" mnemonicParsing="false" onAction="#abrirTareas" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Administración de tareas" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -158,9 +158,9 @@
                   </Pane>
                </left>
                <center>
-                  <Pane prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_tareas.css" BorderPane.alignment="CENTER">
+                  <Pane prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" BorderPane.alignment="CENTER">
                      <children>
-                        <Pane fx:id="panelCuerpo1" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_tareas.css">
+                        <Pane fx:id="panelCuerpo1" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css">
                            <children>
                               <ImageView fitHeight="554.0" fitWidth="753.0" layoutX="139.0" layoutY="107.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -188,7 +188,7 @@
                                  </font>
                               </Label>
                               <Line endX="518.0" layoutX="239.0" layoutY="161.0" startX="-100.0" />
-                              <Button fx:id="btnAnadirTarea1" layoutX="249.0" layoutY="126.0" mnemonicParsing="false" onAction="#abrirAñadirTarea" prefHeight="36.0" prefWidth="174.0" stylesheets="@../../../style/estilo_tareas.css" text="AÑADIR TAREA">
+                              <Button fx:id="btnAnadir1" layoutX="249.0" layoutY="126.0" mnemonicParsing="false" onAction="#abrirAñadirTarea" prefHeight="36.0" prefWidth="174.0" stylesheets="@../../../style/estilo_app.css" text="AÑADIR TAREA">
                                  <graphic>
                                     <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -200,7 +200,7 @@
                                     <Font name="Microsoft Sans Serif" size="12.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="btnEdicionTarea1" layoutX="483.0" layoutY="126.0" mnemonicParsing="false" onAction="#abrirEditarTarea" prefHeight="36.0" prefWidth="187.0" text="EDITAR TAREA">
+                              <Button fx:id="btnEdicion1" layoutX="483.0" layoutY="126.0" mnemonicParsing="false" onAction="#abrirEditarTarea" prefHeight="36.0" prefWidth="187.0" text="EDITAR TAREA">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -228,7 +228,7 @@
                                  </font>
                               </Label>
                               <TextArea layoutX="137.0" layoutY="396.0" prefHeight="200.0" prefWidth="600.0" />
-                              <Button fx:id="acBorrarTarea" layoutX="137.0" layoutY="634.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="BORRAR">
+                              <Button fx:id="acBorrar" layoutX="137.0" layoutY="634.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="BORRAR">
                                  <font>
                                     <Font name="Microsoft New Tai Lue Bold" size="14.0" />
                                  </font>
@@ -247,7 +247,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="acEditarTarea" layoutX="457.0" layoutY="634.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="EDITAR">
+                              <Button fx:id="acEditar" layoutX="457.0" layoutY="634.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="EDITAR">
                                  <font>
                                     <Font name="Microsoft New Tai Lue Bold" size="14.0" />
                                  </font>
@@ -266,7 +266,7 @@
                               <Line endX="559.0" layoutX="1022.0" layoutY="160.0" startX="-100.0" />
                            </children>
                         </Pane>
-                        <Pane fx:id="panelCuerpo" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_tareas.css">
+                        <Pane fx:id="panelCuerpo" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css">
                            <children>
                               <ImageView fitHeight="554.0" fitWidth="759.0" layoutX="139.0" layoutY="107.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -294,7 +294,7 @@
                                  </font>
                               </Label>
                               <Line endX="499.0" layoutX="237.0" layoutY="161.0" startX="-100.0" />
-                              <Button fx:id="btnAnadirTarea" layoutX="249.0" layoutY="126.0" mnemonicParsing="false" onAction="#abrirAñadirTarea" prefHeight="36.0" prefWidth="174.0" stylesheets="@../../../style/estilo_tareas.css" text="AÑADIR TAREA">
+                              <Button fx:id="btnAnadir" layoutX="249.0" layoutY="126.0" mnemonicParsing="false" onAction="#abrirAñadirTarea" prefHeight="36.0" prefWidth="174.0" stylesheets="@../../../style/estilo_app.css" text="AÑADIR TAREA">
                                  <graphic>
                                     <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -306,7 +306,7 @@
                                     <Font name="Microsoft Sans Serif" size="12.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="btnEdicionTarea" layoutX="483.0" layoutY="126.0" mnemonicParsing="false" onAction="#abrirEditarTarea" prefHeight="36.0" prefWidth="187.0" text="EDITAR TAREA">
+                              <Button fx:id="btnEdicion" layoutX="483.0" layoutY="126.0" mnemonicParsing="false" onAction="#abrirEditarTarea" prefHeight="36.0" prefWidth="187.0" text="EDITAR TAREA">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -334,7 +334,7 @@
                                  </font>
                               </Label>
                               <TextArea layoutX="136.0" layoutY="373.0" prefHeight="200.0" prefWidth="600.0" />
-                              <Button fx:id="acAnadirTarea" layoutX="137.0" layoutY="625.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="600.0" text="AÑADIR">
+                              <Button fx:id="acAnadir" layoutX="137.0" layoutY="625.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="600.0" text="AÑADIR">
                                  <font>
                                     <Font name="Microsoft New Tai Lue Bold" size="14.0" />
                                  </font>
