@@ -142,7 +142,7 @@
                               <Image url="@../../../imagenes/usuario.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="btnAdminTareas" alignment="CENTER" layoutX="10.0" layoutY="452.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Administración de tareas" textFill="WHITE">
+                        <Button fx:id="btnAdminTareas" alignment="CENTER" layoutX="10.0" layoutY="452.0" mnemonicParsing="false" onAction="#abrirTareas" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Administración de tareas" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -160,35 +160,35 @@
                <center>
                   <Pane prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_tareas.css" BorderPane.alignment="CENTER">
                      <children>
-                        <Pane fx:id="panelCuerpo" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_tareas.css">
+                        <Pane fx:id="panelCuerpo1" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_tareas.css">
                            <children>
-                              <ImageView fitHeight="554.0" fitWidth="1714.0" layoutX="139.0" layoutY="107.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="554.0" fitWidth="753.0" layoutX="139.0" layoutY="107.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../../../pi-autoluxe/src/main/resources/imagenes/herramientas.png" />
+                                    <Image url="@../../../imagenes/herramientas.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="137.0" layoutY="177.0" text="ID Empleado:">
+                              <Label layoutX="137.0" layoutY="243.0" text="ID Empleado:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="137.0" layoutY="240.0" text="Asunto:">
+                              <Label layoutX="137.0" layoutY="306.0" text="Asunto:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="139.0" layoutY="300.0" text="Descripción:">
+                              <Label layoutX="139.0" layoutY="366.0" text="Descripción:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="460.0" layoutY="177.0" text="Teléfono:">
+                              <Label layoutX="460.0" layoutY="243.0" text="Teléfono:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
                               <Line endX="518.0" layoutX="239.0" layoutY="161.0" startX="-100.0" />
-                              <Button fx:id="btnAnadirTarea" layoutX="249.0" layoutY="126.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="174.0" stylesheets="@../../../style/estilo_tareas.css" text="AÑADIR TAREA">
+                              <Button fx:id="btnAnadirTarea1" layoutX="249.0" layoutY="126.0" mnemonicParsing="false" onAction="#abrirAñadirTarea" prefHeight="36.0" prefWidth="174.0" stylesheets="@../../../style/estilo_tareas.css" text="AÑADIR TAREA">
                                  <graphic>
                                     <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -200,7 +200,7 @@
                                     <Font name="Microsoft Sans Serif" size="12.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="btnEdicionTarea" layoutX="483.0" layoutY="126.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="187.0" text="EDITAR TAREA">
+                              <Button fx:id="btnEdicionTarea1" layoutX="483.0" layoutY="126.0" mnemonicParsing="false" onAction="#abrirEditarTarea" prefHeight="36.0" prefWidth="187.0" text="EDITAR TAREA">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -212,30 +212,30 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <TextField layoutX="457.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
-                              <TableView layoutX="922.0" layoutY="160.0" prefHeight="455.0" prefWidth="662.0">
+                              <TextField layoutX="457.0" layoutY="269.0" prefHeight="30.0" prefWidth="280.0" />
+                              <TableView layoutX="922.0" layoutY="227.0" prefHeight="455.0" prefWidth="662.0">
                                  <columns>
                                     <TableColumn prefWidth="214.0" text="A" />
                                     <TableColumn minWidth="0.0" prefWidth="236.0" text="B" />
                                     <TableColumn prefWidth="210.0" text="C" />
                                  </columns>
                               </TableView>
-                              <TextField layoutX="137.0" layoutY="264.0" prefHeight="30.0" prefWidth="600.0" />
-                              <TextField layoutX="136.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
-                              <Label alignment="CENTER" layoutX="260.0" layoutY="54.0" prefHeight="72.0" prefWidth="354.0" text="AÑADIR TAREA" textAlignment="CENTER">
+                              <TextField layoutX="137.0" layoutY="330.0" prefHeight="30.0" prefWidth="600.0" />
+                              <TextField layoutX="136.0" layoutY="269.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label alignment="CENTER" layoutX="260.0" layoutY="54.0" prefHeight="72.0" prefWidth="354.0" text="EDITAR TAREA" textAlignment="CENTER">
                                  <font>
                                     <Font name="Microsoft New Tai Lue Bold" size="48.0" />
                                  </font>
                               </Label>
-                              <TextArea layoutX="137.0" layoutY="330.0" prefHeight="200.0" prefWidth="600.0" />
-                              <Button fx:id="acAnadirTarea" layoutX="137.0" layoutY="568.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="600.0" text="AÑADIR">
+                              <TextArea layoutX="137.0" layoutY="396.0" prefHeight="200.0" prefWidth="600.0" />
+                              <Button fx:id="acBorrarTarea" layoutX="137.0" layoutY="634.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="BORRAR">
                                  <font>
                                     <Font name="Microsoft New Tai Lue Bold" size="14.0" />
                                  </font>
                               </Button>
-                              <ChoiceBox layoutX="1405.0" layoutY="114.0" prefHeight="30.0" prefWidth="179.0" />
-                              <TextField layoutX="922.0" layoutY="114.0" prefHeight="31.0" prefWidth="285.0" />
-                              <Button fx:id="btnBuscar" layoutX="1207.0" layoutY="114.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: #000000;">
+                              <ChoiceBox layoutX="1405.0" layoutY="181.0" prefHeight="30.0" prefWidth="179.0" />
+                              <TextField layoutX="922.0" layoutY="181.0" prefHeight="31.0" prefWidth="285.0" />
+                              <Button fx:id="btnBuscar11" layoutX="1207.0" layoutY="181.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: #000000;">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
@@ -247,13 +247,30 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
+                              <Button fx:id="acEditarTarea" layoutX="457.0" layoutY="634.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="EDITAR">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Label layoutX="135.0" layoutY="173.0" text="Buscar tarea [ID]:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="135.0" layoutY="198.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label alignment="CENTER" layoutX="921.0" layoutY="104.0" prefHeight="47.0" prefWidth="103.0" text="TAREAS" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="559.0" layoutX="1022.0" layoutY="160.0" startX="-100.0" />
                            </children>
                         </Pane>
-                        <Pane fx:id="panelCuerpo1" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_tareas.css" visible="false">
+                        <Pane fx:id="panelCuerpo" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_tareas.css">
                            <children>
-                              <ImageView fitHeight="554.0" fitWidth="1714.0" layoutX="139.0" layoutY="107.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="554.0" fitWidth="759.0" layoutX="139.0" layoutY="107.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../../../pi-autoluxe/src/main/resources/imagenes/herramientas.png" />
+                                    <Image url="@../../../imagenes/herramientas.png" />
                                  </image>
                               </ImageView>
                               <Label layoutX="137.0" layoutY="177.0" text="ID Empleado:">
@@ -261,12 +278,12 @@
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="137.0" layoutY="240.0" text="Asunto:">
+                              <Label layoutX="139.0" layoutY="255.0" text="Asunto:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="139.0" layoutY="300.0" text="Descripción:">
+                              <Label layoutX="136.0" layoutY="343.0" text="Descripción:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
@@ -276,8 +293,8 @@
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <Line endX="518.0" layoutX="239.0" layoutY="161.0" startX="-100.0" />
-                              <Button fx:id="btnAnadirTarea1" layoutX="249.0" layoutY="126.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="174.0" stylesheets="@../../../style/estilo_tareas.css" text="AÑADIR TAREA">
+                              <Line endX="499.0" layoutX="237.0" layoutY="161.0" startX="-100.0" />
+                              <Button fx:id="btnAnadirTarea" layoutX="249.0" layoutY="126.0" mnemonicParsing="false" onAction="#abrirAñadirTarea" prefHeight="36.0" prefWidth="174.0" stylesheets="@../../../style/estilo_tareas.css" text="AÑADIR TAREA">
                                  <graphic>
                                     <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -289,7 +306,7 @@
                                     <Font name="Microsoft Sans Serif" size="12.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="btnEdicionTarea1" layoutX="483.0" layoutY="126.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="187.0" text="EDITAR TAREA">
+                              <Button fx:id="btnEdicionTarea" layoutX="483.0" layoutY="126.0" mnemonicParsing="false" onAction="#abrirEditarTarea" prefHeight="36.0" prefWidth="187.0" text="EDITAR TAREA">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -302,29 +319,29 @@
                                  </graphic>
                               </Button>
                               <TextField layoutX="457.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
-                              <TableView layoutX="922.0" layoutY="160.0" prefHeight="455.0" prefWidth="662.0">
+                              <TableView layoutX="921.0" layoutY="243.0" prefHeight="215.0" prefWidth="662.0">
                                  <columns>
                                     <TableColumn prefWidth="214.0" text="A" />
                                     <TableColumn minWidth="0.0" prefWidth="236.0" text="B" />
                                     <TableColumn prefWidth="210.0" text="C" />
                                  </columns>
                               </TableView>
-                              <TextField layoutX="137.0" layoutY="264.0" prefHeight="30.0" prefWidth="600.0" />
+                              <TextField layoutX="137.0" layoutY="287.0" prefHeight="30.0" prefWidth="600.0" />
                               <TextField layoutX="136.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
                               <Label alignment="CENTER" layoutX="260.0" layoutY="54.0" prefHeight="72.0" prefWidth="354.0" text="AÑADIR TAREA" textAlignment="CENTER">
                                  <font>
                                     <Font name="Microsoft New Tai Lue Bold" size="48.0" />
                                  </font>
                               </Label>
-                              <TextArea layoutX="137.0" layoutY="330.0" prefHeight="200.0" prefWidth="600.0" />
-                              <Button fx:id="acBorrarTarea" layoutX="137.0" layoutY="568.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="BORRAR">
+                              <TextArea layoutX="136.0" layoutY="373.0" prefHeight="200.0" prefWidth="600.0" />
+                              <Button fx:id="acAnadirTarea" layoutX="137.0" layoutY="625.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="600.0" text="AÑADIR">
                                  <font>
                                     <Font name="Microsoft New Tai Lue Bold" size="14.0" />
                                  </font>
                               </Button>
-                              <ChoiceBox layoutX="1405.0" layoutY="114.0" prefHeight="30.0" prefWidth="179.0" />
-                              <TextField layoutX="922.0" layoutY="114.0" prefHeight="31.0" prefWidth="285.0" />
-                              <Button fx:id="btnBuscar11" layoutX="1207.0" layoutY="114.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: #000000;">
+                              <ChoiceBox layoutX="1404.0" layoutY="197.0" prefHeight="30.0" prefWidth="179.0" />
+                              <TextField layoutX="921.0" layoutY="197.0" prefHeight="31.0" prefWidth="285.0" />
+                              <Button fx:id="btnBuscar" layoutX="1206.0" layoutY="197.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: #000000;">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
@@ -336,11 +353,25 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="acEditarTarea" layoutX="457.0" layoutY="568.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="EDITAR">
+                              <Label alignment="CENTER" layoutX="921.0" layoutY="103.0" prefHeight="47.0" prefWidth="155.0" text="EMPLEADOS" textAlignment="CENTER">
                                  <font>
-                                    <Font name="Microsoft New Tai Lue Bold" size="14.0" />
+                                    <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                                  </font>
-                              </Button>
+                              </Label>
+                              <Line endX="559.0" layoutX="1022.0" layoutY="159.0" startX="-100.0" />
+                              <Label alignment="CENTER" layoutX="921.0" layoutY="473.0" prefHeight="47.0" prefWidth="204.0" text="TAREA AÑADIDA" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="559.0" layoutX="1022.0" layoutY="529.0" startX="-100.0" />
+                              <TableView layoutX="921.0" layoutY="554.0" prefHeight="115.0" prefWidth="662.0">
+                                 <columns>
+                                    <TableColumn prefWidth="214.0" text="A" />
+                                    <TableColumn minWidth="0.0" prefWidth="236.0" text="B" />
+                                    <TableColumn prefWidth="210.0" text="C" />
+                                 </columns>
+                              </TableView>
                            </children>
                         </Pane>
                      </children>

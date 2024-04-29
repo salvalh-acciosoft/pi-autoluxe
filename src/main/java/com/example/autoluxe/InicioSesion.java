@@ -13,7 +13,7 @@ public class InicioSesion extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         HBox root = FXMLLoader.load(getClass().getResource("vista_InicioSesion.fxml"));
-        Scene scene = new Scene(root,1920,1080);
+        Scene scene = new Scene(root,1920,1000);
         stage.setTitle("AutoLuxe");
         stage.setScene(scene);
         stage.show();

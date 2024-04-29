@@ -53,7 +53,7 @@ public class ControladorInicioSesion {
             Parent root = loader.load();
             Stage nuevaVentana = new Stage();
             nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título
-            nuevaVentana.setScene(new Scene(root,1920,1080));
+            nuevaVentana.setScene(new Scene(root,1920,1000));
             Stage ventanaActual = (Stage) bt1.getScene().getWindow();
             ventanaActual.close();
             nuevaVentana.show();
