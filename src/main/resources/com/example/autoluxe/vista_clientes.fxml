@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.autoluxe.ControladorEmpleadosYRoles">
+<HBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.autoluxe.ControladorClientes">
    <children>
       <AnchorPane prefHeight="1000.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_app.css" HBox.hgrow="ALWAYS">
          <children>
@@ -68,7 +68,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button layoutX="10.0" layoutY="159.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Gestión de clientes" textFill="WHITE">
+                        <Button layoutX="10.0" layoutY="159.0" mnemonicParsing="false" onAction="#abrirClientes" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Gestión de clientes" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -161,49 +161,25 @@
                      <children>
                         <Pane fx:id="panelCuerpo1" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" visible="false">
                            <children>
-                              <ImageView fitHeight="554.0" fitWidth="753.0" layoutX="139.0" layoutY="107.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="554.0" fitWidth="753.0" layoutX="136.0" layoutY="105.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../imagenes/herramientas.png" />
                                  </image>
                               </ImageView>
-                              <Line endX="499.0" layoutX="248.0" layoutY="168.0" startX="-100.0" />
-                              <Button fx:id="btnAnadir1" layoutX="223.0" layoutY="134.0" mnemonicParsing="false" onAction="#abrirAñadirEmpleados" prefHeight="36.0" prefWidth="215.0" stylesheets="@../../../style/estilo_app.css" text="AÑADIR EMPLEADO">
-                                 <graphic>
-                                    <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../imagenes/plus_negro.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="12.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="btnEdicion1" layoutX="487.0" layoutY="134.0" mnemonicParsing="false" onAction="#abrirEditarEmpleados" prefHeight="36.0" prefWidth="207.0" text="EDITAR EMPLEADO">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <graphic>
-                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../imagenes/edicion.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <Label alignment="CENTER" layoutX="202.0" layoutY="53.0" prefHeight="72.0" prefWidth="492.0" text="EDITAR CLIENTE" textAlignment="CENTER">
+                              <Line endX="499.0" layoutX="240.0" layoutY="168.0" startX="-100.0" />
+                              <Label alignment="CENTER" layoutX="194.0" layoutY="54.0" prefHeight="72.0" prefWidth="492.0" text="EDITAR CLIENTE" textAlignment="CENTER">
                                  <font>
                                     <Font name="Microsoft New Tai Lue Bold" size="48.0" />
                                  </font>
                               </Label>
-                              <TableView layoutX="922.0" layoutY="236.0" prefHeight="491.0" prefWidth="662.0">
+                              <TableView layoutX="922.0" layoutY="236.0" prefHeight="436.0" prefWidth="662.0">
                                  <columns>
                                     <TableColumn prefWidth="214.0" text="A" />
                                     <TableColumn minWidth="0.0" prefWidth="236.0" text="B" />
                                     <TableColumn prefWidth="210.0" text="C" />
                                  </columns>
                               </TableView>
-                              <Button fx:id="acBorrar" layoutX="149.0" layoutY="678.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="DAR DE BAJA">
+                              <Button fx:id="acBorrar" layoutX="140.0" layoutY="617.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="DAR DE BAJA">
                                  <font>
                                     <Font name="Microsoft New Tai Lue Bold" size="14.0" />
                                  </font>
@@ -222,7 +198,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="acEditar" layoutX="469.0" layoutY="678.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="EDITAR">
+                              <Button fx:id="acEditar" layoutX="460.0" layoutY="617.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="EDITAR">
                                  <font>
                                     <Font name="Microsoft New Tai Lue Bold" size="14.0" />
                                  </font>
@@ -233,48 +209,112 @@
                                  </font>
                               </Label>
                               <Line endX="559.0" layoutX="1022.0" layoutY="169.0" startX="-100.0" />
-                              <Label layoutX="149.0" layoutY="257.0" text="Nombre:">
+                              <Label layoutX="141.0" layoutY="257.0" text="Nombre:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="149.0" layoutY="335.0" text="DNI:">
+                              <Label layoutX="141.0" layoutY="335.0" text="DNI:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="472.0" layoutY="257.0" text="Apellidos:">
+                              <Label layoutX="464.0" layoutY="257.0" text="Apellidos:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="469.0" layoutY="283.0" prefHeight="30.0" prefWidth="280.0" />
-                              <TextField layoutX="148.0" layoutY="367.0" prefHeight="30.0" prefWidth="280.0" />
-                              <TextField layoutX="148.0" layoutY="283.0" prefHeight="30.0" prefWidth="280.0" />
-                              <Label layoutX="471.0" layoutY="334.0" text="Teléfono:">
+                              <TextField layoutX="461.0" layoutY="283.0" prefHeight="30.0" prefWidth="280.0" />
+                              <TextField layoutX="140.0" layoutY="367.0" prefHeight="30.0" prefWidth="280.0" />
+                              <TextField layoutX="140.0" layoutY="283.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label layoutX="463.0" layoutY="334.0" text="Teléfono:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="469.0" layoutY="366.0" prefHeight="30.0" prefWidth="280.0" />
-                              <Label layoutX="149.0" layoutY="501.0" text="Correo:">
+                              <TextField layoutX="461.0" layoutY="366.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label layoutX="140.0" layoutY="440.0" text="Correo:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="149.0" layoutY="579.0" text="Contraseña:">
+                              <Label layoutX="140.0" layoutY="518.0" text="Contraseña:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="148.0" layoutY="611.0" prefHeight="30.0" prefWidth="600.0" />
-                              <TextField layoutX="148.0" layoutY="527.0" prefHeight="30.0" prefWidth="600.0" />
-                              <Label layoutX="149.0" layoutY="183.0" text="Buscar cliente[DNI]:">
+                              <TextField layoutX="139.0" layoutY="550.0" prefHeight="30.0" prefWidth="600.0" />
+                              <TextField layoutX="139.0" layoutY="466.0" prefHeight="30.0" prefWidth="600.0" />
+                              <Label layoutX="141.0" layoutY="183.0" text="Buscar cliente[DNI]:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="148.0" layoutY="209.0" prefHeight="30.0" prefWidth="280.0" />
+                              <TextField layoutX="140.0" layoutY="209.0" prefHeight="30.0" prefWidth="200.0" />
+                              <Pane fx:id="submenu1" layoutX="136.0" layoutY="126.0">
+                                 <children>
+                                    <Button layoutX="294.0" layoutY="2.0" mnemonicParsing="false" onAction="#abrirAñadirVehiculo" prefHeight="36.0" prefWidth="161.0" stylesheets="@../../../style/estilo_app.css" text="AÑADIR VEHÍCULO">
+                                       <graphic>
+                                          <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../imagenes/plus_negro.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="Microsoft Sans Serif" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="455.0" layoutY="1.0" mnemonicParsing="false" onAction="#abrirEditarVehiculo" prefHeight="36.0" prefWidth="165.0" text="EDITAR VEHÍCULO">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <graphic>
+                                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../imagenes/edicion.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button layoutY="1.0" mnemonicParsing="false" onAction="#abrirAñadirCliente" prefHeight="36.0" prefWidth="147.0" stylesheets="@../../../style/estilo_app.css" text="AÑADIR CLIENTE">
+                                       <graphic>
+                                          <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../imagenes/plus_negro.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="Microsoft Sans Serif" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="147.0" layoutY="1.0" mnemonicParsing="false" onAction="#abrirEditarCliente" prefHeight="36.0" prefWidth="147.0" text="EDITAR CLIENTE">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <graphic>
+                                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../imagenes/edicion.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </Pane>
+                              <Button layoutX="340.0" layoutY="208.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" style="-fx-background-color: #000000;">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../imagenes/lupa.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
                            </children>
                         </Pane>
                         <Pane fx:id="panelCuerpo" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css">
@@ -305,32 +345,8 @@
                                  </font>
                               </Label>
                               <Line endX="499.0" layoutX="237.0" layoutY="161.0" startX="-100.0" />
-                              <Button fx:id="btnAnadir" layoutX="208.0" layoutY="126.0" mnemonicParsing="false" onAction="#abrirAñadirEmpleados" prefHeight="36.0" prefWidth="215.0" stylesheets="@../../../style/estilo_app.css" text="AÑADIR EMPLEADO">
-                                 <graphic>
-                                    <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../imagenes/plus_negro.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="12.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="btnEdicion" layoutX="483.0" layoutY="126.0" mnemonicParsing="false" onAction="#abrirEditarEmpleados" prefHeight="36.0" prefWidth="207.0" text="EDITAR EMPLEADO">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <graphic>
-                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../imagenes/edicion.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
                               <TextField layoutX="457.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
-                              <TableView layoutX="921.0" layoutY="243.0" prefHeight="215.0" prefWidth="662.0">
+                              <TableView layoutX="921.0" layoutY="243.0" prefHeight="307.0" prefWidth="662.0">
                                  <columns>
                                     <TableColumn prefWidth="214.0" text="A" />
                                     <TableColumn minWidth="0.0" prefWidth="236.0" text="B" />
@@ -369,13 +385,13 @@
                                  </font>
                               </Label>
                               <Line endX="559.0" layoutX="1022.0" layoutY="159.0" startX="-100.0" />
-                              <Label alignment="CENTER" layoutX="921.0" layoutY="473.0" prefHeight="47.0" prefWidth="263.0" text="CLIENTE AÑADIDO" textAlignment="CENTER">
+                              <Label alignment="CENTER" layoutX="921.0" layoutY="562.0" prefHeight="47.0" prefWidth="263.0" text="CLIENTE AÑADIDO" textAlignment="CENTER">
                                  <font>
                                     <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <Line endX="559.0" layoutX="1022.0" layoutY="529.0" startX="-100.0" />
-                              <TableView layoutX="921.0" layoutY="554.0" prefHeight="115.0" prefWidth="662.0">
+                              <Line endX="559.0" layoutX="1022.0" layoutY="618.0" startX="-100.0" />
+                              <TableView layoutX="921.0" layoutY="643.0" prefHeight="115.0" prefWidth="662.0">
                                  <columns>
                                     <TableColumn prefWidth="214.0" text="A" />
                                     <TableColumn minWidth="0.0" prefWidth="236.0" text="B" />
@@ -436,6 +452,394 @@
                                  </font>
                               </Label>
                               <TextField layoutX="137.0" layoutY="357.0" prefHeight="30.0" prefWidth="600.0" />
+                              <Pane fx:id="submenu" layoutX="136.0" layoutY="121.0">
+                                 <children>
+                                    <Button layoutX="294.0" layoutY="2.0" mnemonicParsing="false" onAction="#abrirAñadirVehiculo" prefHeight="36.0" prefWidth="161.0" stylesheets="@../../../style/estilo_app.css" text="AÑADIR VEHÍCULO">
+                                       <graphic>
+                                          <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../imagenes/plus_negro.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="Microsoft Sans Serif" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="455.0" layoutY="1.0" mnemonicParsing="false" onAction="#abrirEditarVehiculo" prefHeight="36.0" prefWidth="165.0" text="EDITAR VEHÍCULO">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <graphic>
+                                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../imagenes/edicion.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button layoutY="1.0" mnemonicParsing="false" onAction="#abrirAñadirCliente" prefHeight="36.0" prefWidth="147.0" stylesheets="@../../../style/estilo_app.css" text="AÑADIR CLIENTE">
+                                       <graphic>
+                                          <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../imagenes/plus_negro.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="Microsoft Sans Serif" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="147.0" layoutY="1.0" mnemonicParsing="false" onAction="#abrirEditarCliente" prefHeight="36.0" prefWidth="147.0" text="EDITAR CLIENTE">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <graphic>
+                                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../imagenes/edicion.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="panelCuerpo2" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" visible="false">
+                           <children>
+                              <ImageView fitHeight="554.0" fitWidth="753.0" layoutX="136.0" layoutY="105.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/herramientas.png" />
+                                 </image>
+                              </ImageView>
+                              <Line endX="499.0" layoutX="240.0" layoutY="168.0" startX="-100.0" />
+                              <Label alignment="CENTER" layoutX="194.0" layoutY="54.0" prefHeight="72.0" prefWidth="492.0" text="AÑADIR VEHÍCULO" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="48.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="acEditar1" layoutX="137.0" layoutY="618.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="600.0" text="AÑADIR">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Label layoutX="140.0" layoutY="182.0" text="Buscar cliente[DNI]:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="138.0" layoutY="209.0" prefHeight="30.0" prefWidth="200.0" />
+                              <ChoiceBox layoutX="459.0" layoutY="539.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label layoutX="139.0" layoutY="360.0" text="Matrícula:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" layoutX="307.0" layoutY="294.0" prefHeight="47.0" prefWidth="263.0" text="AÑADIR VEHÍCULO" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="501.0" layoutX="239.0" layoutY="343.0" startX="-100.0" />
+                              <Label layoutX="140.0" layoutY="438.0" text="Marca:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="463.0" layoutY="360.0" text="Nº Bastidor:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="460.0" layoutY="386.0" prefHeight="30.0" prefWidth="280.0" />
+                              <TextField layoutX="139.0" layoutY="470.0" prefHeight="30.0" prefWidth="280.0" />
+                              <TextField layoutX="139.0" layoutY="386.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label layoutX="462.0" layoutY="437.0" text="Modelo:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="460.0" layoutY="469.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label layoutX="141.0" layoutY="513.0" text="Color:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="465.0" layoutY="513.0" text="Combustible:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="139.0" layoutY="539.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Button layoutX="338.0" layoutY="208.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" style="-fx-background-color: #000000;">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../imagenes/lupa.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Pane fx:id="submenu2" layoutX="138.0" layoutY="126.0">
+                                 <children>
+                                    <Button layoutX="294.0" layoutY="2.0" mnemonicParsing="false" onAction="#abrirAñadirVehiculo" prefHeight="36.0" prefWidth="161.0" stylesheets="@../../../style/estilo_app.css" text="AÑADIR VEHÍCULO">
+                                       <graphic>
+                                          <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../imagenes/plus_negro.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="Microsoft Sans Serif" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="455.0" layoutY="1.0" mnemonicParsing="false" onAction="#abrirEditarVehiculo" prefHeight="36.0" prefWidth="165.0" text="EDITAR VEHÍCULO">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <graphic>
+                                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../imagenes/edicion.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button layoutY="1.0" mnemonicParsing="false" onAction="#abrirAñadirCliente" prefHeight="36.0" prefWidth="147.0" stylesheets="@../../../style/estilo_app.css" text="AÑADIR CLIENTE">
+                                       <graphic>
+                                          <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../imagenes/plus_negro.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="Microsoft Sans Serif" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="147.0" layoutY="1.0" mnemonicParsing="false" onAction="#abrirEditarCliente" prefHeight="36.0" prefWidth="147.0" text="EDITAR CLIENTE">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <graphic>
+                                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../imagenes/edicion.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </Pane>
+                              <TableView layoutX="921.0" layoutY="243.0" prefHeight="215.0" prefWidth="662.0">
+                                 <columns>
+                                    <TableColumn prefWidth="214.0" text="A" />
+                                    <TableColumn minWidth="0.0" prefWidth="236.0" text="B" />
+                                    <TableColumn prefWidth="210.0" text="C" />
+                                 </columns>
+                              </TableView>
+                              <ChoiceBox layoutX="1403.0" layoutY="193.0" prefHeight="30.0" prefWidth="179.0" />
+                              <TextField layoutX="922.0" layoutY="193.0" prefHeight="31.0" prefWidth="285.0" />
+                              <Button fx:id="btnBuscar1" layoutX="1207.0" layoutY="193.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: #000000;">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../imagenes/lupa.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Label alignment="CENTER" layoutX="922.0" layoutY="122.0" prefHeight="47.0" prefWidth="155.0" text="VEHÍCULOS" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="559.0" layoutX="1022.0" layoutY="521.0" startX="-100.0" />
+                              <Label alignment="CENTER" layoutX="922.0" layoutY="462.0" prefHeight="47.0" prefWidth="263.0" text="VEHÍCULO AÑADIDO" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="559.0" layoutX="1022.0" layoutY="167.0" startX="-100.0" />
+                              <TableView layoutX="921.0" layoutY="554.0" prefHeight="115.0" prefWidth="662.0">
+                                 <columns>
+                                    <TableColumn prefWidth="214.0" text="A" />
+                                    <TableColumn minWidth="0.0" prefWidth="236.0" text="B" />
+                                    <TableColumn prefWidth="210.0" text="C" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="panelCuerpo3" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" visible="false">
+                           <children>
+                              <ImageView fitHeight="554.0" fitWidth="753.0" layoutX="136.0" layoutY="105.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/herramientas.png" />
+                                 </image>
+                              </ImageView>
+                              <Line endX="499.0" layoutX="240.0" layoutY="168.0" startX="-100.0" />
+                              <Label alignment="CENTER" layoutX="192.0" layoutY="54.0" prefHeight="72.0" prefWidth="492.0" text="EDITAR VEHÍCULO" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="48.0" />
+                                 </font>
+                              </Label>
+                              <TableView layoutX="923.0" layoutY="236.0" prefHeight="399.0" prefWidth="661.0">
+                                 <columns>
+                                    <TableColumn prefWidth="214.0" text="A" />
+                                    <TableColumn minWidth="0.0" prefWidth="236.0" text="B" />
+                                    <TableColumn prefWidth="210.0" text="C" />
+                                 </columns>
+                              </TableView>
+                              <Button fx:id="acBorrar1" layoutX="138.0" layoutY="582.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="DAR DE BAJA">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <ChoiceBox layoutX="1405.0" layoutY="190.0" prefHeight="30.0" prefWidth="179.0" />
+                              <TextField layoutX="922.0" layoutY="190.0" prefHeight="31.0" prefWidth="285.0" />
+                              <Button fx:id="btnBuscar111" layoutX="1207.0" layoutY="190.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: #000000;">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../imagenes/lupa.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="acEditar1" layoutX="458.0" layoutY="582.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="EDITAR">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Label alignment="CENTER" layoutX="921.0" layoutY="113.0" prefHeight="47.0" prefWidth="154.0" text="VEHÍCULOS" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="559.0" layoutX="1022.0" layoutY="169.0" startX="-100.0" />
+                              <Label layoutX="141.0" layoutY="183.0" text="Buscar vehículo[Matrícula]:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="140.0" layoutY="209.0" prefHeight="30.0" prefWidth="200.0" />
+                              <Pane fx:id="submenu3" layoutX="136.0" layoutY="126.0">
+                                 <children>
+                                    <Button layoutX="294.0" layoutY="2.0" mnemonicParsing="false" onAction="#abrirAñadirVehiculo" prefHeight="36.0" prefWidth="161.0" stylesheets="@../../../style/estilo_app.css" text="AÑADIR VEHÍCULO">
+                                       <graphic>
+                                          <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../imagenes/plus_negro.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="Microsoft Sans Serif" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="455.0" layoutY="1.0" mnemonicParsing="false" onAction="#abrirEditarVehiculo" prefHeight="36.0" prefWidth="165.0" text="EDITAR VEHÍCULO">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <graphic>
+                                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../imagenes/edicion.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button layoutY="1.0" mnemonicParsing="false" onAction="#abrirAñadirCliente" prefHeight="36.0" prefWidth="147.0" stylesheets="@../../../style/estilo_app.css" text="AÑADIR CLIENTE">
+                                       <graphic>
+                                          <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../imagenes/plus_negro.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="Microsoft Sans Serif" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="147.0" layoutY="1.0" mnemonicParsing="false" onAction="#abrirEditarCliente" prefHeight="36.0" prefWidth="147.0" text="EDITAR CLIENTE">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <graphic>
+                                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../imagenes/edicion.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </Pane>
+                              <Button layoutX="340.0" layoutY="208.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" style="-fx-background-color: #000000;">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../imagenes/lupa.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <ChoiceBox layoutX="458.0" layoutY="503.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label layoutX="138.0" layoutY="324.0" text="Matrícula:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" layoutX="306.0" layoutY="258.0" prefHeight="47.0" prefWidth="263.0" text="AÑADIR VEHÍCULO" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="501.0" layoutX="238.0" layoutY="307.0" startX="-100.0" />
+                              <Label layoutX="139.0" layoutY="402.0" text="Marca:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="462.0" layoutY="324.0" text="Nº Bastidor:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="459.0" layoutY="350.0" prefHeight="30.0" prefWidth="280.0" />
+                              <TextField layoutX="138.0" layoutY="434.0" prefHeight="30.0" prefWidth="280.0" />
+                              <TextField layoutX="138.0" layoutY="350.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label layoutX="461.0" layoutY="401.0" text="Modelo:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="459.0" layoutY="433.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label layoutX="140.0" layoutY="477.0" text="Color:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="464.0" layoutY="477.0" text="Combustible:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="138.0" layoutY="503.0" prefHeight="30.0" prefWidth="280.0" />
                            </children>
                         </Pane>
                      </children>

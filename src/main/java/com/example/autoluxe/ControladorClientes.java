@@ -4,20 +4,27 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class ControladorEmpleadosYRoles{
+public class ControladorClientes
+{
     @FXML
     private ImageView btnCerrarSesion;
-    //Panel de Añadir Empleado
+    //Panel añadir cliente
     @FXML
     private Pane panelCuerpo;
-    //Panel de Editar Empleado
+    //Panel editar cliente
     @FXML
     private Pane panelCuerpo1;
+    //Panel añadir coche
+    @FXML
+    private Pane panelCuerpo2;
+    //Panel editar coche
+    @FXML
+    private Pane panelCuerpo3;
+
     @FXML
     private void cerrarVentana() {
         try {
@@ -34,14 +41,36 @@ public class ControladorEmpleadosYRoles{
         }
     }
     @FXML
-    private void abrirAñadirEmpleados()
+    private void abrirAñadirCliente()
     {
         panelCuerpo.setVisible(true);
+        panelCuerpo1.setVisible(false);
+        panelCuerpo2.setVisible(false);
+        panelCuerpo3.setVisible(false);
     }
     @FXML
-    private void abrirEditarEmpleados()
+    private void abrirEditarCliente()
     {
         panelCuerpo.setVisible(false);
+        panelCuerpo1.setVisible(true);
+        panelCuerpo2.setVisible(false);
+        panelCuerpo3.setVisible(false);
+    }
+    @FXML
+    private void abrirAñadirVehiculo()
+    {
+        panelCuerpo.setVisible(false);
+        panelCuerpo1.setVisible(false);
+        panelCuerpo2.setVisible(true);
+        panelCuerpo3.setVisible(false);
+    }
+    @FXML
+    private void abrirEditarVehiculo()
+    {
+        panelCuerpo.setVisible(false);
+        panelCuerpo1.setVisible(false);
+        panelCuerpo2.setVisible(false);
+        panelCuerpo3.setVisible(true);
     }
     /*
     MENU 4/6

@@ -159,7 +159,7 @@
                                  <font>
                                     <Font name="Balance Groovy" size="36.0" />
                                  </font></Button>
-                              <Button layoutX="610.0" layoutY="61.0" mnemonicParsing="false" prefHeight="249.0" prefWidth="400.0" text="CLIENTES">
+                              <Button layoutX="610.0" layoutY="61.0" mnemonicParsing="false" onAction="#abrirClientes" prefHeight="249.0" prefWidth="400.0" text="CLIENTES">
                                  <font>
                                     <Font name="Balance Groovy" size="48.0" />
                                  </font></Button>

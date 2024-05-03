@@ -23,28 +23,27 @@
     -fx-background-color:linear-gradient(to bottom, #734c0c, #FFA423);
 }
 
-#panelCuerpo, #panelCuerpo1 {
+#panelCuerpo, #panelCuerpo1,#panelCuerpo2,#panelCuerpo3 {
     -fx-background-color:linear-gradient(to bottom, #8a8a8a,#FFF);
 }
-#btnAnadir, #btnEdicion,#btnAnadir1, #btnEdicion1 {
+#btnAnadir, #btnEdicion,#btnAnadir1, #btnEdicion1,#submenu .button,#submenu1 .button,#submenu2 .button,#submenu3 .button {
     -fx-background-color: transparent;
     -fx-cursor: hand;
     -fx-alignment: CENTER-LEFT;
-    -fx-font-size: 16px;
+    -fx-font-size: 14px;
     -fx-text-fill: black;
 }
-#btnAnadir:hover, #btnEdicion:hover,#btnAnadir1:hover, #btnEdicion1:hover {
-    -fx-font-size: 17px;
+#btnAnadir:hover, #btnEdicion:hover,#btnAnadir1:hover, #btnEdicion1:hover,#submenu .button:hover,#submenu1 .button:hover,#submenu2 .button:hover,#submenu3 .button:hover {
     -fx-font-weight: bold;
 }
-#acAnadir,#acEditar
+#acAnadir,#acEditar,#acAnadir1,#acEditar1
 {
     -fx-background-color: #FFA423;
     -fx-text-fill: white;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
 }
-#acAnadir:hover,#acEditar:hover
+#acAnadir:hover,#acEditar:hover,#acAnadir1:hover,#acEditar1:hover
 {
     -fx-background-color: #ffffff;
     -fx-text-fill: #FFA423;
@@ -53,19 +52,19 @@
     -fx-border-color: #FFA423;
     -fx-border-width: 1px;
 }
-#acAnadir:pressed,#acEditar:pressed
+#acAnadir:pressed,#acEditar:pressed,#acAnadir1:pressed,#acEditar1:pressed
 {
     -fx-background-color: #FFA423;
     -fx-text-fill: white;
 }
-#acBorrar
+#acBorrar,#acBorrar1
 {
     -fx-background-color: #ff0000;
     -fx-text-fill: white;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
 }
-#acBorrar:hover
+#acBorrar:hover,#acBorrar1:hover
 {
     -fx-background-color: #ffffff;
     -fx-text-fill: #ff0000;
@@ -74,12 +73,12 @@
     -fx-border-color: #ff0000;
     -fx-border-width: 1px;
 }
-#acBorrar:pressed
+#acBorrar:pressed,#acBorrar1:pressed
 {
     -fx-background-color: #ff0000;
     -fx-text-fill: white;
 }
-#btnBuscar,#btnBuscar1
+.button
 {
     -fx-cursor: hand;
 }
