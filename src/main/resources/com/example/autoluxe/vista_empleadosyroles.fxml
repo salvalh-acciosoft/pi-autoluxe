@@ -92,7 +92,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button layoutX="10.0" layoutY="322.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" text="Generar factura" textFill="WHITE">
+                        <Button layoutX="10.0" layoutY="322.0" mnemonicParsing="false" onAction="#abrirFacturas" prefHeight="40.0" prefWidth="280.0" text="Generar factura" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -280,7 +280,19 @@
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="148.0" layoutY="209.0" prefHeight="30.0" prefWidth="280.0" />
+                              <TextField layoutX="148.0" layoutY="209.0" prefHeight="30.0" prefWidth="200.0" />
+                              <Button fx:id="btnBuscar111" layoutX="348.0" layoutY="208.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" style="-fx-background-color: #000000;">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../imagenes/lupa.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
                            </children>
                         </Pane>
                         <Pane fx:id="panelCuerpo" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css">

@@ -8,23 +8,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class ControladorClientes
+public class ControladorFacturas
 {
     @FXML
     private ImageView btnCerrarSesion;
-    //Panel añadir cliente
-    @FXML
-    private Pane panelCuerpo;
-    //Panel editar cliente
-    @FXML
-    private Pane panelCuerpo1;
-    //Panel añadir coche
-    @FXML
-    private Pane panelCuerpo2;
-    //Panel editar coche
-    @FXML
-    private Pane panelCuerpo3;
-
     @FXML
     private void cerrarVentana() {
         try {
@@ -39,38 +26,6 @@ public class ControladorClientes
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    @FXML
-    private void abrirAñadirCliente()
-    {
-        panelCuerpo.setVisible(true);
-        panelCuerpo1.setVisible(false);
-        panelCuerpo2.setVisible(false);
-        panelCuerpo3.setVisible(false);
-    }
-    @FXML
-    private void abrirEditarCliente()
-    {
-        panelCuerpo.setVisible(false);
-        panelCuerpo1.setVisible(true);
-        panelCuerpo2.setVisible(false);
-        panelCuerpo3.setVisible(false);
-    }
-    @FXML
-    private void abrirAñadirVehiculo()
-    {
-        panelCuerpo.setVisible(false);
-        panelCuerpo1.setVisible(false);
-        panelCuerpo2.setVisible(true);
-        panelCuerpo3.setVisible(false);
-    }
-    @FXML
-    private void abrirEditarVehiculo()
-    {
-        panelCuerpo.setVisible(false);
-        panelCuerpo1.setVisible(false);
-        panelCuerpo2.setVisible(false);
-        panelCuerpo3.setVisible(true);
     }
     /*
     MENU 5/7
@@ -170,4 +125,5 @@ public class ControladorClientes
             e.printStackTrace();
         }
     }
+
 }

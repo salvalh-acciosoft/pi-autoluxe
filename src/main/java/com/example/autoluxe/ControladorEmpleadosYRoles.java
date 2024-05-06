@@ -44,7 +44,7 @@ public class ControladorEmpleadosYRoles{
         panelCuerpo.setVisible(false);
     }
     /*
-    MENU 4/6
+    MENU 5/7
      */
     @FXML
     private void abrirTareas()
@@ -109,6 +109,25 @@ public class ControladorEmpleadosYRoles{
         try
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_clientes.fxml"));
+            Parent root = loader.load();
+            Stage nuevaVentana = new Stage();
+            nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título
+            nuevaVentana.setScene(new Scene(root,1920,1000));
+            Stage ventanaActual = (Stage) btnCerrarSesion.getScene().getWindow();
+            ventanaActual.close();
+            nuevaVentana.show();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void abrirFacturas()
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_facturas.fxml"));
             Parent root = loader.load();
             Stage nuevaVentana = new Stage();
             nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título
