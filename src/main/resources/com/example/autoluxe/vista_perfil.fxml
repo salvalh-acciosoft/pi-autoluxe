@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.autoluxe.ControladorPerfil">
+   <children>
+      <AnchorPane fx:id="contenedor" prefHeight="1000.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_app.css" HBox.hgrow="ALWAYS">
+         <children>
+            <Pane fx:id="barraSuperior" prefHeight="200.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_inicio-sesion.css">
+               <children>
+                  <ImageView fitHeight="140.0" fitWidth="370.0" layoutX="656.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../imagenes/Auto.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="113.0" fitWidth="243.0" layoutX="977.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../imagenes/LuxeNegro.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="barra1" layoutY="183.0" prefHeight="17.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_inicio-sesion.css" />
+                  <ImageView fx:id="btnCerrarSesion" fitHeight="45.0" fitWidth="31.0" layoutX="1843.0" layoutY="89.0" onMouseClicked="#cerrarVentana" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../imagenes/cerrar-sesion.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <BorderPane layoutY="200.0" prefHeight="800.0" prefWidth="1920.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="200.0">
+               <left>
+                  <Pane fx:id="panelLateralMenu" prefHeight="800.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="btnInicio" layoutX="12.0" layoutY="21.0" mnemonicParsing="false" onAction="#abrirInicio" text="Inicio" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/casa.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="119.0" mnemonicParsing="false" onAction="#abrirEmpleadosYRoles" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Gestión de empleados y roles" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/plus.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="159.0" mnemonicParsing="false" onAction="#abrirClientes" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Gestión de clientes" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/plus.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button alignment="CENTER" layoutX="10.0" layoutY="199.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Gestión de taller" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/plus.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="322.0" mnemonicParsing="false" onAction="#abrirFacturas" prefHeight="40.0" prefWidth="280.0" text="Generar factura" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/lupa.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="492.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" text="Historial de servicios" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/llave.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label layoutX="14.0" layoutY="74.0" text="Gestiones" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="12.0" layoutY="273.0" text="Facturas" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="400.0" text="Servicios" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="103.0" layoutY="725.0" text="Correo electrónico">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="37.0" layoutY="715.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../imagenes/usuario.png" />
+                           </image>
+                        </ImageView>
+                        <Button alignment="CENTER" layoutX="10.0" layoutY="452.0" mnemonicParsing="false" onAction="#abrirTareas" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Administración de tareas" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/plus.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </Pane>
+               </left>
+               <center>
+                  <Pane prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_perfil.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <Pane fx:id="panelCuenta" prefHeight="800.0" prefWidth="1620.0">
+                           <children>
+                              <Label layoutX="136.0" layoutY="343.0">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="499.0" layoutX="536.0" layoutY="146.0" startX="-100.0" />
+                              <TextField alignment="BOTTOM_LEFT" disable="true" editable="false" layoutX="435.0" layoutY="258.0" prefHeight="50.0" prefWidth="600.0" />
+                              <TextField alignment="BOTTOM_LEFT" disable="true" editable="false" layoutX="435.0" layoutY="174.0" prefHeight="50.0" prefWidth="600.0" stylesheets="@../../../style/estilo_perfil.css" />
+                              <Label alignment="CENTER" layoutX="490.0" layoutY="51.0" prefHeight="72.0" prefWidth="492.0" text="Mi cuenta" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="48.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnCerrarSesion" layoutX="437.0" layoutY="678.0" mnemonicParsing="false" onMouseClicked="#cerrarVentana" prefHeight="44.0" prefWidth="600.0" text="Cerrar sesión">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <TextField alignment="BOTTOM_LEFT" disable="true" editable="false" layoutX="436.0" layoutY="594.0" prefHeight="50.0" prefWidth="600.0" />
+                              <TextField alignment="BOTTOM_LEFT" disable="true" editable="false" layoutX="436.0" layoutY="510.0" prefHeight="50.0" prefWidth="600.0" />
+                              <Label layoutX="450.0" layoutY="180.0" text="Nombre:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextField alignment="BOTTOM_LEFT" disable="true" editable="false" layoutX="437.0" layoutY="426.0" prefHeight="50.0" prefWidth="600.0" />
+                              <Label layoutX="447.0" layoutY="264.0" text="Apellidos:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="449.0" layoutY="432.0" text="DNI:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="446.0" layoutY="516.0" text="Correo electrónico:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="448.0" layoutY="600.0" text="ROL:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextField alignment="BOTTOM_LEFT" disable="true" editable="false" layoutX="435.0" layoutY="342.0" prefHeight="50.0" prefWidth="600.0" />
+                              <Label layoutX="449.0" layoutY="350.0" text="Teléfono:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="iconoSetting" fitHeight="32.0" fitWidth="32.0" layoutX="1003.0" layoutY="73.0" onMouseClicked="#abrirEditarCuenta" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/ajustesUsuario.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="lblNombre" layoutX="451.0" layoutY="199.0" text="AutoLuxe" />
+                              <Label fx:id="lblApellidos" layoutX="449.0" layoutY="283.0" text="AutoLuxe" />
+                              <Label fx:id="lblTelefono" layoutX="449.0" layoutY="367.0" text="612345678" />
+                              <Label fx:id="lblDNI" layoutX="449.0" layoutY="449.0" text="11111111A" />
+                              <Label fx:id="lblEmail" layoutX="448.0" layoutY="533.0" text="autoluxe@gmail.com" />
+                              <Label fx:id="lblROL" layoutX="448.0" layoutY="617.0" text="Admin" />
+                           </children>
+                           <stylesheets>
+                              <URL value="@../../../style/estilo_app.css" />
+                              <URL value="@../../../style/estilo_perfil.css" />
+                           </stylesheets>
+                        </Pane>
+                        <Pane fx:id="panelCuenta2" prefHeight="800.0" prefWidth="1620.0" visible="false">
+                           <children>
+                              <Label alignment="CENTER" layoutX="490.0" layoutY="51.0" prefHeight="72.0" prefWidth="492.0" text="Mi cuenta" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="48.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="499.0" layoutX="536.0" layoutY="146.0" startX="-100.0" />
+                              <TextField fx:id="tvNombre" alignment="BOTTOM_LEFT" layoutX="435.0" layoutY="170.0" prefHeight="50.0" prefWidth="600.0" stylesheets="@../../../style/estilo_perfil.css" />
+                              <Label layoutX="435.0" layoutY="175.0" text="Nombre:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tvApellidos" alignment="BOTTOM_LEFT" layoutX="435.0" layoutY="230.0" prefHeight="50.0" prefWidth="600.0" />
+                              <Label layoutX="437.0" layoutY="235.0" text="Apellidos:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tvTelefono" alignment="BOTTOM_LEFT" layoutX="435.0" layoutY="290.0" prefHeight="50.0" prefWidth="600.0" />
+                              <Label layoutX="433.0" layoutY="295.0" text="Teléfono:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tvDNI" alignment="BOTTOM_LEFT" layoutX="437.0" layoutY="350.0" prefHeight="50.0" prefWidth="600.0" />
+                              <Label layoutX="435.0" layoutY="355.0" text="DNI:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tvEmail" alignment="BOTTOM_LEFT" layoutX="436.0" layoutY="410.0" prefHeight="50.0" prefWidth="600.0" />
+                              <Label layoutX="436.0" layoutY="415.0" text="Correo electrónico:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tvROL" alignment="BOTTOM_LEFT" layoutX="436.0" layoutY="470.0" prefHeight="50.0" prefWidth="600.0" />
+                              <Label layoutX="435.0" layoutY="475.0" text="ROL:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnGuardar" layoutX="436.0" layoutY="536.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="600.0" text="GUARDAR">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Label layoutX="436.0" layoutY="593.0" text="Cambiar contraseña:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tvRecuperarPass" alignment="BOTTOM_LEFT" editable="false" layoutX="438.0" layoutY="662.0" prefHeight="50.0" prefWidth="600.0" />
+                              <Label layoutX="437.0" layoutY="667.0" text="Dirección de correo electrónico:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnSiguiente" layoutX="438.0" layoutY="728.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="600.0" text="Siguiente">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/volver-atras.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="437.0" layoutY="620.0" text="Para restablecer su contraseña, por favor, introduzca su dirección de correo electrónico." />
+                              <Label layoutX="435.0" layoutY="637.0" text=" A continuación, revise su correo y siga las instrucciones indicadas." />
+                           </children>
+                           <stylesheets>
+                              <URL value="@../../../style/estilo_app.css" />
+                              <URL value="@../../../style/estilo_perfil.css" />
+                           </stylesheets>
+                        </Pane>
+                     </children>
+                  </Pane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>

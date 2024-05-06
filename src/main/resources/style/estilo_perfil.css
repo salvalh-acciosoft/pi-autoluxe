@@ -1,0 +1,30 @@
+#iconoSetting {
+    -fx-cursor: hand;
+}
+
+#panelCuenta, #panelCuenta2  {
+    -fx-background-color:linear-gradient(to bottom, #8a8a8a,#FFF);
+}
+
+#btnCerrarSesion, #btnGuardar, #btnSiguiente {
+    -fx-background-color: #FFA423;
+    -fx-text-fill: white;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+#btnCerrarSesion:hover, #btnGuardar:hover, #btnSiguiente:hover {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #FFA423;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-border-color: #FFA423;
+    -fx-border-width: 1px;
+}
+
+#tvNombre, #tvApellidos, #tvTelefono, #tvDNI, #tvEmail, #tvROL, #tvRecuperarPass {
+    -fx-background-color: transparent;
+    -fx-border-style: none none solid none;
+    -fx-border-width: 0 0 1 0; /* Esto agrega un borde sólido solo en la parte inferior */
+    -fx-border-color: black;
+}
