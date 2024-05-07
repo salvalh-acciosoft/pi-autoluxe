@@ -34,12 +34,12 @@ public class ControladorTareas
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_InicioSesion.fxml"));
             Parent root = loader.load();
-//            Stage nuevaVentana = new Stage();
-//            nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título
-//            nuevaVentana.setScene(new Scene(root,1920,1000));
-//            Stage ventanaActual = (Stage) btnCerrarSesion.getScene().getWindow();
-//            ventanaActual.close();
-//            nuevaVentana.show();
+//          Stage nuevaVentana = new Stage();
+//          nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título
+//          nuevaVentana.setScene(new Scene(root,1920,1000));
+//          Stage ventanaActual = (Stage) btnCerrarSesion.getScene().getWindow();
+//          ventanaActual.close();
+//          nuevaVentana.show();
             contenedor.getChildren().setAll(root);
         }
         catch (Exception e)
@@ -59,7 +59,7 @@ public class ControladorTareas
         panelCuerpo.setVisible(false);
     }
     /*
-    MENU 5/7
+    MENU 6/8
      */
     @FXML
     private void abrirTareas()

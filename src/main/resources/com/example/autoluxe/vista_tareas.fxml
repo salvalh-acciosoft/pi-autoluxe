@@ -17,9 +17,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.autoluxe.ControladorTareas">
+<HBox alignment="TOP_CENTER" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.autoluxe.ControladorTareas">
    <children>
-      <AnchorPane fx:id="contenedor" prefHeight="1000.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_app.css" HBox.hgrow="ALWAYS">
+      <AnchorPane fx:id="contenedor" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_app.css" HBox.hgrow="ALWAYS">
          <children>
             <Pane fx:id="barraSuperior" prefHeight="200.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_inicio-sesion.css">
                <children>
@@ -41,9 +41,9 @@
                   </ImageView>
                </children>
             </Pane>
-            <BorderPane layoutY="200.0" prefHeight="800.0" prefWidth="1920.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="200.0">
+            <BorderPane layoutY="200.0" prefHeight="880.0" prefWidth="1920.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="200.0">
                <left>
-                  <Pane fx:id="panelLateralMenu" prefHeight="800.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+                  <Pane fx:id="panelLateralMenu" prefHeight="880.0" prefWidth="300.0" BorderPane.alignment="CENTER">
                      <children>
                         <Button fx:id="btnInicio" layoutX="12.0" layoutY="21.0" mnemonicParsing="false" onAction="#abrirInicio" text="Inicio" textFill="WHITE">
                            <font>
@@ -132,12 +132,12 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="103.0" layoutY="725.0" text="Correo electrónico">
+                        <Label fx:id="btnCorreo" layoutX="103.0" layoutY="725.0" onMouseClicked="#abrirPerfil" text="Correo electrónico">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="37.0" layoutY="715.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="btnCuenta" fitHeight="40.0" fitWidth="40.0" layoutX="37.0" layoutY="715.0" onMouseClicked="#abrirPerfil" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../imagenes/usuario.png" />
                            </image>
@@ -158,9 +158,9 @@
                   </Pane>
                </left>
                <center>
-                  <Pane prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" BorderPane.alignment="CENTER">
+                  <Pane prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" BorderPane.alignment="CENTER">
                      <children>
-                        <Pane fx:id="panelCuerpo1" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css">
+                        <Pane fx:id="panelCuerpo1" prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css">
                            <children>
                               <ImageView fitHeight="554.0" fitWidth="753.0" layoutX="139.0" layoutY="107.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -278,7 +278,7 @@
                               </Button>
                            </children>
                         </Pane>
-                        <Pane fx:id="panelCuerpo" prefHeight="800.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css">
+                        <Pane fx:id="panelCuerpo" prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css">
                            <children>
                               <ImageView fitHeight="554.0" fitWidth="759.0" layoutX="139.0" layoutY="107.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                  <image>

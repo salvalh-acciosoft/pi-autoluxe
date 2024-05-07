@@ -15,7 +15,7 @@
 
 <HBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.autoluxe.ControladorInicioSesion">
    <children>
-      <AnchorPane fx:id="contenedor" prefHeight="1000.0" prefWidth="1920.0" style="-fx-background-color: #666666;">
+      <AnchorPane fx:id="contenedor" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #666666;">
          <children>
             <Pane fx:id="barraSuperior" layoutX="-5.0" layoutY="-19.0" prefHeight="200.0" prefWidth="1927.0" stylesheets="@../../../style/estilo_inicio-sesion.css">
                <children>
