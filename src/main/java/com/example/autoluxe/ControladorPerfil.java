@@ -51,7 +51,7 @@ public class ControladorPerfil implements Initializable {
 
     // Botones
     @FXML
-    private Button btnCerrarSesion;
+    private ImageView btnCerrarSesion;
 
 
     @FXML
@@ -75,12 +75,13 @@ public class ControladorPerfil implements Initializable {
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_InicioSesion.fxml"));
             Parent root = loader.load();
-            Stage nuevaVentana = new Stage();
-            nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título
-            nuevaVentana.setScene(new Scene(root,1920,1000));
-            Stage ventanaActual = (Stage) lblNombre.getScene().getWindow();
-            ventanaActual.close();
-            nuevaVentana.show();
+//          Stage nuevaVentana = new Stage();
+//          nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título
+//          nuevaVentana.setScene(new Scene(root,1920,1000));
+//          Stage ventanaActual = (Stage) btnCerrarSesion.getScene().getWindow();
+//          ventanaActual.close();
+//          nuevaVentana.show();
+            contenedor.getChildren().setAll(root);
         }
         catch (Exception e)
         {
@@ -92,5 +93,125 @@ public class ControladorPerfil implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         panelCuenta.setVisible(true);
         panelCuenta2.setVisible(false);
+    }
+    /*
+    MENU 6/8
+     */
+    @FXML
+    private void abrirTareas()
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_tareas.fxml"));
+            Parent root = loader.load();
+            //Stage nuevaVentana = new Stage();
+            //nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título
+            //nuevaVentana.setScene(new Scene(root,1920,1000));
+            //Stage ventanaActual = (Stage) btnCerrarSesion.getScene().getWindow();
+            //ventanaActual.close();
+            //nuevaVentana.show();
+            contenedor.getChildren().setAll(root);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void abrirEmpleadosYRoles()
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_empleadosyroles.fxml"));
+            Parent root = loader.load();
+            //Stage nuevaVentana = new Stage();
+            //nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título
+            //nuevaVentana.setScene(new Scene(root,1920,1000));
+            //Stage ventanaActual = (Stage) btnCerrarSesion.getScene().getWindow();
+            //ventanaActual.close();
+            //nuevaVentana.show();
+            contenedor.getChildren().setAll(root);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void abrirInicio()
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_inicio.fxml"));
+            Parent root = loader.load();
+            //Stage nuevaVentana = new Stage();
+            //nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título
+            //nuevaVentana.setScene(new Scene(root,1920,1000));
+            //Stage ventanaActual = (Stage) btnCerrarSesion.getScene().getWindow();
+            //ventanaActual.close();
+            //nuevaVentana.show();
+            contenedor.getChildren().setAll(root);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void abrirClientes()
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_clientes.fxml"));
+            Parent root = loader.load();
+            //Stage nuevaVentana = new Stage();
+            //nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título
+            //nuevaVentana.setScene(new Scene(root,1920,1000));
+            //Stage ventanaActual = (Stage) btnCerrarSesion.getScene().getWindow();
+            //ventanaActual.close();
+            //nuevaVentana.show();
+            contenedor.getChildren().setAll(root);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void abrirFacturas()
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_facturas.fxml"));
+            Parent root = loader.load();
+            //Stage nuevaVentana = new Stage();
+            //nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título
+            //nuevaVentana.setScene(new Scene(root,1920,1000));
+            //Stage ventanaActual = (Stage) btnCerrarSesion.getScene().getWindow();
+            //ventanaActual.close();
+            //nuevaVentana.show();
+            contenedor.getChildren().setAll(root);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void abrirPerfil() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_perfil.fxml"));
+            Parent root = loader.load();
+            //Stage nuevaVentana = new Stage();
+            //nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título
+            //nuevaVentana.setScene(new Scene(root, 1920, 1000));
+            //Stage ventanaActual = (Stage) btnCerrarSesion.getScene().getWindow();
+            //ventanaActual.close();
+            //nuevaVentana.show();
+            contenedor.getChildren().setAll(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

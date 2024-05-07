@@ -50,7 +50,7 @@ public class ControladorEmpleadosYRoles{
         panelCuerpo.setVisible(false);
     }
     /*
-    MENU 5/7
+    MENU 6/8
      */
     @FXML
     private void abrirTareas()
@@ -165,18 +165,6 @@ public class ControladorEmpleadosYRoles{
             //ventanaActual.close();
             //nuevaVentana.show();
             contenedor.getChildren().setAll(root);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    @FXML
-    private void mostrarNuevaVista() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_perfil.fxml"));
-            Parent nuevaVentana = loader.load();
-            contenedor.getChildren().setAll(nuevaVentana);
         } catch (Exception e) {
             e.printStackTrace();
         }

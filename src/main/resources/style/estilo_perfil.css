@@ -1,4 +1,4 @@
-#iconoSetting {
+#iconoSetting,#btnVolver {
     -fx-cursor: hand;
 }
 
@@ -6,14 +6,14 @@
     -fx-background-color:linear-gradient(to bottom, #8a8a8a,#FFF);
 }
 
-#btnCerrarSesion, #btnGuardar, #btnSiguiente {
+#btnCerrarSesion1, #btnGuardar, #btnSiguiente {
     -fx-background-color: #FFA423;
     -fx-text-fill: white;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
 }
 
-#btnCerrarSesion:hover, #btnGuardar:hover, #btnSiguiente:hover {
+#btnCerrarSesion1:hover, #btnGuardar:hover, #btnSiguiente:hover {
     -fx-background-color: #ffffff;
     -fx-text-fill: #FFA423;
     -fx-border-radius: 10px;
