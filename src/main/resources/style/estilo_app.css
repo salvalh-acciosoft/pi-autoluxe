@@ -36,14 +36,14 @@
 #btnAnadir:hover, #btnEdicion:hover,#btnAnadir1:hover, #btnEdicion1:hover,#submenu .button:hover,#submenu1 .button:hover,#submenu2 .button:hover,#submenu3 .button:hover {
     -fx-font-weight: bold;
 }
-#acAnadir,#acEditar,#acAnadir1,#acEditar1,#acAnadir2
+#acAnadir,#acEditar,#acAnadir1,#acEditar1,#acAnadir2,#acAccion
 {
     -fx-background-color: #FFA423;
     -fx-text-fill: white;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
 }
-#acAnadir:hover,#acEditar:hover,#acAnadir1:hover,#acEditar1:hover,#acAnadir2:hover
+#acAnadir:hover,#acEditar:hover,#acAnadir1:hover,#acEditar1:hover,#acAnadir2:hover,#acAccion:hover
 {
     -fx-background-color: #ffffff;
     -fx-text-fill: #FFA423;
@@ -52,19 +52,19 @@
     -fx-border-color: #FFA423;
     -fx-border-width: 1px;
 }
-#acAnadir:pressed,#acEditar:pressed,#acAnadir1:pressed,#acEditar1:pressed,#acAnadir2:pressed
+#acAnadir:pressed,#acEditar:pressed,#acAnadir1:pressed,#acEditar1:pressed,#acAnadir2:pressed,#acAccion:pressed
 {
     -fx-background-color: #FFA423;
     -fx-text-fill: white;
 }
-#acBorrar,#acBorrar1
+#acBorrar,#acBorrar1,#acCancelar
 {
     -fx-background-color: #ff0000;
     -fx-text-fill: white;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
 }
-#acBorrar:hover,#acBorrar1:hover
+#acBorrar:hover,#acBorrar1:hover,#acCancelar:hover
 {
     -fx-background-color: #ffffff;
     -fx-text-fill: #ff0000;
@@ -73,7 +73,7 @@
     -fx-border-color: #ff0000;
     -fx-border-width: 1px;
 }
-#acBorrar:pressed,#acBorrar1:pressed
+#acBorrar:pressed,#acBorrar1:pressed,#acCancelar:pressed
 {
     -fx-background-color: #ff0000;
     -fx-text-fill: white;
@@ -160,14 +160,24 @@
     -fx-background-color:linear-gradient(to right bottom, #222222, #e49826);
     -fx-text-fill: white;
 }
-/*
-#btnAnadirEmpleado, #btnEdicionEmpleado {
-    -fx-cursor: hand;
-    -fx-background-color: transparent;
-    -fx-alignment: left;
-}
-
-#btnAnadirEmpleado:hover, #btnEdicionEmpleado:hover {
+#acOcupar,#acLiberar,#acRevision
+{
+    -fx-background-color: #FFA423;
     -fx-text-fill: white;
 }
-*/
+#acOcupar:hover,#acLiberar:hover,#acRevision:hover
+{
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #FFA423;
+    -fx-border-color: #FFA423;
+    -fx-border-width: 1px;
+}
+#acOcupar:pressed,#acLiberar:pressed,#acRevision:pressed
+{
+    -fx-background-color: #FFA423;
+    -fx-text-fill: white;
+}
+#panelEditarElevador
+{
+    -fx-border-color:black ;
+}

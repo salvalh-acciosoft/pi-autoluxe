@@ -25,6 +25,6 @@
 #tvNombre, #tvApellidos, #tvTelefono, #tvDNI, #tvEmail, #tvROL, #tvRecuperarPass {
     -fx-background-color: transparent;
     -fx-border-style: none none solid none;
-    -fx-border-width: 0 0 1 0; /* Esto agrega un borde sólido solo en la parte inferior */
+    -fx-border-width: 0 0 1 0;
     -fx-border-color: black;
 }
