@@ -80,7 +80,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button alignment="CENTER" layoutX="10.0" layoutY="199.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Gestión de taller" textFill="WHITE">
+                        <Button alignment="CENTER" layoutX="10.0" layoutY="199.0" mnemonicParsing="false" onAction="#abrirTaller" prefHeight="40.0" prefWidth="280.0" style="-fx-cursor: hand;" text="Gestión de taller" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>

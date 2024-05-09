@@ -50,7 +50,7 @@ public class ControladorEmpleadosYRoles{
         panelCuerpo.setVisible(false);
     }
     /*
-    MENU 6/8
+    MENU 7/8
      */
     @FXML
     private void abrirTareas()
@@ -166,6 +166,26 @@ public class ControladorEmpleadosYRoles{
             //nuevaVentana.show();
             contenedor.getChildren().setAll(root);
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void abrirTaller()
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_taller.fxml"));
+            Parent root = loader.load();
+//            Stage nuevaVentana = new Stage();
+//            nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título
+//            nuevaVentana.setScene(new Scene(root,1920,1000));
+//            Stage ventanaActual = (Stage) btnCerrarSesion.getScene().getWindow();
+//            ventanaActual.close();
+//            nuevaVentana.show();
+            contenedor.getChildren().setAll(root);
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
         }
     }
