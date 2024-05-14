@@ -274,6 +274,7 @@
                                  </font>
                               </Label>
                               <TextField layoutX="457.0" layoutY="357.0" prefHeight="30.0" prefWidth="280.0" />
+                              <ComboBox layoutX="1408.0" layoutY="198.0" prefHeight="30.0" prefWidth="180.0" />
                            </children>
                         </Pane>
                         <Pane fx:id="panelGestorServicios" prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" visible="false">
@@ -407,6 +408,7 @@
                                     <TableColumn prefWidth="210.0" text="C" />
                                  </columns>
                               </TableView>
+                              <ComboBox layoutX="1403.0" layoutY="189.0" prefHeight="30.0" prefWidth="180.0" />
                            </children>
                         </Pane>
                      </children>
