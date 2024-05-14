@@ -425,6 +425,7 @@ public class ControladorTaller  implements Initializable
             e.printStackTrace();
         }
     }
+
     @FXML
     private void abrirClientes()
     {
@@ -481,6 +482,7 @@ public class ControladorTaller  implements Initializable
             e.printStackTrace();
         }
     }
+
     @FXML
     private void abrirTaller()
     {
@@ -494,6 +496,21 @@ public class ControladorTaller  implements Initializable
 //            Stage ventanaActual = (Stage) btnCerrarSesion.getScene().getWindow();
 //            ventanaActual.close();
 //            nuevaVentana.show();
+            contenedor.getChildren().setAll(root);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void abrirServicios()
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_servicios.fxml"));
+            Parent root = loader.load();
             contenedor.getChildren().setAll(root);
         }
         catch (Exception e)

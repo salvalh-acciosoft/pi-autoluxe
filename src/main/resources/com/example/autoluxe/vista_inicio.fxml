@@ -99,7 +99,7 @@
                                         </ImageView>
                                     </graphic>
                                 </Button>
-                                <Button layoutX="10.0" layoutY="492.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" text="Historial de servicios" textFill="WHITE">
+                                <Button layoutX="10.0" layoutY="492.0" mnemonicParsing="false" onAction="#abrirServicios" prefHeight="40.0" prefWidth="280.0" text="Historial de servicios" textFill="WHITE">
                                     <font>
                                         <Font size="16.0" />
                                     </font>
@@ -175,7 +175,7 @@
                                  <font>
                                     <Font name="Balance Groovy" size="48.0" />
                                  </font></Button>
-                              <Button layoutX="1160.0" layoutY="432.0" mnemonicParsing="false" prefHeight="249.0" prefWidth="400.0" text="SERVICIOS">
+                              <Button layoutX="1160.0" layoutY="432.0" mnemonicParsing="false" onAction="#abrirServicios" prefHeight="249.0" prefWidth="400.0" text="SERVICIOS">
                                  <font>
                                     <Font name="Balance Groovy" size="48.0" />
                                  </font></Button>

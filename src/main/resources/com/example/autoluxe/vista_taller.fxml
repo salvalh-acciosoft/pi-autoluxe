@@ -101,7 +101,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button layoutX="10.0" layoutY="492.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" text="Historial de servicios" textFill="WHITE">
+                        <Button layoutX="10.0" layoutY="492.0" mnemonicParsing="false" onAction="#abrirServicios" prefHeight="40.0" prefWidth="280.0" text="Historial de servicios" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -160,14 +160,14 @@
                            <children>
                               <ScrollPane layoutX="125.0" layoutY="158.0" prefHeight="617.0" prefWidth="870.0" style="-fx-background-color: transparent;">
                                  <content>
-                                    <Pane fx:id="panelElevadores" prefHeight="750.0" prefWidth="870.0" style="-fx-background-color: #8a8a8a;" stylesheets="@../../../style/estilo_libre.css">
+                                    <Pane fx:id="panelElevadores" prefHeight="750.0" prefWidth="855.0" style="-fx-background-color: #8a8a8a;" stylesheets="@../../../style/estilo_libre.css">
                                        <children>
                                           <ImageView fitHeight="527.0" fitWidth="590.0" layoutX="155.0" layoutY="120.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../../imagenes/herramientas.png" />
                                              </image>
                                           </ImageView>
-                                          <Pane fx:id="Elevador1" layoutX="36.0" layoutY="37.0" prefHeight="200.0" prefWidth="390.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+                                          <Pane fx:id="Elevador1" layoutX="23.0" layoutY="37.0" prefHeight="200.0" prefWidth="390.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
                                              <children>
                                                 <ImageView fitHeight="200.0" fitWidth="184.0" layoutX="103.0" layoutY="9.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -201,12 +201,12 @@
                                                 <TextField editable="false" layoutX="101.0" layoutY="154.0" prefHeight="31.0" prefWidth="125.0" promptText="Matrícula" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
                                              </children>
                                           </Pane>
-                                          <Label alignment="CENTER" layoutX="155.0" prefHeight="37.0" prefWidth="152.0" text="ELEVADOR 1" textAlignment="CENTER">
+                                          <Label alignment="CENTER" layoutX="142.0" prefHeight="37.0" prefWidth="152.0" text="ELEVADOR 1" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                                              </font>
                                           </Label>
-                                          <Pane fx:id="Elevador2" layoutX="456.0" layoutY="37.0" prefHeight="200.0" prefWidth="390.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+                                          <Pane fx:id="Elevador2" layoutX="443.0" layoutY="37.0" prefHeight="200.0" prefWidth="390.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
                                              <children>
                                                 <ImageView fitHeight="200.0" fitWidth="184.0" layoutX="103.0" layoutY="9.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -240,12 +240,12 @@
                                                 <TextField editable="false" layoutX="101.0" layoutY="154.0" prefHeight="31.0" prefWidth="125.0" promptText="Matrícula" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
                                              </children>
                                           </Pane>
-                                          <Label alignment="CENTER" layoutX="575.0" prefHeight="37.0" prefWidth="152.0" text="ELEVADOR 2" textAlignment="CENTER">
+                                          <Label alignment="CENTER" layoutX="562.0" prefHeight="37.0" prefWidth="152.0" text="ELEVADOR 2" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                                              </font>
                                           </Label>
-                                          <Pane fx:id="Elevador3" layoutX="35.0" layoutY="284.0" prefHeight="200.0" prefWidth="390.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+                                          <Pane fx:id="Elevador3" layoutX="22.0" layoutY="284.0" prefHeight="200.0" prefWidth="390.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
                                              <children>
                                                 <ImageView fitHeight="200.0" fitWidth="184.0" layoutX="103.0" layoutY="9.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -279,12 +279,12 @@
                                                 <TextField editable="false" layoutX="101.0" layoutY="154.0" prefHeight="31.0" prefWidth="125.0" promptText="Matrícula" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
                                              </children>
                                           </Pane>
-                                          <Label alignment="CENTER" layoutX="154.0" layoutY="247.0" prefHeight="37.0" prefWidth="152.0" text="ELEVADOR 3" textAlignment="CENTER">
+                                          <Label alignment="CENTER" layoutX="141.0" layoutY="247.0" prefHeight="37.0" prefWidth="152.0" text="ELEVADOR 3" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                                              </font>
                                           </Label>
-                                          <Pane fx:id="Elevador4" layoutX="455.0" layoutY="284.0" prefHeight="200.0" prefWidth="390.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+                                          <Pane fx:id="Elevador4" layoutX="442.0" layoutY="284.0" prefHeight="200.0" prefWidth="390.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
                                              <children>
                                                 <ImageView fitHeight="200.0" fitWidth="184.0" layoutX="103.0" layoutY="9.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -318,12 +318,12 @@
                                                 <TextField editable="false" layoutX="101.0" layoutY="154.0" prefHeight="31.0" prefWidth="125.0" promptText="Matrícula" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
                                              </children>
                                           </Pane>
-                                          <Label alignment="CENTER" layoutX="574.0" layoutY="247.0" prefHeight="37.0" prefWidth="152.0" text="ELEVADOR 4" textAlignment="CENTER">
+                                          <Label alignment="CENTER" layoutX="561.0" layoutY="247.0" prefHeight="37.0" prefWidth="152.0" text="ELEVADOR 4" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                                              </font>
                                           </Label>
-                                          <Pane fx:id="Elevador5" layoutX="35.0" layoutY="533.0" prefHeight="200.0" prefWidth="390.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+                                          <Pane fx:id="Elevador5" layoutX="22.0" layoutY="533.0" prefHeight="200.0" prefWidth="390.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
                                              <children>
                                                 <ImageView fitHeight="200.0" fitWidth="184.0" layoutX="103.0" layoutY="9.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -357,12 +357,12 @@
                                                 <TextField editable="false" layoutX="101.0" layoutY="154.0" prefHeight="31.0" prefWidth="125.0" promptText="Matrícula" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
                                              </children>
                                           </Pane>
-                                          <Label alignment="CENTER" layoutX="154.0" layoutY="496.0" prefHeight="37.0" prefWidth="152.0" text="ELEVADOR 5" textAlignment="CENTER">
+                                          <Label alignment="CENTER" layoutX="141.0" layoutY="496.0" prefHeight="37.0" prefWidth="152.0" text="ELEVADOR 5" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                                              </font>
                                           </Label>
-                                          <Pane fx:id="Elevador6" layoutX="455.0" layoutY="533.0" prefHeight="200.0" prefWidth="390.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+                                          <Pane fx:id="Elevador6" layoutX="442.0" layoutY="533.0" prefHeight="200.0" prefWidth="390.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
                                              <children>
                                                 <ImageView fitHeight="200.0" fitWidth="184.0" layoutX="103.0" layoutY="9.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -396,7 +396,7 @@
                                                 <TextField editable="false" layoutX="101.0" layoutY="154.0" prefHeight="31.0" prefWidth="125.0" promptText="Matrícula" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
                                              </children>
                                           </Pane>
-                                          <Label alignment="CENTER" layoutX="574.0" layoutY="496.0" prefHeight="37.0" prefWidth="152.0" text="ELEVADOR 6" textAlignment="CENTER">
+                                          <Label alignment="CENTER" layoutX="575.0" layoutY="496.0" prefHeight="37.0" prefWidth="152.0" text="ELEVADOR 6" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                                              </font>
