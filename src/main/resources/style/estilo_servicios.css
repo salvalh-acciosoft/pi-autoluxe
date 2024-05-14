@@ -1,0 +1,27 @@
+#panelGestorStock, #panelGestorServicios {
+    -fx-background-color:linear-gradient(to bottom, #8a8a8a,#FFF);
+}
+
+#btnGestorStock, #btnGestorServicios, #btnGestorTaller {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-alignment: CENTER-LEFT;
+    -fx-font-size: 14px;
+    -fx-text-fill: black;
+}
+
+#btnAnadir1, #btnAnadir2 {
+    -fx-background-color: #FFA423;
+    -fx-text-fill: white;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+#btnAnadir1:hover, #btnAnadir2:hover {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #FFA423;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-border-color: #FFA423;
+    -fx-border-width: 1px;
+}

@@ -1,31 +1,42 @@
 package com.example.autoluxe;
 
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-
-import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-
-public class ControladorTareas
-{
+public class ControladorServicios implements Initializable {
     @FXML
     private AnchorPane contenedor;
+
     @FXML
-    private ImageView btnCerrarSesion;
-    //Panel de Añadir Tarea
+    private Pane panelGestorServicios;
+
     @FXML
-    private Pane panelCuerpo;
-    //Panel de Editar Tarea
+    private Pane panelGestorStock;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+    }
+
     @FXML
-    private Pane panelCuerpo1;
+    private void vistaGestorStock() {
+        panelGestorStock.setVisible(true);
+        panelGestorServicios.setVisible(false);
+    }
+
+    @FXML
+    private void vistaGestorServicios() {
+        panelGestorStock.setVisible(false);
+        panelGestorServicios.setVisible(true);
+    }
+
 
     @FXML
     private void cerrarVentana()
@@ -42,23 +53,10 @@ public class ControladorTareas
 //          nuevaVentana.show();
             contenedor.getChildren().setAll(root);
         }
-        catch (Exception e)
+        catch (IOException e)
         {
             e.printStackTrace();
         }
-    }
-
-    @FXML
-    private void abrirAñadirTarea()
-    {
-        panelCuerpo.setVisible(true);
-        panelCuerpo1.setVisible(false);
-    }
-    @FXML
-    private void abrirEditarTarea()
-    {
-        panelCuerpo.setVisible(false);
-        panelCuerpo1.setVisible(true);
     }
     /*
     MENU 7/8
@@ -105,6 +103,7 @@ public class ControladorTareas
             e.printStackTrace();
         }
     }
+
     @FXML
     private void abrirClientes()
     {
@@ -134,19 +133,16 @@ public class ControladorTareas
         }
     }
     @FXML
-    private void abrirPerfil()
-    {
-        try
-        {
+    private void abrirPerfil() {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_perfil.fxml"));
             Parent root = loader.load();
             contenedor.getChildren().setAll(root);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @FXML
     private void abrirTaller()
     {
@@ -176,4 +172,5 @@ public class ControladorTareas
             e.printStackTrace();
         }
     }
+
 }

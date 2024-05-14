@@ -104,7 +104,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button layoutX="10.0" layoutY="492.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" text="Historial de servicios" textFill="WHITE">
+                        <Button layoutX="10.0" layoutY="492.0" mnemonicParsing="false" onAction="#abrirServicios" prefHeight="40.0" prefWidth="280.0" text="Historial de servicios" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -159,7 +159,138 @@
                <center>
                   <Pane prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" BorderPane.alignment="CENTER">
                      <children>
-                        <Pane fx:id="panelCuerpo1" prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css">
+                        <Pane fx:id="panelCuerpo" prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css">
+                           <children>
+                              <ImageView fitHeight="554.0" fitWidth="759.0" layoutX="139.0" layoutY="107.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/herramientas.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="137.0" layoutY="177.0" text="Nombre:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="137.0" layoutY="255.0" text="DNI:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="136.0" layoutY="343.0">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="460.0" layoutY="177.0" text="Apellidos:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="499.0" layoutX="237.0" layoutY="161.0" startX="-100.0" />
+                              <Button fx:id="btnAnadirEmpleado" layoutX="208.0" layoutY="126.0" mnemonicParsing="false" onAction="#abrirAñadirEmpleados" prefHeight="36.0" prefWidth="215.0" stylesheets="@../../../style/estilo_app.css" text="AÑADIR EMPLEADO">
+                                 <graphic>
+                                    <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../imagenes/plus_negro.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnEdicion" layoutX="483.0" layoutY="126.0" mnemonicParsing="false" onAction="#abrirEditarEmpleados" prefHeight="36.0" prefWidth="207.0" text="EDITAR EMPLEADO">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../imagenes/edicion.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <TextField layoutX="457.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
+                              <TableView layoutX="921.0" layoutY="243.0" prefHeight="215.0" prefWidth="662.0">
+                                 <columns>
+                                    <TableColumn prefWidth="214.0" text="A" />
+                                    <TableColumn minWidth="0.0" prefWidth="236.0" text="B" />
+                                    <TableColumn prefWidth="210.0" text="C" />
+                                 </columns>
+                              </TableView>
+                              <TextField layoutX="136.0" layoutY="287.0" prefHeight="30.0" prefWidth="280.0" />
+                              <TextField layoutX="136.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label alignment="CENTER" layoutX="191.0" layoutY="54.0" prefHeight="72.0" prefWidth="492.0" text="AÑADIR EMPLEADO" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="48.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="acAnadir" layoutX="137.0" layoutY="625.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="600.0" text="AÑADIR">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <ChoiceBox layoutX="1404.0" layoutY="197.0" prefHeight="30.0" prefWidth="179.0" />
+                              <TextField layoutX="921.0" layoutY="197.0" prefHeight="31.0" prefWidth="285.0" />
+                              <Button fx:id="btnBuscar" layoutX="1206.0" layoutY="197.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: #000000;">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../imagenes/lupa.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Label alignment="CENTER" layoutX="921.0" layoutY="103.0" prefHeight="47.0" prefWidth="155.0" text="EMPLEADOS" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="559.0" layoutX="1022.0" layoutY="159.0" startX="-100.0" />
+                              <Label alignment="CENTER" layoutX="921.0" layoutY="473.0" prefHeight="47.0" prefWidth="263.0" text="EMPLEADO AÑADIDO" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="559.0" layoutX="1022.0" layoutY="529.0" startX="-100.0" />
+                              <TableView layoutX="921.0" layoutY="554.0" prefHeight="115.0" prefWidth="662.0">
+                                 <columns>
+                                    <TableColumn prefWidth="214.0" text="A" />
+                                    <TableColumn minWidth="0.0" prefWidth="236.0" text="B" />
+                                    <TableColumn prefWidth="210.0" text="C" />
+                                 </columns>
+                              </TableView>
+                              <Label layoutX="459.0" layoutY="254.0" text="Teléfono:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="457.0" layoutY="286.0" prefHeight="30.0" prefWidth="280.0" />
+                              <ChoiceBox layoutX="136.0" layoutY="369.0" prefHeight="30.0" prefWidth="179.0" />
+                              <Label layoutX="138.0" layoutY="336.0" text="Rol:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="137.0" layoutY="421.0" text="Correo:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="137.0" layoutY="499.0" text="Contraseña:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="136.0" layoutY="531.0" prefHeight="30.0" prefWidth="600.0" />
+                              <TextField layoutX="136.0" layoutY="447.0" prefHeight="30.0" prefWidth="600.0" />
+                           </children>
+                        </Pane>
+                        <Pane fx:id="panelCuerpo1" prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" visible="false">
                            <children>
                               <ImageView fitHeight="554.0" fitWidth="753.0" layoutX="139.0" layoutY="107.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -167,7 +298,7 @@
                                  </image>
                               </ImageView>
                               <Line endX="499.0" layoutX="248.0" layoutY="168.0" startX="-100.0" />
-                              <Button fx:id="btnAnadir1" layoutX="223.0" layoutY="134.0" mnemonicParsing="false" onAction="#abrirAñadirEmpleados" prefHeight="36.0" prefWidth="215.0" stylesheets="@../../../style/estilo_app.css" text="AÑADIR EMPLEADO">
+                              <Button fx:id="btnAnadirEmpleado" layoutX="223.0" layoutY="134.0" mnemonicParsing="false" onAction="#abrirAñadirEmpleados" prefHeight="36.0" prefWidth="215.0" stylesheets="@../../../style/estilo_app.css" text="AÑADIR EMPLEADO">
                                  <graphic>
                                     <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -293,137 +424,6 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                           </children>
-                        </Pane>
-                        <Pane fx:id="panelCuerpo" prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css">
-                           <children>
-                              <ImageView fitHeight="554.0" fitWidth="759.0" layoutX="139.0" layoutY="107.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../imagenes/herramientas.png" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="137.0" layoutY="177.0" text="Nombre:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="137.0" layoutY="255.0" text="DNI:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="136.0" layoutY="343.0">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="460.0" layoutY="177.0" text="Apellidos:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Line endX="499.0" layoutX="237.0" layoutY="161.0" startX="-100.0" />
-                              <Button fx:id="btnAnadir" layoutX="208.0" layoutY="126.0" mnemonicParsing="false" onAction="#abrirAñadirEmpleados" prefHeight="36.0" prefWidth="215.0" stylesheets="@../../../style/estilo_app.css" text="AÑADIR EMPLEADO">
-                                 <graphic>
-                                    <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../imagenes/plus_negro.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="12.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="btnEdicion" layoutX="483.0" layoutY="126.0" mnemonicParsing="false" onAction="#abrirEditarEmpleados" prefHeight="36.0" prefWidth="207.0" text="EDITAR EMPLEADO">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <graphic>
-                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../imagenes/edicion.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <TextField layoutX="457.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
-                              <TableView layoutX="921.0" layoutY="243.0" prefHeight="215.0" prefWidth="662.0">
-                                 <columns>
-                                    <TableColumn prefWidth="214.0" text="A" />
-                                    <TableColumn minWidth="0.0" prefWidth="236.0" text="B" />
-                                    <TableColumn prefWidth="210.0" text="C" />
-                                 </columns>
-                              </TableView>
-                              <TextField layoutX="136.0" layoutY="287.0" prefHeight="30.0" prefWidth="280.0" />
-                              <TextField layoutX="136.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
-                              <Label alignment="CENTER" layoutX="191.0" layoutY="54.0" prefHeight="72.0" prefWidth="492.0" text="AÑADIR EMPLEADO" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft New Tai Lue Bold" size="48.0" />
-                                 </font>
-                              </Label>
-                              <Button fx:id="acAnadir" layoutX="137.0" layoutY="625.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="600.0" text="AÑADIR">
-                                 <font>
-                                    <Font name="Microsoft New Tai Lue Bold" size="14.0" />
-                                 </font>
-                              </Button>
-                              <ChoiceBox layoutX="1404.0" layoutY="197.0" prefHeight="30.0" prefWidth="179.0" />
-                              <TextField layoutX="921.0" layoutY="197.0" prefHeight="31.0" prefWidth="285.0" />
-                              <Button fx:id="btnBuscar" layoutX="1206.0" layoutY="197.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: #000000;">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../imagenes/lupa.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <Label alignment="CENTER" layoutX="921.0" layoutY="103.0" prefHeight="47.0" prefWidth="155.0" text="EMPLEADOS" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft New Tai Lue Bold" size="24.0" />
-                                 </font>
-                              </Label>
-                              <Line endX="559.0" layoutX="1022.0" layoutY="159.0" startX="-100.0" />
-                              <Label alignment="CENTER" layoutX="921.0" layoutY="473.0" prefHeight="47.0" prefWidth="263.0" text="EMPLEADO AÑADIDO" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft New Tai Lue Bold" size="24.0" />
-                                 </font>
-                              </Label>
-                              <Line endX="559.0" layoutX="1022.0" layoutY="529.0" startX="-100.0" />
-                              <TableView layoutX="921.0" layoutY="554.0" prefHeight="115.0" prefWidth="662.0">
-                                 <columns>
-                                    <TableColumn prefWidth="214.0" text="A" />
-                                    <TableColumn minWidth="0.0" prefWidth="236.0" text="B" />
-                                    <TableColumn prefWidth="210.0" text="C" />
-                                 </columns>
-                              </TableView>
-                              <Label layoutX="459.0" layoutY="254.0" text="Teléfono:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="457.0" layoutY="286.0" prefHeight="30.0" prefWidth="280.0" />
-                              <ChoiceBox layoutX="136.0" layoutY="369.0" prefHeight="30.0" prefWidth="179.0" />
-                              <Label layoutX="138.0" layoutY="336.0" text="Rol:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="137.0" layoutY="421.0" text="Correo:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="137.0" layoutY="499.0" text="Contraseña:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="136.0" layoutY="531.0" prefHeight="30.0" prefWidth="600.0" />
-                              <TextField layoutX="136.0" layoutY="447.0" prefHeight="30.0" prefWidth="600.0" />
                            </children>
                         </Pane>
                      </children>

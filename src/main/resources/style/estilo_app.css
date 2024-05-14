@@ -26,25 +26,27 @@
 #panelCuerpo, #panelCuerpo1,#panelCuerpo2,#panelCuerpo3 {
     -fx-background-color:linear-gradient(to bottom, #8a8a8a,#FFF);
 }
-#btnAnadir, #btnEdicion,#btnAnadir1, #btnEdicion1,#submenu .button,#submenu1 .button,#submenu2 .button,#submenu3 .button {
+
+#btnAnadirEmpleado, #btnEdicion,#btnAnadir1, #btnEdicion1,#submenu .button,#submenu1 .button,#submenu2 .button,#submenu3 .button {
     -fx-background-color: transparent;
     -fx-cursor: hand;
     -fx-alignment: CENTER-LEFT;
     -fx-font-size: 14px;
     -fx-text-fill: black;
 }
-#btnAnadir:hover, #btnEdicion:hover,#btnAnadir1:hover, #btnEdicion1:hover,#submenu .button:hover,#submenu1 .button:hover,#submenu2 .button:hover,#submenu3 .button:hover {
+
+#btnAnadirEmpleado:hover, #btnEdicion:hover,#btnAnadir1:hover, #btnEdicion1:hover,#submenu .button:hover,#submenu1 .button:hover,#submenu2 .button:hover,#submenu3 .button:hover {
     -fx-font-weight: bold;
 }
-#acAnadir,#acEditar,#acAnadir1,#acEditar1,#acAnadir2,#acAccion
-{
+
+#acAnadir,#acEditar,#acAnadir1,#acEditar1,#acAnadir2,#acAccion {
     -fx-background-color: #FFA423;
     -fx-text-fill: white;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
 }
-#acAnadir:hover,#acEditar:hover,#acAnadir1:hover,#acEditar1:hover,#acAnadir2:hover,#acAccion:hover
-{
+
+#acAnadir:hover,#acEditar:hover,#acAnadir1:hover,#acEditar1:hover,#acAnadir2:hover,#acAccion:hover {
     -fx-background-color: #ffffff;
     -fx-text-fill: #FFA423;
     -fx-border-radius: 10px;
@@ -52,20 +54,20 @@
     -fx-border-color: #FFA423;
     -fx-border-width: 1px;
 }
-#acAnadir:pressed,#acEditar:pressed,#acAnadir1:pressed,#acEditar1:pressed,#acAnadir2:pressed,#acAccion:pressed
-{
+
+#acAnadir:pressed,#acEditar:pressed,#acAnadir1:pressed,#acEditar1:pressed,#acAnadir2:pressed,#acAccion:pressed {
     -fx-background-color: #FFA423;
     -fx-text-fill: white;
 }
-#acBorrar,#acBorrar1,#acCancelar
-{
+
+#acBorrar,#acBorrar1,#acCancelar {
     -fx-background-color: #ff0000;
     -fx-text-fill: white;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
 }
-#acBorrar:hover,#acBorrar1:hover,#acCancelar:hover
-{
+
+#acBorrar:hover,#acBorrar1:hover,#acCancelar:hover {
     -fx-background-color: #ffffff;
     -fx-text-fill: #ff0000;
     -fx-border-radius: 10px;
@@ -73,20 +75,20 @@
     -fx-border-color: #ff0000;
     -fx-border-width: 1px;
 }
-#acBorrar:pressed,#acBorrar1:pressed,#acCancelar:pressed
-{
+
+#acBorrar:pressed,#acBorrar1:pressed,#acCancelar:pressed {
     -fx-background-color: #ff0000;
     -fx-text-fill: white;
 }
-#acFacturar
-{
+
+#acFacturar {
     -fx-background-color: #a3ff72;
     -fx-text-fill: #000000;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
 }
-#acFacturar:hover
-{
+
+#acFacturar:hover {
     -fx-background-color: #a3ff72;
     -fx-text-fill: #000000;
     -fx-border-radius: 10px;
@@ -94,13 +96,13 @@
     -fx-border-color: #000000;
     -fx-border-width: 1px;
 }
-#acFacturar:pressed
-{
+
+#acFacturar:pressed {
     -fx-background-color: #000000;
     -fx-text-fill: #a3ff72;
 }
-#acCambio
-{
+
+#acCambio {
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
     -fx-border-color: #000000;
@@ -109,8 +111,8 @@
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
 }
-#acCambio:hover
-{
+
+#acCambio:hover {
     -fx-background-color: #ffffff;
     -fx-text-fill: #000000;
     -fx-border-radius: 10px;
@@ -118,24 +120,26 @@
     -fx-border-color: #000000;
     -fx-border-width: 1px;
 }
-#acCambio:pressed
-{
+
+#acCambio:pressed {
     -fx-background-color: #000000;
     -fx-text-fill: white;
 }
-.button, #btnCorreo,#btnCuenta
-{
+
+.button, #btnCorreo,#btnCuenta {
     -fx-cursor: hand;
 }
-#btnCerrarSesion
-{
+
+#btnCerrarSesion {
     -fx-cursor: hand;
 }
+
 @font-face {
     font-family: 'MiFuente';
     src: url('fonts/Balance Groovy - Sans.ttf');
 }
-#dashboard .button{
+
+#dashboard .button {
     -fx-background-color:linear-gradient(to left top, #222222, #e49826);
     -fx-background-radius: 20px;
     -fx-text-fill: #ffffff; /* Color del texto */
@@ -145,7 +149,6 @@
     -fx-border-width: 2px; /* Grosor del borde */
     -fx-cursor: hand; /* Cambia el cursor al pasar por encima */
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,1,1), 0, 0, 5, 10); /* Sombra suave */
-
 }
 
 /* Estilo para los botones al pasar el ratón por encima */
@@ -155,29 +158,29 @@
     -fx-background-color:linear-gradient(to left top, #222222, #919191);
     -fx-text-fill: #e49826;
 }
-#dashboard .button:pressed
-{
+
+#dashboard .button:pressed {
     -fx-background-color:linear-gradient(to right bottom, #222222, #e49826);
     -fx-text-fill: white;
 }
-#acOcupar,#acLiberar,#acRevision
-{
+
+#acOcupar,#acLiberar,#acRevision {
     -fx-background-color: #FFA423;
     -fx-text-fill: white;
 }
-#acOcupar:hover,#acLiberar:hover,#acRevision:hover
-{
+
+#acOcupar:hover,#acLiberar:hover,#acRevision:hover {
     -fx-background-color: #ffffff;
     -fx-text-fill: #FFA423;
     -fx-border-color: #FFA423;
     -fx-border-width: 1px;
 }
-#acOcupar:pressed,#acLiberar:pressed,#acRevision:pressed
-{
+
+#acOcupar:pressed,#acLiberar:pressed,#acRevision:pressed {
     -fx-background-color: #FFA423;
     -fx-text-fill: white;
 }
-#panelEditarElevador
-{
+
+#panelEditarElevador {
     -fx-border-color:black ;
 }
