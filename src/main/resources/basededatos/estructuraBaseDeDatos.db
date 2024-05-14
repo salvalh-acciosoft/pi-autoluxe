@@ -1,0 +1,83 @@
+
+-- Usar la base de datos
+
+USE railway;
+
+-- Crear la tabla 'empleados'
+
+CREATE TABLE empleados (
+  DNI CHAR(9) PRIMARY KEY,
+  nombre VARCHAR(25),
+  apellidos VARCHAR(50),
+  telefono VARCHAR(12),
+  rol VARCHAR(40),
+  correo VARCHAR(100),
+  contraseña VARCHAR(50)
+);
+
+-- Crear la tabla 'tareas'
+
+CREATE TABLE tareas (
+  idTarea INT AUTO_INCREMENT PRIMARY KEY,
+  idEmpleado CHAR(9),
+  asunto VARCHAR(50),
+  descripcion VARCHAR(300),
+  telefono VARCHAR(12),
+  FOREIGN KEY (idEmpleado) REFERENCES empleados(DNI)
+);
+
+-- Crear la tabla 'clientes'
+
+CREATE TABLE clientes (
+  DNI CHAR(9) PRIMARY KEY,
+  nombre VARCHAR(25),
+  apellidos VARCHAR(50),
+  telefono VARCHAR(12),
+  correo VARCHAR(100)
+);
+
+-- Crear la tabla 'vehiculos'
+
+CREATE TABLE vehiculos (
+  matricula VARCHAR(15) PRIMARY KEY,
+  numBastidor VARCHAR(25),
+  marca VARCHAR(25),
+  modelo VARCHAR(25),
+  combustible VARCHAR(25),
+  color VARCHAR(25),
+  DNI_cliente CHAR(9),
+  FOREIGN KEY (DNI_cliente) REFERENCES clientes(DNI)
+);
+
+-- Crear la tabla 'elevador'
+
+CREATE TABLE elevador (
+  idElevador INT PRIMARY KEY,
+  estado VARCHAR(25),
+  idVehiculo VARCHAR(15),
+  idEmpleado CHAR(9),
+  FOREIGN KEY (idVehiculo) REFERENCES vehiculos(matricula),
+  FOREIGN KEY (idEmpleado) REFERENCES empleados(DNI)
+);
+
+-- Crear la tabla 'productos'
+
+CREATE TABLE productos (
+  numReferencia VARCHAR(15) PRIMARY KEY,
+  descripcion VARCHAR(50),
+  precio FLOAT,
+  cantidad INT,
+  almacen VARCHAR(25),
+  URLfoto VARCHAR(300)
+);
+
+-- Crear la tabla 'servicios'
+
+CREATE TABLE servicios (
+  idServicio VARCHAR(15) PRIMARY KEY,
+  descripcion VARCHAR(50),
+  fecha DATE,
+  precio FLOAT,
+  idVehiculo VARCHAR(15),
+  FOREIGN KEY (idVehiculo) REFERENCES vehiculos(matricula)
+);

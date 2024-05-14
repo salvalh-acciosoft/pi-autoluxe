@@ -32,7 +32,7 @@ public class ControladorFacturas
         }
     }
     /*
-    MENU 7/8
+    MENU 8/8
      */
     @FXML
     private void abrirTareas()

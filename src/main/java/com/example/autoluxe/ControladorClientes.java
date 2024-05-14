@@ -77,7 +77,7 @@ public class ControladorClientes
         panelCuerpo3.setVisible(true);
     }
     /*
-    MENU 7/8
+    MENU 8/8
      */
     @FXML
     private void abrirTareas()

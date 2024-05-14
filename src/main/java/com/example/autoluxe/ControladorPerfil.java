@@ -95,7 +95,7 @@ public class ControladorPerfil implements Initializable {
         panelCuenta2.setVisible(false);
     }
     /*
-    MENU 7/8
+    MENU 8/8
      */
     @FXML
     private void abrirTareas()
@@ -227,6 +227,20 @@ public class ControladorPerfil implements Initializable {
 //            Stage ventanaActual = (Stage) btnCerrarSesion.getScene().getWindow();
 //            ventanaActual.close();
 //            nuevaVentana.show();
+            contenedor.getChildren().setAll(root);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void abrirServicios()
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_servicios.fxml"));
+            Parent root = loader.load();
             contenedor.getChildren().setAll(root);
         }
         catch (Exception e)

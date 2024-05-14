@@ -363,7 +363,7 @@ public class ControladorTaller  implements Initializable
         }
     }
     /*
-    MENU 7/8
+    MENU 8/8
      */
     @FXML
     private void abrirTareas()
