@@ -268,6 +268,12 @@
                               </Pane>
                               <ListView layoutX="926.0" layoutY="284.0" prefHeight="475.0" prefWidth="662.0" />
                               <ComboBox layoutX="137.0" layoutY="357.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label layoutX="460.0" layoutY="331.0" text="Precio:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="457.0" layoutY="357.0" prefHeight="30.0" prefWidth="280.0" />
                            </children>
                         </Pane>
                         <Pane fx:id="panelGestorServicios" prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" visible="false">

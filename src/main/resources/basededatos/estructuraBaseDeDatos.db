@@ -74,7 +74,7 @@ CREATE TABLE productos (
 -- Crear la tabla 'servicios'
 
 CREATE TABLE servicios (
-  idServicio VARCHAR(15) PRIMARY KEY,
+  idServicio INT AUTO_INCREMENT PRIMARY KEY,
   descripcion VARCHAR(50),
   fecha DATE,
   precio FLOAT,
