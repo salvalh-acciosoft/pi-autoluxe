@@ -1,9 +1,11 @@
 package com.example.autoluxe;
 
+import ClasesObjetos.BDautoluxe;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -14,8 +16,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class ControladorInicioSesion {
+    BDautoluxe bd = new BDautoluxe();
     @FXML
     private AnchorPane contenedor;
     @FXML
@@ -30,10 +37,11 @@ public class ControladorInicioSesion {
     private Label msgError1;
 
     @FXML
-    private void accionBt1() throws IOException {
+    private void accionBt1() throws IOException, SQLException, ClassNotFoundException {
+        bd.conectar();
         msgError1.setVisible(false);
         msgError2.setVisible(false);
-        if(edEmail.getText().isEmpty()||edContraseña.getText().isEmpty()||edEmail.getText().contains("@")==false)
+        if(edEmail.getText().isEmpty()||edContraseña.getText().isEmpty()||edEmail.getText().contains("@autoluxe.com")==false)
         {
             if (edEmail.getText().isEmpty()||edEmail.getText().contains("@")==false)
             {
@@ -46,9 +54,48 @@ public class ControladorInicioSesion {
         }
         else
         {
-            abrirAplicacion();
+            String correo="";
+            String contrasena="";
+            try(Connection conexion=bd.getConnection())
+            {
+                String query="SELECT correo,contraseña FROM empleados WHERE correo='"+edEmail.getText()+"'";
+                Statement st=conexion.createStatement();
+                ResultSet rs=st.executeQuery(query);
+                while (rs.next())
+                {
+                    correo=rs.getString("correo");
+                    contrasena=rs.getString("contraseña");
+                }
+                if(correo!="")
+                {
+                    if(contrasena.equals(edContraseña.getText()))
+                    {
+                        abrirAplicacion();
+                    }
+                    else
+                    {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Diálogo de Alerta");
+                        alert.setHeaderText("Información Incorrecta");
+                        alert.setContentText("Contraseña incorrecta, estos datos no son válidos.");
+                        alert.showAndWait();
+                    }
+                }
+                else
+                {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Diálogo de Alerta");
+                    alert.setHeaderText("Información Incorrecta");
+                    alert.setContentText("Correo incorrecto, estos datos no son existentes.");
+                    alert.showAndWait();
+                }
+            }
+            catch(SQLException e)
+            {
+                e.printStackTrace();
+            }
         }
-
+        bd.desconectar();
     }
     @FXML
     private void abrirAplicacion() {

@@ -4,7 +4,11 @@ module com.example.autoluxe {
 
     requires org.controlsfx.controls;
     requires java.desktop;
+    requires java.sql;
+    requires org.jetbrains.annotations;
 
     opens com.example.autoluxe to javafx.fxml;
     exports com.example.autoluxe;
+    exports ClasesObjetos;
+    opens ClasesObjetos to javafx.fxml;
 }

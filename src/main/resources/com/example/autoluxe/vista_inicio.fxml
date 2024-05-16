@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="TOP_CENTER" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.autoluxe.ControladorEmpleadosYRoles">
+<HBox alignment="TOP_CENTER" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.autoluxe.ControladorInicio">
     <children>
         <AnchorPane fx:id="contenedor" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../../style/estilo_app.css" HBox.hgrow="ALWAYS">
             <children>
