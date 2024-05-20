@@ -132,6 +132,11 @@ public class ControladorEmpleadosYRoles  {
 
 
     public void initialize() throws SQLException, ClassNotFoundException {
+        bd.conectar();
+
+
+
+
         //Aplicamos la lista al ChoiceBox
         choiceBoxA.getItems().addAll(roles);
         choiceBoxA.getSelectionModel().select(1);
@@ -155,6 +160,7 @@ public class ControladorEmpleadosYRoles  {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_InicioSesion.fxml"));
             Parent root = loader.load();
             contenedor.getChildren().setAll(root);
+            bd.desconectar();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -171,81 +177,110 @@ public class ControladorEmpleadosYRoles  {
         panelCuerpo.setVisible(false);
         panelCuerpo1.setVisible(true);
     }
+
     @FXML
     private void introducirEmpleadoBD() throws SQLException, ClassNotFoundException {
-        bd.conectar();
-        if(edNombreA.getText().isEmpty()||edDNIA.getText().isEmpty()||edApellidosA.getText().isEmpty()||edCorreoA.getText().isEmpty()||edContrasenaA.getText().isEmpty())
-        {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Diálogo de Alerta");
-            alert.setHeaderText("Campos vacíos");
-            alert.setContentText("Por favor ingrese todos los campos.");
-            alert.showAndWait();
-        }
-        else
-        {
-            if(edNombreA.getText().length()>25)
-            {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Diálogo de Alerta");
-                alert.setHeaderText("Exceso de caracteres en Nombre.");
-                alert.showAndWait();
-            }
-            else if(edApellidosA.getText().length()>50)
-            {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Diálogo de Alerta");
-                alert.setHeaderText("Exceso de caracteres en Apellidos.");
-                alert.showAndWait();
-            }
-            else if(edTlfnoA.getText().length()>12)
-            {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Diálogo de Alerta");
-                alert.setHeaderText("Exceso de caracteres en Teléfono.");
-                alert.showAndWait();
-            }
-            if(edDNIA.getText().length()!=9)
-            {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Diálogo de Alerta");
-                alert.setHeaderText("Número de caracteres");
-                alert.setContentText("El campo DNI debe de tener 9 caracteres.");
-                alert.showAndWait();
-            }
-            else if(edContrasenaA.getText().length()<8||edContrasenaA.getText().length()>50)
-            {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Diálogo de Alerta");
-                alert.setHeaderText("Contraseña poca segura");
-                alert.setContentText("La contraseña tiene que tener más de 8 caracteres y menos de 50.");
-                alert.showAndWait();
-            }
-            else if (edCorreoA.getText().contains("@autoluxe.com")==false||edCorreoA.getText().length()>100)
-            {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Diálogo de Alerta");
-                alert.setHeaderText("Formato no válido");
-                alert.setContentText("El correo no tiene las credenciales de AutoLuxe [@autoluxe.com] o ha excedido de los 100 caracteres disponibles.");
-                alert.showAndWait();
-            }
-            else
-            {
-                Empleados empleado=new Empleados(edDNIA.getText(),edNombreA.getText(),edApellidosA.getText(),edTlfnoA.getText(),choiceBoxA.getValue(),edCorreoA.getText(),edContrasenaA.getText());
-                BDautoluxe.altaEmpleadoBD(empleado);
-                establecerEmpleadoAnadido(empleado);
+        if (edNombreA.getText().isEmpty() || edDNIA.getText().isEmpty() || edApellidosA.getText().isEmpty() || edCorreoA.getText().isEmpty() || edContrasenaA.getText().isEmpty()) {
+            mostrarAlerta(Alert.AlertType.WARNING, "Campos vacíos", "Por favor ingrese todos los campos.");
+        } else {
+            if (edNombreA.getText().length() > 25) {
+                mostrarAlerta(Alert.AlertType.WARNING, "Exceso de caracteres en Nombre.");
+            } else if (edApellidosA.getText().length() > 50) {
+                mostrarAlerta(Alert.AlertType.WARNING, "Exceso de caracteres en Apellidos.");
+            } else if (edTlfnoA.getText().length() > 12) {
+                mostrarAlerta(Alert.AlertType.WARNING, "Exceso de caracteres en Teléfono.");
+            } else if (edDNIA.getText().length() != 9) {
+                mostrarAlerta(Alert.AlertType.WARNING, "Número de caracteres", "El campo DNI debe de tener 9 caracteres.");
+            } else if (edContrasenaA.getText().length() < 8 || edContrasenaA.getText().length() > 50) {
+                mostrarAlerta(Alert.AlertType.WARNING, "Contraseña poca segura", "La contraseña tiene que tener más de 8 caracteres y menos de 50.");
+            } else if (!edCorreoA.getText().contains("@autoluxe.com") || edCorreoA.getText().length() > 100) {
+                mostrarAlerta(Alert.AlertType.WARNING, "Formato no válido", "El correo no tiene las credenciales de AutoLuxe [@autoluxe.com] o ha excedido de los 100 caracteres disponibles.");
+            } else {
+                if (!BDautoluxe.dniExisteEmpleado(edDNIA.getText()) && !BDautoluxe.correoExisteEmpleado(edCorreoA.getText())) {
+                    Empleados empleado = new Empleados(edDNIA.getText(), edNombreA.getText(), edApellidosA.getText(), edTlfnoA.getText(), choiceBoxA.getValue(), edCorreoA.getText(), edContrasenaA.getText());
+                    BDautoluxe.altaEmpleadoBD(empleado);
+                    establecerEmpleadoAnadido(empleado);
+                    establecerEmpleados();
+                    limpiarCampos();
+                } else if (BDautoluxe.dniExisteEmpleado(edDNIA.getText())) {
+                    mostrarAlerta(Alert.AlertType.WARNING, "DNI existente", "El DNI ingresado ya existe en la base de datos.");
+                } else {
+                    mostrarAlerta(Alert.AlertType.WARNING, "Correo existente", "El correo electrónico ingresado ya existe en la base de datos.");
+                }
             }
         }
-        bd.desconectar();
     }
+
+
+    @FXML
+    private void actualizarEmpleado() throws SQLException, ClassNotFoundException {
+        if (edNombreA1.getText().isEmpty() || edDNIA1.getText().isEmpty() || edApellidosA1.getText().isEmpty() || edCorreoA1.getText().isEmpty() || edContrasenaA1.getText().isEmpty()) {
+            mostrarAlerta(Alert.AlertType.WARNING, "Campos vacíos", "Por favor ingrese todos los campos.");
+        } else {
+            if (edNombreA1.getText().length() > 25) {
+                mostrarAlerta(Alert.AlertType.WARNING, "Exceso de caracteres en Nombre.");
+            } else if (edApellidosA1.getText().length() > 50) {
+                mostrarAlerta(Alert.AlertType.WARNING, "Exceso de caracteres en Apellidos.");
+            } else if (edTlfnoA1.getText().length() > 12) {
+                mostrarAlerta(Alert.AlertType.WARNING, "Exceso de caracteres en Teléfono.");
+            } else if (edDNIA1.getText().length() != 9) {
+                mostrarAlerta(Alert.AlertType.WARNING, "Número de caracteres", "El campo DNI debe de tener 9 caracteres.");
+            } else if (edContrasenaA1.getText().length() < 8 || edContrasenaA1.getText().length() > 50) {
+                mostrarAlerta(Alert.AlertType.WARNING, "Contraseña poca segura", "La contraseña tiene que tener más de 8 caracteres y menos de 50.");
+            } else if (!edCorreoA1.getText().contains("@autoluxe.com") || edCorreoA1.getText().length() > 100) {
+                mostrarAlerta(Alert.AlertType.WARNING, "Formato no válido", "El correo no tiene las credenciales de AutoLuxe [@autoluxe.com] o ha excedido de los 100 caracteres disponibles.");
+            } else {
+                Empleados empleado = new Empleados(edDNIA1.getText(), edNombreA1.getText(), edApellidosA1.getText(), edTlfnoA1.getText(), choiceBoxA1.getValue(), edCorreoA1.getText(), edContrasenaA1.getText());
+                BDautoluxe.actualizarEmpleadoBD(empleado);
+                establecerEmpleadoAnadido(empleado);
+
+                limpiarCampos1();
+
+                choiceBoxA1.setDisable(true);
+                edBuscar1.clear();
+                acBorrar.setDisable(true);
+                acEditar.setDisable(true);
+
+                establecerEmpleados();
+            }
+        }
+    }
+
+    private void mostrarAlerta(Alert.AlertType tipo, String encabezado) {
+        mostrarAlerta(tipo, encabezado, null);
+    }
+
+    private void mostrarAlerta(Alert.AlertType tipo, String encabezado, String contenido) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle("Diálogo de Alerta");
+        alert.setHeaderText(encabezado);
+        alert.setContentText(contenido);
+        alert.showAndWait();
+    }
+
+    private void limpiarCampos() {
+        TextField[] campos = {edNombreA, edApellidosA, edDNIA, edTlfnoA, edCorreoA, edContrasenaA};
+        for (TextField campo : campos) {
+            campo.clear();
+        }
+    }
+
+    private void limpiarCampos1() {
+        TextField[] campos = {edNombreA1, edApellidosA1, edDNIA1, edTlfnoA1, edCorreoA1, edContrasenaA1};
+        for (TextField campo : campos) {
+            campo.clear();
+            campo.setDisable(true);
+        }
+    }
+
+
     public void establecerEmpleados() throws SQLException, ClassNotFoundException {
         vistaEmpleadosA.getItems().clear();
-        bd.conectar();
         List<Empleados> listaEmpleados=BDautoluxe.listadoEmpleadosBD();
         vistaEmpleadosA.setItems((ObservableList<Empleados>) listaEmpleados);
         vistaEmpleadosA2.setItems((ObservableList<Empleados>) listaEmpleados);
-        bd.desconectar();
     }
+
     public void establecerEmpleadoAnadido(Empleados empleado)
     {
         vistaEmpleadoAnadido.getItems().clear();
@@ -253,6 +288,7 @@ public class ControladorEmpleadosYRoles  {
         listaEmpleado.add(empleado);
         vistaEmpleadoAnadido.setItems(listaEmpleado);
     }
+
     //Método para buscar en la tabla Empleados
     @FXML
     public void buscarDatosTablaEmpleados() throws SQLException, ClassNotFoundException {
@@ -262,13 +298,12 @@ public class ControladorEmpleadosYRoles  {
         {
             case "General"-> establecerEmpleados();
             default ->{
-                bd.conectar();
                 List<Empleados> listaEmpleados=BDautoluxe.listadoEmpleadosBD(opcion,edBuscar.getText());
                 vistaEmpleadosA.setItems((ObservableList<Empleados>)listaEmpleados);
-                bd.desconectar();
             }
         }
     }
+
     //Método para buscar en la tabla Empleados 2
     @FXML
     public void buscarDatosTablaEmpleados2() throws SQLException, ClassNotFoundException {
@@ -278,19 +313,17 @@ public class ControladorEmpleadosYRoles  {
         {
             case "General"-> establecerEmpleados();
             default ->{
-                bd.conectar();
                 List<Empleados> listaEmpleados=BDautoluxe.listadoEmpleadosBD(opcion,edBuscar2.getText());
                 vistaEmpleadosA2.setItems((ObservableList<Empleados>)listaEmpleados);
-                bd.desconectar();
             }
         }
     }
+
     //Método para buscar Empleado
     @FXML
     public void buscarEmpleado() throws  ClassNotFoundException {
         try
         {
-            bd.conectar();
             Empleados empleado=BDautoluxe.obtenerEmpleadoDNI(edBuscar1.getText());
             if(empleado==null)
             {
@@ -319,20 +352,31 @@ public class ControladorEmpleadosYRoles  {
                 acBorrar.setDisable(false);
                 acEditar.setDisable(false);
             }
-            bd.desconectar();
+
+            if(edBuscar1.getText().isEmpty()) {
+                TextField [] campos = {edNombreA1, edApellidosA1, edDNIA1, edTlfnoA1, edCorreoA1, edContrasenaA1};
+
+                for(TextField campo : campos) {
+                    campo.clear();
+                    campo.setDisable(true);
+                }
+                choiceBoxA1.setDisable(true);
+                acBorrar.setDisable(true);
+                acEditar.setDisable(true);
+            }
         }
-        catch (SQLException e)
+        catch (Exception e)
         {
             e.printStackTrace();
         }
 
     }
+
     //Método para borrar Empleado
     @FXML
     public void borrarEmpleado() throws ClassNotFoundException {
         try
         {
-            bd.conectar();
             BDautoluxe.borrarEmpleadoBD(edDNIA1.getText());
             edNombreA1.clear();
             edApellidosA1.clear();
@@ -351,13 +395,17 @@ public class ControladorEmpleadosYRoles  {
             edContrasenaA1.setDisable(true);
             acBorrar.setDisable(true);
             acEditar.setDisable(true);
-            bd.desconectar();
+
+            edBuscar1.clear();
+
+            establecerEmpleados();
         }
-        catch (SQLException e)
+        catch (Exception e)
         {
             e.printStackTrace();
         }
     }
+
     //Método para actualizar las tablas
     @FXML
     public void actualizarTablas() throws SQLException, ClassNotFoundException {
@@ -365,6 +413,7 @@ public class ControladorEmpleadosYRoles  {
 
         vistaEmpleadoAnadido.getItems().clear();
     }
+
     //Método para inicializar las columnas y que se vean
     private void iniciarColumnas()
     {

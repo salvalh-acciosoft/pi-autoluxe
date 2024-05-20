@@ -1,5 +1,6 @@
 package com.example.autoluxe;
 
+import ClasesObjetos.BDautoluxe;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +12,7 @@ import javafx.stage.Stage;
 
 public class ControladorClientes
 {
+    BDautoluxe bd = new BDautoluxe();
     @FXML
     private AnchorPane contenedor;
     @FXML

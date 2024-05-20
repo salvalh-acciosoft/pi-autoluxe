@@ -37,7 +37,6 @@ public class ControladorServicios implements Initializable {
         panelGestorServicios.setVisible(true);
     }
 
-
     @FXML
     private void cerrarVentana()
     {
@@ -45,12 +44,6 @@ public class ControladorServicios implements Initializable {
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_InicioSesion.fxml"));
             Parent root = loader.load();
-//          Stage nuevaVentana = new Stage();
-//          nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título
-//          nuevaVentana.setScene(new Scene(root,1920,1000));
-//          Stage ventanaActual = (Stage) btnCerrarSesion.getScene().getWindow();
-//          ventanaActual.close();
-//          nuevaVentana.show();
             contenedor.getChildren().setAll(root);
         }
         catch (IOException e)

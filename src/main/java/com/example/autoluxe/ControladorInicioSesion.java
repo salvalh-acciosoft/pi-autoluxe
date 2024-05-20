@@ -3,6 +3,7 @@ package com.example.autoluxe;
 import ClasesObjetos.BDautoluxe;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -16,12 +17,14 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
-public class ControladorInicioSesion {
+public class ControladorInicioSesion implements Initializable {
     BDautoluxe bd = new BDautoluxe();
     @FXML
     private AnchorPane contenedor;
@@ -35,6 +38,10 @@ public class ControladorInicioSesion {
     private Label msgError2;
     @FXML
     private Label msgError1;
+
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 
     @FXML
     private void accionBt1() throws IOException, SQLException, ClassNotFoundException {
@@ -95,7 +102,6 @@ public class ControladorInicioSesion {
                 e.printStackTrace();
             }
         }
-        bd.desconectar();
     }
     @FXML
     private void abrirAplicacion() {
@@ -143,4 +149,6 @@ public class ControladorInicioSesion {
             e.printStackTrace();
         }
     }
+
+
 }

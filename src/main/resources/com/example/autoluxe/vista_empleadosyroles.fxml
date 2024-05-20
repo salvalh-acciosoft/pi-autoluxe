@@ -160,7 +160,7 @@
                <center>
                   <Pane prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" BorderPane.alignment="CENTER">
                      <children>
-                        <Pane fx:id="panelCuerpo" prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css">
+                        <Pane fx:id="panelCuerpo" prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" visible="false">
                            <children>
                               <ImageView fitHeight="554.0" fitWidth="759.0" layoutX="139.0" layoutY="107.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -172,17 +172,44 @@
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
+                              <TextField fx:id="edNombreA" layoutX="136.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label layoutX="460.0" layoutY="177.0" text="Apellidos:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="edApellidosA" layoutX="457.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
                               <Label layoutX="137.0" layoutY="255.0" text="DNI:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="136.0" layoutY="343.0">
+                              <TextField fx:id="edDNIA" layoutX="136.0" layoutY="287.0" prefHeight="30.0" prefWidth="280.0" promptText="dni (9 caracteres)" />
+                              <Label layoutX="459.0" layoutY="254.0" text="Teléfono:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="460.0" layoutY="177.0" text="Apellidos:">
+                              <TextField fx:id="edTlfnoA" layoutX="457.0" layoutY="286.0" prefHeight="30.0" prefWidth="280.0" promptText="máximo 12 caracteres" />
+                              <Label layoutX="138.0" layoutY="336.0" text="Rol:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox fx:id="choiceBoxA" layoutX="136.0" layoutY="369.0" prefHeight="30.0" prefWidth="179.0" />
+                              <Label layoutX="137.0" layoutY="421.0" text="Correo:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="edCorreoA" layoutX="136.0" layoutY="447.0" prefHeight="30.0" prefWidth="600.0" promptText="example@autoluxe.com" />
+                              <Label layoutX="137.0" layoutY="499.0" text="Contraseña:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField fx:id="edContrasenaA" layoutX="136.0" layoutY="531.0" prefHeight="30.0" prefWidth="600.0" promptText="·········" />
+                              <Label layoutX="136.0" layoutY="343.0">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
@@ -212,7 +239,6 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <TextField fx:id="edApellidosA" layoutX="457.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
                               <TableView fx:id="vistaEmpleadosA" layoutX="921.0" layoutY="243.0" prefHeight="215.0" prefWidth="662.0">
                                  <columns>
                                     <TableColumn fx:id="colDNIEmpleadoA" prefWidth="110.0" text="DNI" />
@@ -226,8 +252,6 @@
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                  </columnResizePolicy>
                               </TableView>
-                              <TextField fx:id="edDNIA" layoutX="136.0" layoutY="287.0" prefHeight="30.0" prefWidth="280.0" promptText="dni (9 caracteres)" />
-                              <TextField fx:id="edNombreA" layoutX="136.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
                               <Label alignment="CENTER" layoutX="191.0" layoutY="54.0" prefHeight="72.0" prefWidth="492.0" text="AÑADIR EMPLEADO" textAlignment="CENTER">
                                  <font>
                                     <Font name="Microsoft New Tai Lue Bold" size="48.0" />
@@ -277,30 +301,6 @@
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                  </columnResizePolicy>
                               </TableView>
-                              <Label layoutX="459.0" layoutY="254.0" text="Teléfono:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="edTlfnoA" layoutX="457.0" layoutY="286.0" prefHeight="30.0" prefWidth="280.0" promptText="máximo 12 caracteres" />
-                              <ChoiceBox fx:id="choiceBoxA" layoutX="136.0" layoutY="369.0" prefHeight="30.0" prefWidth="179.0" />
-                              <Label layoutX="138.0" layoutY="336.0" text="Rol:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="137.0" layoutY="421.0" text="Correo:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="137.0" layoutY="499.0" text="Contraseña:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <PasswordField fx:id="edContrasenaA" layoutX="136.0" layoutY="531.0" prefHeight="30.0" prefWidth="600.0" promptText="·········" />
-                              <TextField fx:id="edCorreoA" layoutX="136.0" layoutY="447.0" prefHeight="30.0" prefWidth="600.0" promptText="example@autoluxe.com" />
                               <Button layoutX="1333.0" layoutY="194.0" mnemonicParsing="false" onAction="#actualizarTablas" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: transparent;">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
@@ -323,6 +323,76 @@
                                  </image>
                               </ImageView>
                               <Line endX="499.0" layoutX="248.0" layoutY="168.0" startX="-100.0" />
+                              <Label layoutX="149.0" layoutY="183.0" text="Buscar empleado[DNI]:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="edBuscar1" layoutX="148.0" layoutY="209.0" prefHeight="30.0" prefWidth="200.0" />
+                              <Button fx:id="btnBuscar1" layoutX="348.0" layoutY="208.0" mnemonicParsing="false" onAction="#buscarEmpleado" prefHeight="31.0" prefWidth="80.0" style="-fx-background-color: #000000;">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../imagenes/lupa.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Label layoutX="149.0" layoutY="257.0" text="Nombre:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="edNombreA1" disable="true" layoutX="148.0" layoutY="283.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label layoutX="472.0" layoutY="257.0" text="Apellidos:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="edApellidosA1" disable="true" layoutX="469.0" layoutY="283.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label layoutX="149.0" layoutY="335.0" text="DNI:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="edDNIA1" disable="true" layoutX="148.0" layoutY="367.0" prefHeight="30.0" prefWidth="280.0" promptText="dni(9 caracteres)" />
+                              <Label layoutX="471.0" layoutY="334.0" text="Teléfono:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="edTlfnoA1" disable="true" layoutX="469.0" layoutY="366.0" prefHeight="30.0" prefWidth="280.0" promptText="máximo 12 caracteres" />
+                              <Label layoutX="150.0" layoutY="416.0" text="Rol:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox fx:id="choiceBoxA1" disable="true" layoutX="148.0" layoutY="449.0" prefHeight="30.0" prefWidth="179.0" />
+                              <Label layoutX="149.0" layoutY="501.0" text="Correo:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="edCorreoA1" disable="true" layoutX="148.0" layoutY="527.0" prefHeight="30.0" prefWidth="600.0" promptText="example@autoluxe.com" />
+                              <Label layoutX="149.0" layoutY="579.0" text="Contraseña:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField fx:id="edContrasenaA1" disable="true" layoutX="148.0" layoutY="606.0" prefHeight="30.0" prefWidth="600.0" promptText="·········" />
+                              <Button fx:id="acBorrar" disable="true" layoutX="149.0" layoutY="678.0" mnemonicParsing="false" onAction="#borrarEmpleado" prefHeight="44.0" prefWidth="280.0" text="DAR DE BAJA">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="acEditar" disable="true" layoutX="469.0" layoutY="678.0" mnemonicParsing="false" onAction="#actualizarEmpleado" prefHeight="44.0" prefWidth="280.0" text="EDITAR">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="14.0" />
+                                 </font>
+                              </Button>
                               <Button fx:id="btnAnadirEmpleado" layoutX="223.0" layoutY="134.0" mnemonicParsing="false" onAction="#abrirAñadirEmpleados" prefHeight="36.0" prefWidth="215.0" stylesheets="@../../../style/estilo_app.css" text="AÑADIR EMPLEADO">
                                  <graphic>
                                     <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
@@ -352,11 +422,6 @@
                                     <Font name="Microsoft New Tai Lue Bold" size="48.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="acBorrar" disable="true" layoutX="149.0" layoutY="678.0" mnemonicParsing="false" onAction="#borrarEmpleado" prefHeight="44.0" prefWidth="280.0" text="DAR DE BAJA">
-                                 <font>
-                                    <Font name="Microsoft New Tai Lue Bold" size="14.0" />
-                                 </font>
-                              </Button>
                               <ChoiceBox fx:id="cbBusquedaEmpleadosA1" layoutX="1405.0" layoutY="190.0" prefHeight="30.0" prefWidth="179.0" />
                               <TextField fx:id="edBuscar2" layoutX="922.0" layoutY="190.0" prefHeight="31.0" prefWidth="285.0" />
                               <Button fx:id="btnBuscar2" layoutX="1207.0" layoutY="190.0" mnemonicParsing="false" onAction="#buscarDatosTablaEmpleados2" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: #000000;">
@@ -371,76 +436,12 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="acEditar" disable="true" layoutX="469.0" layoutY="678.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="EDITAR">
-                                 <font>
-                                    <Font name="Microsoft New Tai Lue Bold" size="14.0" />
-                                 </font>
-                              </Button>
                               <Label alignment="CENTER" layoutX="921.0" layoutY="113.0" prefHeight="47.0" prefWidth="154.0" text="EMPLEADOS" textAlignment="CENTER">
                                  <font>
                                     <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                                  </font>
                               </Label>
                               <Line endX="559.0" layoutX="1022.0" layoutY="169.0" startX="-100.0" />
-                              <Label layoutX="149.0" layoutY="257.0" text="Nombre:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="149.0" layoutY="335.0" text="DNI:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="472.0" layoutY="257.0" text="Apellidos:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="edApellidosA1" disable="true" layoutX="469.0" layoutY="283.0" prefHeight="30.0" prefWidth="280.0" />
-                              <TextField fx:id="edDNIA1" disable="true" layoutX="148.0" layoutY="367.0" prefHeight="30.0" prefWidth="280.0" promptText="dni(9 caracteres)" />
-                              <TextField fx:id="edNombreA1" disable="true" layoutX="148.0" layoutY="283.0" prefHeight="30.0" prefWidth="280.0" />
-                              <Label layoutX="471.0" layoutY="334.0" text="Teléfono:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="edTlfnoA1" disable="true" layoutX="469.0" layoutY="366.0" prefHeight="30.0" prefWidth="280.0" promptText="máximo 12 caracteres" />
-                              <ChoiceBox fx:id="choiceBoxA1" disable="true" layoutX="148.0" layoutY="449.0" prefHeight="30.0" prefWidth="179.0" />
-                              <Label layoutX="150.0" layoutY="416.0" text="Rol:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="149.0" layoutY="501.0" text="Correo:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="149.0" layoutY="579.0" text="Contraseña:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="edCorreoA1" disable="true" layoutX="148.0" layoutY="527.0" prefHeight="30.0" prefWidth="600.0" promptText="example@autoluxe.com" />
-                              <Label layoutX="149.0" layoutY="183.0" text="Buscar empleado[DNI]:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="edBuscar1" layoutX="148.0" layoutY="209.0" prefHeight="30.0" prefWidth="200.0" />
-                              <Button fx:id="btnBuscar1" layoutX="348.0" layoutY="208.0" mnemonicParsing="false" onAction="#buscarEmpleado" prefHeight="31.0" prefWidth="80.0" style="-fx-background-color: #000000;">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../imagenes/lupa.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
                               <Button fx:id="btnActualizar1" layoutX="1333.0" layoutY="187.0" mnemonicParsing="false" onAction="#actualizarTablas" prefHeight="17.0" prefWidth="47.0" style="-fx-background-color: transparent;">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
@@ -466,7 +467,6 @@
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                  </columnResizePolicy>
                               </TableView>
-                              <PasswordField fx:id="edContrasenaA1" disable="true" layoutX="148.0" layoutY="606.0" prefHeight="30.0" prefWidth="600.0" promptText="·········" />
                            </children>
                         </Pane>
                      </children>

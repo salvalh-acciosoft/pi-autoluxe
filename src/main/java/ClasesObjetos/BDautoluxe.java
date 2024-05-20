@@ -9,10 +9,14 @@ import java.util.List;
 
 public class BDautoluxe
 {
-    private String url="jdbc:mysql://roundhouse.proxy.rlwy.net:24175/railway";
+    // -----------------------------------------------------------------------------------------------------------------
+    // CONEXIÓN Y DESCONEXIÓN CON LA BASE DE DATOS
+    // -----------------------------------------------------------------------------------------------------------------
+    private String url="jdbc:mysql://monorail.proxy.rlwy.net:23659/railway";
     private String user="root";
-    private String password="SeDNPlxucedhntNuhKnZYwEfzcgPtiGI";
+    private String password="VqtxFIxDedWebvmMbtzzWNwtdWlSGmAF";
     public static Connection connection=null;
+
     //Método para conectar con la base de datos
     public void conectar() throws SQLException, ClassNotFoundException
     {
@@ -36,6 +40,10 @@ public class BDautoluxe
     {
         return connection;
     }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // EMPLEADOS
+    // -----------------------------------------------------------------------------------------------------------------
     //Método añadir empleados a la base de datos
     public static void altaEmpleadoBD(@NotNull Empleados empleado)
     {
@@ -53,23 +61,116 @@ public class BDautoluxe
 
             st.executeUpdate();
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Diálogo de Alerta");
-            alert.setHeaderText("Empleado añadido.");
-            alert.showAndWait();
+            mostrarAlerta(Alert.AlertType.INFORMATION, "Empleado añadido.", "");
         }
         catch (SQLException e)
         {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Diálogo de Alerta");
-            alert.setHeaderText("DNI existente");
-            alert.showAndWait();
+            mostrarAlerta(Alert.AlertType.WARNING, "DNI existente", "");
         }
     }
+
+    // Método para comprobar si existe el dni
+    public static boolean dniExisteEmpleado(String dni) {
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        boolean existe = false;
+        try {
+            st = connection.prepareStatement("SELECT COUNT(*) FROM empleados WHERE DNI = ?");
+            st.setString(1, dni);
+            rs = st.executeQuery();
+            if (rs.next()) {
+                existe = rs.getInt(1) > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return existe;
+    }
+
+    //Método para comprobar el correo
+    public static boolean correoExisteEmpleado(String correo) {
+        boolean existe = false;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            String query = "SELECT COUNT(*) FROM empleados WHERE correo=?";
+            st = connection.prepareStatement(query);
+            st.setString(1, correo);
+            rs = st.executeQuery();
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                existe = count > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return existe;
+    }
+
+    // Método para actualizar un empleado
+    public static void actualizarEmpleadoBD(@NotNull Empleados empleado) {
+        PreparedStatement st = null;
+        try {
+            st = connection.prepareStatement("UPDATE empleados SET nombre = ?, apellidos = ?, telefono = ?, rol = ?, correo = ?, contraseña = ? WHERE DNI = ?");
+
+            st.setString(1, empleado.getNombre());
+            st.setString(2, empleado.getApellidos());
+            st.setString(3, empleado.getTelefono());
+            st.setString(4, empleado.getRol());
+            st.setString(5, empleado.getCorreo());
+            st.setString(6, empleado.getContrasena());
+            st.setString(7, empleado.getDNI());
+
+            st.executeUpdate();
+
+            mostrarAlerta(Alert.AlertType.INFORMATION, "Empleado actualizado.", "");
+        } catch (SQLException e) {
+            mostrarAlerta(Alert.AlertType.WARNING, "Error al actualizar el empleado.", "");
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
     //Método mostrar Empleados
     public static List<Empleados> listadoEmpleadosBD()
     {
-        List<Empleados> listaVehiculos = FXCollections.observableArrayList();
+        List<Empleados> listaEmpleados = FXCollections.observableArrayList();
         PreparedStatement st = null;
         ResultSet rs = null;
         try
@@ -86,15 +187,16 @@ public class BDautoluxe
                 String correo = rs.getString("correo");
                 String contrasena = rs.getString("contraseña");
                 Empleados empleado = new Empleados(DNI, nombre, apellidos,telefono,rol,correo,contrasena);
-                listaVehiculos.add(empleado);
+                listaEmpleados.add(empleado);
             }
         }
         catch (SQLException e)
         {
             e.printStackTrace();
         }
-        return listaVehiculos;
+        return listaEmpleados;
     }
+
     //Método mostrar Empleados segun la opcion
     public static List<Empleados> listadoEmpleadosBD(String opcion, String busqueda)
     {
@@ -199,6 +301,7 @@ public class BDautoluxe
         }
         return listaVehiculos;
     }
+
     //Método para obtener un Empleado[DNI]
     public static Empleados obtenerEmpleadoDNI(String busqueda)
     {
@@ -228,20 +331,166 @@ public class BDautoluxe
         }
         return e;
     }
+
     //Método para borrar un Empleado[DNI]
-    public static void borrarEmpleadoBD(String busqueda)
-    {
+    public static void borrarEmpleadoBD(String busqueda) {
         PreparedStatement st = null;
-        try
-        {
+        try {
             String query = "DELETE FROM empleados WHERE DNI=?";
             st = connection.prepareStatement(query);
             st.setString(1, busqueda);
             st.executeUpdate();
-        }
-        catch (SQLException i)
-        {
-            i.printStackTrace();
+
+            mostrarAlerta(Alert.AlertType.INFORMATION, "Empleado eliminado", "El empleado ha sido eliminado correctamente.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            mostrarAlerta(Alert.AlertType.ERROR, "Error al eliminar empleado", "Ha ocurrido un error al intentar eliminar el empleado.");
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
+
+    private static void mostrarAlerta(Alert.AlertType tipo, String encabezado, String contenido) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle("Diálogo de Alerta");
+        alert.setHeaderText(encabezado);
+        alert.setContentText(contenido);
+        alert.showAndWait();
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // CLIENTES
+    // -----------------------------------------------------------------------------------------------------------------
+    // Método para insertar un cliente en la base de datos
+    public static void insertarCliente(Clientes cliente) {
+        PreparedStatement st = null;
+        try {
+            String query = "INSERT INTO clientes (DNI, nombre, apellidos, telefono, correo) VALUES (?, ?, ?, ?, ?)";
+            st = connection.prepareStatement(query);
+            st.setString(1, cliente.getDNI());
+            st.setString(2, cliente.getNombre());
+            st.setString(3, cliente.getApellidos());
+            st.setString(4, cliente.getTelefono());
+            st.setString(5, cliente.getCorreo());
+            st.executeUpdate();
+            mostrarAlerta(Alert.AlertType.INFORMATION, "Cliente insertado correctamente", "El cliente se ha insertado correctamente.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            mostrarAlerta(Alert.AlertType.ERROR, "Error al insertar cliente", "Ha ocurrido un error al intentar insertar el cliente.");
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+
+    //Método mostrar Clientes
+    public static List<Clientes> listadoClientesBD()
+    {
+        List<Clientes> listaClientes = FXCollections.observableArrayList();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try
+        {
+            st=connection.prepareStatement("SELECT * FROM clientes");
+
+            rs=st.executeQuery();
+            while (rs.next()) {
+                String DNI = rs.getString("DNI");
+                String nombre = rs.getString("nombre");
+                String apellidos = rs.getString("apellidos");
+                String telefono = rs.getString("telefono");
+                String correo = rs.getString("correo");
+                Clientes cliente = new Clientes(DNI, nombre, apellidos, telefono, correo);
+                listaClientes.add(cliente);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return listaClientes;
+    }
+
+    // Método para verificar si un DNI ya existe en la base de datos
+    public static boolean dniExisteCliente(String dni) {
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            String query = "SELECT COUNT(*) AS count FROM clientes WHERE DNI = ?";
+            st = connection.prepareStatement(query);
+            st.setString(1, dni);
+            rs = st.executeQuery();
+            if (rs.next()) {
+                int count = rs.getInt("count");
+                return count > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return false;
+    }
+
+    // Método para verificar si un correo ya existe en la base de datos
+    public static boolean correoExisteCliente(String correo) {
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            String query = "SELECT COUNT(*) AS count FROM clientes WHERE correo = ?";
+            st = connection.prepareStatement(query);
+            st.setString(1, correo);
+            rs = st.executeQuery();
+            if (rs.next()) {
+                int count = rs.getInt("count");
+                return count > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return false;
+    }
+
+
+    // -----------------------------------------------------------------------------------------------------------------
 }
