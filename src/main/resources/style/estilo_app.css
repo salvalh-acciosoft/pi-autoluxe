@@ -39,14 +39,14 @@
     -fx-font-weight: bold;
 }
 
-#acAnadir,#acEditar,#acAnadir1,#acEditar1,#acAnadir2,#acAccion {
+#acAnadir,#acEditar,#acEditar2,#acAnadir1,#acEditar1,#acAnadir2,#acAccion {
     -fx-background-color: #FFA423;
     -fx-text-fill: white;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
 }
 
-#acAnadir:hover,#acEditar:hover,#acAnadir1:hover,#acEditar1:hover,#acAnadir2:hover,#acAccion:hover {
+#acAnadir:hover,#acEditar:hover,#acAnadir1:hover,#acEditar1:hover,#acAnadir2:hover,#acAccion:hover,#acEditar2:hover {
     -fx-background-color: #ffffff;
     -fx-text-fill: #FFA423;
     -fx-border-radius: 10px;
@@ -55,7 +55,7 @@
     -fx-border-width: 1px;
 }
 
-#acAnadir:pressed,#acEditar:pressed,#acAnadir1:pressed,#acEditar1:pressed,#acAnadir2:pressed,#acAccion:pressed {
+#acAnadir:pressed,#acEditar:pressed,#acAnadir1:pressed,#acEditar1:pressed,#acAnadir2:pressed,#acAccion:pressed,#acEditar2:pressed {
     -fx-background-color: #FFA423;
     -fx-text-fill: white;
 }

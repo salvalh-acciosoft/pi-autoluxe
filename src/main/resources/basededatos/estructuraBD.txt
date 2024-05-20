@@ -28,7 +28,7 @@ CREATE TABLE tareas (
 -- Crear la tabla 'clientes'
 
 CREATE TABLE clientes (
-  DNI CHAR(9) PRIMARY KEY,
+  DNI CHAR(9) PRIMARY KEY UNIQUE,
   nombre VARCHAR(25),
   apellidos VARCHAR(50),
   telefono VARCHAR(12),

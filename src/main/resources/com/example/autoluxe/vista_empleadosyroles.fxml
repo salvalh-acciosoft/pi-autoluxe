@@ -160,7 +160,7 @@
                <center>
                   <Pane prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" BorderPane.alignment="CENTER">
                      <children>
-                        <Pane fx:id="panelCuerpo" prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" visible="false">
+                        <Pane fx:id="panelCuerpo" prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css">
                            <children>
                               <ImageView fitHeight="554.0" fitWidth="759.0" layoutX="139.0" layoutY="107.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -315,7 +315,7 @@
                               </Button>
                            </children>
                         </Pane>
-                        <Pane fx:id="panelCuerpo1" prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css">
+                        <Pane fx:id="panelCuerpo1" prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" visible="false">
                            <children>
                               <ImageView fitHeight="554.0" fitWidth="753.0" layoutX="139.0" layoutY="107.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                  <image>
