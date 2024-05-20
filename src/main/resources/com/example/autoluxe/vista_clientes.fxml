@@ -159,7 +159,7 @@
                <center>
                   <Pane prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" BorderPane.alignment="CENTER">
                      <children>
-                        <Pane fx:id="panelCuerpo" prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" visible="false">
+                        <Pane fx:id="panelCuerpo" prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css">
                            <children>
                               <ImageView fitHeight="554.0" fitWidth="759.0" layoutX="139.0" layoutY="107.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -243,7 +243,7 @@
                                  </font>
                               </Label>
                               <ChoiceBox fx:id="cbCombustible" layoutX="457.0" layoutY="646.0" prefHeight="30.0" prefWidth="280.0" />
-                              <Button fx:id="acAnadir" layoutX="136.0" layoutY="710.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="600.0" text="AÑADIR">
+                              <Button fx:id="acAnadir" layoutX="136.0" layoutY="710.0" mnemonicParsing="false" onAction="#introducirClienteBD" prefHeight="44.0" prefWidth="600.0" text="AÑADIR">
                                  <font>
                                     <Font name="Microsoft New Tai Lue Bold" size="14.0" />
                                  </font>
@@ -251,11 +251,11 @@
                               <Line endX="499.0" layoutX="237.0" layoutY="161.0" startX="-100.0" />
                               <TableView fx:id="tablaClientes" layoutX="921.0" layoutY="243.0" prefHeight="307.0" prefWidth="662.0">
                                  <columns>
-                                    <TableColumn prefWidth="118.0" text="DNI" />
-                                    <TableColumn minWidth="0.0" prefWidth="127.0" text="Nombre" />
-                                    <TableColumn minWidth="0.0" prefWidth="133.0" text="Apellidos" />
-                                    <TableColumn prefWidth="118.0" text="Teléfono" />
-                                    <TableColumn prefWidth="165.0" text="Correo" />
+                                    <TableColumn fx:id="colDNI" prefWidth="103.0" text="DNI" />
+                                    <TableColumn fx:id="colNombre" minWidth="0.0" prefWidth="121.0" text="Nombre" />
+                                    <TableColumn fx:id="colApellidos" minWidth="0.0" prefWidth="143.0" text="Apellidos" />
+                                    <TableColumn fx:id="colTelefono" prefWidth="99.0" text="Teléfono" />
+                                    <TableColumn fx:id="colCorreo" prefWidth="195.0" text="Correo" />
                                  </columns>
                               </TableView>
                               <Label alignment="CENTER" layoutX="191.0" layoutY="54.0" prefHeight="72.0" prefWidth="492.0" text="AÑADIR CLIENTE" textAlignment="CENTER">
@@ -291,9 +291,11 @@
                               <Line endX="559.0" layoutX="1022.0" layoutY="618.0" startX="-100.0" />
                               <TableView fx:id="tablaCliente" layoutX="921.0" layoutY="643.0" prefHeight="115.0" prefWidth="662.0">
                                  <columns>
-                                    <TableColumn prefWidth="121.0" text="A" />
-                                    <TableColumn minWidth="0.0" prefWidth="329.0" text="B" />
-                                    <TableColumn prefWidth="210.0" text="C" />
+                                    <TableColumn fx:id="colDNI1" prefWidth="89.0" text="DNI" />
+                                    <TableColumn fx:id="colNombre1" minWidth="0.0" prefWidth="115.0" text="Nombre" />
+                                    <TableColumn fx:id="colApellidos1" prefWidth="191.0" text="Apellidos" />
+                                    <TableColumn fx:id="colTelefono1" prefWidth="106.0" text="Teléfono" />
+                                    <TableColumn fx:id="colCorreo1" prefWidth="160.0" text="Correo" />
                                  </columns>
                               </TableView>
                               <Pane fx:id="submenu" layoutX="136.0" layoutY="121.0">
@@ -350,7 +352,7 @@
                               </Pane>
                            </children>
                         </Pane>
-                        <Pane fx:id="panelCuerpo1" prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css">
+                        <Pane fx:id="panelCuerpo1" prefHeight="880.0" prefWidth="1620.0" stylesheets="@../../../style/estilo_app.css" visible="false">
                            <children>
                               <ImageView fitHeight="554.0" fitWidth="753.0" layoutX="136.0" layoutY="105.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -365,19 +367,21 @@
                               </Label>
                               <TableView layoutX="922.0" layoutY="236.0" prefHeight="436.0" prefWidth="662.0">
                                  <columns>
-                                    <TableColumn prefWidth="214.0" text="A" />
-                                    <TableColumn minWidth="0.0" prefWidth="236.0" text="B" />
-                                    <TableColumn prefWidth="210.0" text="C" />
+                                    <TableColumn prefWidth="107.0" text="DNI" />
+                                    <TableColumn minWidth="0.0" prefWidth="117.0" text="Nombre" />
+                                    <TableColumn prefWidth="171.0" text="Apellidos" />
+                                    <TableColumn prefWidth="103.0" text="Teléfono" />
+                                    <TableColumn prefWidth="163.0" text="Correo" />
                                  </columns>
                               </TableView>
-                              <Button fx:id="acBorrar" layoutX="140.0" layoutY="617.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="DAR DE BAJA">
+                              <Button fx:id="acBorrar" disable="true" layoutX="140.0" layoutY="617.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="DAR DE BAJA">
                                  <font>
                                     <Font name="Microsoft New Tai Lue Bold" size="14.0" />
                                  </font>
                               </Button>
-                              <ChoiceBox layoutX="1405.0" layoutY="190.0" prefHeight="30.0" prefWidth="179.0" />
-                              <TextField layoutX="922.0" layoutY="190.0" prefHeight="31.0" prefWidth="285.0" />
-                              <Button fx:id="btnBuscar11" layoutX="1207.0" layoutY="190.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: #000000;">
+                              <ChoiceBox fx:id="cbOpcion2" layoutX="1405.0" layoutY="190.0" prefHeight="30.0" prefWidth="179.0" />
+                              <TextField fx:id="tfBuscar2" layoutX="922.0" layoutY="190.0" prefHeight="31.0" prefWidth="285.0" />
+                              <Button fx:id="btnBuscar1" layoutX="1207.0" layoutY="190.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: #000000;">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
@@ -389,7 +393,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="acEditar" layoutX="460.0" layoutY="617.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="EDITAR">
+                              <Button fx:id="acEditar" disable="true" layoutX="460.0" layoutY="617.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" text="EDITAR">
                                  <font>
                                     <Font name="Microsoft New Tai Lue Bold" size="14.0" />
                                  </font>
@@ -415,27 +419,27 @@
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="140.0" layoutY="283.0" prefHeight="30.0" prefWidth="280.0" />
-                              <TextField layoutX="461.0" layoutY="283.0" prefHeight="30.0" prefWidth="280.0" />
-                              <TextField layoutX="140.0" layoutY="367.0" prefHeight="30.0" prefWidth="280.0" />
+                              <TextField fx:id="tfNombre2" disable="true" layoutX="140.0" layoutY="283.0" prefHeight="30.0" prefWidth="280.0" />
+                              <TextField fx:id="tfApellidos2" disable="true" layoutX="461.0" layoutY="283.0" prefHeight="30.0" prefWidth="280.0" />
+                              <TextField fx:id="tfDNI2" disable="true" layoutX="140.0" layoutY="367.0" prefHeight="30.0" prefWidth="280.0" />
                               <Label layoutX="463.0" layoutY="334.0" text="Teléfono:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="461.0" layoutY="366.0" prefHeight="30.0" prefWidth="280.0" />
+                              <TextField fx:id="tfTelefono2" disable="true" layoutX="461.0" layoutY="366.0" prefHeight="30.0" prefWidth="280.0" />
                               <Label layoutX="140.0" layoutY="440.0" text="Correo:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="139.0" layoutY="466.0" prefHeight="30.0" prefWidth="600.0" />
+                              <TextField fx:id="tfCorreo" disable="true" layoutX="139.0" layoutY="466.0" prefHeight="30.0" prefWidth="600.0" />
                               <Label layoutX="141.0" layoutY="183.0" text="Buscar cliente[DNI]:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="140.0" layoutY="209.0" prefHeight="30.0" prefWidth="200.0" />
+                              <TextField fx:id="tfBuscarDNI" layoutX="140.0" layoutY="209.0" prefHeight="30.0" prefWidth="200.0" />
                               <Pane fx:id="submenu1" layoutX="136.0" layoutY="126.0">
                                  <children>
                                     <Button layoutX="294.0" layoutY="2.0" mnemonicParsing="false" onAction="#abrirAñadirVehiculo" prefHeight="36.0" prefWidth="161.0" stylesheets="@../../../style/estilo_app.css" text="AÑADIR VEHÍCULO">

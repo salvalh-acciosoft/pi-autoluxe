@@ -134,9 +134,6 @@ public class ControladorEmpleadosYRoles  {
     public void initialize() throws SQLException, ClassNotFoundException {
         bd.conectar();
 
-
-
-
         //Aplicamos la lista al ChoiceBox
         choiceBoxA.getItems().addAll(roles);
         choiceBoxA.getSelectionModel().select(1);

@@ -394,6 +394,63 @@ public class BDautoluxe
         }
     }
 
+    // Método para editar un cliente en la base de datos
+    public static void editarCliente(Clientes cliente) {
+        PreparedStatement st = null;
+        try {
+            String query = "UPDATE clientes SET nombre=?, apellidos=?, telefono=?, correo=? WHERE DNI=?";
+            st = connection.prepareStatement(query);
+            st.setString(1, cliente.getNombre());
+            st.setString(2, cliente.getApellidos());
+            st.setString(3, cliente.getTelefono());
+            st.setString(4, cliente.getCorreo());
+            st.setString(5, cliente.getDNI());
+            int filasActualizadas = st.executeUpdate();
+            if (filasActualizadas > 0) {
+                mostrarAlerta(Alert.AlertType.INFORMATION, "Cliente actualizado correctamente", "Los datos del cliente se han actualizado correctamente.");
+            } else {
+                mostrarAlerta(Alert.AlertType.WARNING, "Error al actualizar cliente", "No se pudo encontrar el cliente para actualizar.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            mostrarAlerta(Alert.AlertType.ERROR, "Error al actualizar cliente", "Ha ocurrido un error al intentar actualizar el cliente.");
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    // Método para eliminar un cliente de la base de datos
+    public static void eliminarCliente(String dni) {
+        PreparedStatement st = null;
+        try {
+            String query = "DELETE FROM clientes WHERE DNI=?";
+            st = connection.prepareStatement(query);
+            st.setString(1, dni);
+            int filasEliminadas = st.executeUpdate();
+            if (filasEliminadas > 0) {
+                mostrarAlerta(Alert.AlertType.INFORMATION, "Cliente eliminado correctamente", "El cliente se ha eliminado correctamente.");
+            } else {
+                mostrarAlerta(Alert.AlertType.WARNING, "Error al eliminar cliente", "No se pudo encontrar el cliente para eliminar.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            mostrarAlerta(Alert.AlertType.ERROR, "Error al eliminar cliente", "Ha ocurrido un error al intentar eliminar el cliente.");
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
     //Método mostrar Clientes
     public static List<Clientes> listadoClientesBD()
