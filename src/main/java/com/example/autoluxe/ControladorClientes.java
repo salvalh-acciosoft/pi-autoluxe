@@ -2,7 +2,6 @@ package com.example.autoluxe;
 
 import ClasesObjetos.BDautoluxe;
 import ClasesObjetos.Clientes;
-import ClasesObjetos.Empleados;
 import ClasesObjetos.Vehiculos;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

@@ -341,7 +341,6 @@ public class ControladorEmpleadosYRoles  {
 
                 edNombreA1.setDisable(false);
                 edApellidosA1.setDisable(false);
-                edDNIA1.setDisable(false);
                 edTlfnoA1.setDisable(false);
                 choiceBoxA1.setDisable(false);
                 edCorreoA1.setDisable(false);

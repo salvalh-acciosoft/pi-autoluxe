@@ -438,7 +438,6 @@ public class BDautoluxe
             st = connection.prepareStatement(query);
             st.setString(1, dni);
             st.executeUpdate();
-
             mostrarAlerta(Alert.AlertType.INFORMATION, "Cliente eliminado", "El cliente ha sido eliminado correctamente.");
         } catch (SQLException e) {
             e.printStackTrace();
