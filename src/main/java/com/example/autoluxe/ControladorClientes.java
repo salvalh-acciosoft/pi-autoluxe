@@ -361,21 +361,27 @@ public class ControladorClientes implements Initializable {
                     BDautoluxe.insertarCliente(cliente);
                     establecerClienteAnadido(cliente);
                     establecerClientes();
-                    if(tfMatricula.getText().isEmpty()&&tfBastidor.getText().isEmpty()&&tfMarca.getText().isEmpty()&&tfModelo.getText().isEmpty()&&tfColor.getText().isEmpty())
-                    {
+                    if (tfMatricula.getText().isEmpty() || tfBastidor.getText().isEmpty() || tfMarca.getText().isEmpty() || tfModelo.getText().isEmpty() || tfColor.getText().isEmpty()) {
                         mostrarAlerta(Alert.AlertType.INFORMATION, "Cliente sin vehículo");
                     }
                     else
                     {
-                        mostrarAlerta(Alert.AlertType.INFORMATION, "Cliente con vehículo");
-                        Vehiculos vehiculo=new Vehiculos(tfMatricula.getText(),tfBastidor.getText(),tfMarca.getText(),tfModelo.getText(),cbCombustible.getValue(),tfColor.getText(),tfDNI.getText());
-                        BDautoluxe.insertarVehiculo(vehiculo);
+                        if(!BDautoluxe.matriculaExisteVehiculo(tfMatricula.getText()))
+                        {
+                            mostrarAlerta(Alert.AlertType.INFORMATION, "Cliente con vehículo");
+                            Vehiculos vehiculo = new Vehiculos(tfMatricula.getText(), tfBastidor.getText(), tfMarca.getText(), tfModelo.getText(), cbCombustible.getValue(), tfColor.getText(), tfDNI.getText());
+                            BDautoluxe.insertarVehiculo(vehiculo);
+                        }
+                        else
+                        {
+                            mostrarAlerta(Alert.AlertType.WARNING, "Matrícula existente", "La matrícula ya existe en la base de datos.");
+                        }
                     }
                     limpiarCampos();
-                } else if (BDautoluxe.dniExisteEmpleado(tfDNI.getText())) {
-                    mostrarAlerta(Alert.AlertType.WARNING, "DNI existente", "El DNI ingresado ya existe en la base de datos.");
-                } else {
-                    mostrarAlerta(Alert.AlertType.WARNING, "Correo existente", "El correo electrónico ingresado ya existe en la base de datos.");
+                }
+                else
+                {
+                    mostrarAlerta(Alert.AlertType.WARNING, "DNI o correo existente", "El DNI o correo ingresado ya existe en la base de datos.");
                 }
             }
         }
@@ -426,16 +432,23 @@ public class ControladorClientes implements Initializable {
             }else if (tfColor1.getText().length() > 25) {
                 mostrarAlerta(Alert.AlertType.WARNING, "Exceso de caracteres en Matrícula.");
             }else {
-                Vehiculos vehiculo=new Vehiculos(tfMatricula1.getText(),tfBastidor1.getText(),tfMarca1.getText(),tfModelo1.getText(),cbCombustible1.getValue(),tfColor1.getText(),tfBuscarDNI1.getText());
-                BDautoluxe.insertarVehiculo(vehiculo);
-                establecerVehiculoAnadido(vehiculo);
+                if(!BDautoluxe.matriculaExisteVehiculo(tfMatricula1.getText()))
+                {
+                    Vehiculos vehiculo=new Vehiculos(tfMatricula1.getText(),tfBastidor1.getText(),tfMarca1.getText(),tfModelo1.getText(),cbCombustible1.getValue(),tfColor1.getText(),tfBuscarDNI1.getText());
+                    BDautoluxe.insertarVehiculo(vehiculo);
+                    establecerVehiculoAnadido(vehiculo);
 
-                limpiarCampos2();
+                    limpiarCampos2();
 
-                tfBuscarDNI1.clear();
-                acEditar.setDisable(true);
+                    tfBuscarDNI1.clear();
+                    acEditar.setDisable(true);
 
-                establecerVehiculos();
+                    establecerVehiculos();
+                }
+                else
+                {
+                    mostrarAlerta(Alert.AlertType.WARNING, "Matrícula existente", "La matrícula ya existe en la base de datos.");
+                }
             }
         }
     }
@@ -617,7 +630,6 @@ public class ControladorClientes implements Initializable {
 
                 tfNombre2.setDisable(false);
                 tfApellidos2.setDisable(false);
-                tfDNI2.setDisable(false);
                 tfTelefono2.setDisable(false);
                 tfEmail2.setDisable(false);
                 acBorrar.setDisable(false);
@@ -703,7 +715,6 @@ public class ControladorClientes implements Initializable {
                 tfColor2.setText(vehiculo.getColor());
                 cbCombustible2.setValue(vehiculo.getCombustible());
 
-                tfMatricula2.setDisable(false);
                 tfBastidor2.setDisable(false);
                 tfMarca2.setDisable(false);
                 tfModelo2.setDisable(false);

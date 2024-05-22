@@ -919,5 +919,38 @@ public class BDautoluxe
         }
         return v;
     }
+    // Método para verificar si una Matrícula ya existe en la base de datos
+    public static boolean matriculaExisteVehiculo(String matricula) {
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            String query = "SELECT COUNT(*) AS count FROM vehiculos WHERE matricula = ?";
+            st = connection.prepareStatement(query);
+            st.setString(1, matricula);
+            rs = st.executeQuery();
+            if (rs.next()) {
+                int count = rs.getInt("count");
+                return count > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return false;
+    }
     // -----------------------------------------------------------------------------------------------------------------
 }
