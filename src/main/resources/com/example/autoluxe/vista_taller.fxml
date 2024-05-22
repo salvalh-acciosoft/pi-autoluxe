@@ -194,11 +194,11 @@
                                                       <Font name="Microsoft New Tai Lue Bold" size="14.0" />
                                                    </font>
                                                 </Button>
-                                                <TextField editable="false" layoutX="101.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="252.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="101.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="252.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="101.0" layoutY="154.0" prefHeight="31.0" prefWidth="125.0" promptText="Matrícula" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="nombreCliente1" editable="false" layoutX="101.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="dniCliente1" editable="false" layoutX="252.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="nombreEmpleado1" editable="false" layoutX="101.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="dniEmpleado1" editable="false" layoutX="252.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="matricula1" editable="false" layoutX="101.0" layoutY="154.0" prefHeight="31.0" prefWidth="125.0" promptText="Matrícula" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
                                              </children>
                                           </Pane>
                                           <Label alignment="CENTER" layoutX="142.0" prefHeight="37.0" prefWidth="152.0" text="ELEVADOR 1" textAlignment="CENTER">
@@ -233,11 +233,11 @@
                                                       <Font name="Microsoft New Tai Lue Bold" size="14.0" />
                                                    </font>
                                                 </Button>
-                                                <TextField editable="false" layoutX="101.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="252.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="101.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="252.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="101.0" layoutY="154.0" prefHeight="31.0" prefWidth="125.0" promptText="Matrícula" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="nombreCliente2" editable="false" layoutX="101.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="dniCliente2" editable="false" layoutX="252.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="nombreEmpleado2" editable="false" layoutX="101.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="dniEmpleado2" editable="false" layoutX="252.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="matricula2" editable="false" layoutX="101.0" layoutY="154.0" prefHeight="31.0" prefWidth="125.0" promptText="Matrícula" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
                                              </children>
                                           </Pane>
                                           <Label alignment="CENTER" layoutX="562.0" prefHeight="37.0" prefWidth="152.0" text="ELEVADOR 2" textAlignment="CENTER">
@@ -272,11 +272,11 @@
                                                       <Font name="Microsoft New Tai Lue Bold" size="14.0" />
                                                    </font>
                                                 </Button>
-                                                <TextField editable="false" layoutX="101.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="252.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="101.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="252.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="101.0" layoutY="154.0" prefHeight="31.0" prefWidth="125.0" promptText="Matrícula" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="nombreCliente3" editable="false" layoutX="101.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="dniCliente3" editable="false" layoutX="252.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="nombreEmpleado3" editable="false" layoutX="101.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="dniEmpleado3" editable="false" layoutX="252.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="matricula3" editable="false" layoutX="101.0" layoutY="154.0" prefHeight="31.0" prefWidth="125.0" promptText="Matrícula" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
                                              </children>
                                           </Pane>
                                           <Label alignment="CENTER" layoutX="141.0" layoutY="247.0" prefHeight="37.0" prefWidth="152.0" text="ELEVADOR 3" textAlignment="CENTER">
@@ -311,11 +311,11 @@
                                                       <Font name="Microsoft New Tai Lue Bold" size="14.0" />
                                                    </font>
                                                 </Button>
-                                                <TextField editable="false" layoutX="101.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="252.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="101.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="252.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="101.0" layoutY="154.0" prefHeight="31.0" prefWidth="125.0" promptText="Matrícula" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="nombreCliente4" editable="false" layoutX="101.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="dniCliente4" editable="false" layoutX="252.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="nombreEmpleado4" editable="false" layoutX="101.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="dniEmpleado4" editable="false" layoutX="252.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="matricula4" editable="false" layoutX="101.0" layoutY="154.0" prefHeight="31.0" prefWidth="125.0" promptText="Matrícula" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
                                              </children>
                                           </Pane>
                                           <Label alignment="CENTER" layoutX="561.0" layoutY="247.0" prefHeight="37.0" prefWidth="152.0" text="ELEVADOR 4" textAlignment="CENTER">
@@ -350,11 +350,11 @@
                                                       <Font name="Microsoft New Tai Lue Bold" size="14.0" />
                                                    </font>
                                                 </Button>
-                                                <TextField editable="false" layoutX="101.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="252.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="101.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="252.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="101.0" layoutY="154.0" prefHeight="31.0" prefWidth="125.0" promptText="Matrícula" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="nombreCliente5" editable="false" layoutX="101.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="dniCliente5" editable="false" layoutX="252.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="nombreEmpleado5" editable="false" layoutX="101.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="dniEmpleado5" editable="false" layoutX="252.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="matricula5" editable="false" layoutX="101.0" layoutY="154.0" prefHeight="31.0" prefWidth="125.0" promptText="Matrícula" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
                                              </children>
                                           </Pane>
                                           <Label alignment="CENTER" layoutX="141.0" layoutY="496.0" prefHeight="37.0" prefWidth="152.0" text="ELEVADOR 5" textAlignment="CENTER">
@@ -389,11 +389,11 @@
                                                       <Font name="Microsoft New Tai Lue Bold" size="14.0" />
                                                    </font>
                                                 </Button>
-                                                <TextField editable="false" layoutX="101.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="252.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="101.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="252.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
-                                                <TextField editable="false" layoutX="101.0" layoutY="154.0" prefHeight="31.0" prefWidth="125.0" promptText="Matrícula" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="nombreCliente6" editable="false" layoutX="101.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="dniCliente6" editable="false" layoutX="252.0" layoutY="15.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="nombreEmpleado6" editable="false" layoutX="101.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="dniEmpleado6" editable="false" layoutX="252.0" layoutY="85.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
+                                                <TextField fx:id="matricula6" editable="false" layoutX="101.0" layoutY="154.0" prefHeight="31.0" prefWidth="125.0" promptText="Matrícula" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
                                              </children>
                                           </Pane>
                                           <Label alignment="CENTER" layoutX="575.0" layoutY="496.0" prefHeight="37.0" prefWidth="152.0" text="ELEVADOR 6" textAlignment="CENTER">
@@ -490,7 +490,7 @@
                                     </Label>
                                     <TextField fx:id="tvDNICliente" editable="false" layoutX="174.0" layoutY="389.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
                                     <TextField fx:id="buscar" layoutX="317.0" layoutY="310.0" prefHeight="31.0" prefWidth="100.0" promptText="Buscar vehículo" visible="false" />
-                                    <Button fx:id="btnBuscar" layoutX="417.0" layoutY="310.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: #000000;" visible="false">
+                                    <Button fx:id="btnBuscar" layoutX="417.0" layoutY="310.0" mnemonicParsing="false" onAction="#buscarVehiculo" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: #000000;" visible="false">
                                        <font>
                                           <Font name="Microsoft Sans Serif" size="14.0" />
                                        </font>
@@ -505,7 +505,7 @@
                                     <TextField fx:id="tvNombreEmpleado" editable="false" layoutX="174.0" layoutY="458.0" prefHeight="31.0" prefWidth="125.0" promptText="DNI" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
                                     <TextField fx:id="tvDNIEmpleado" editable="false" layoutX="174.0" layoutY="498.0" prefHeight="31.0" prefWidth="125.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-color: black; -fx-border-width: 0 0 1 0;" />
                                     <TextField fx:id="buscar1" layoutX="314.0" layoutY="457.0" prefHeight="31.0" prefWidth="100.0" promptText="Buscar empleado" visible="false" />
-                                    <Button fx:id="btnBuscar1" layoutX="414.0" layoutY="457.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: #000000;" visible="false">
+                                    <Button fx:id="btnBuscar1" layoutX="414.0" layoutY="457.0" mnemonicParsing="false" onAction="#buscarEmpleado" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: #000000;" visible="false">
                                        <font>
                                           <Font name="Microsoft Sans Serif" size="14.0" />
                                        </font>
@@ -517,7 +517,7 @@
                                           </ImageView>
                                        </graphic>
                                     </Button>
-                                    <Button fx:id="acAccion" layoutX="266.0" layoutY="553.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="196.0" text="REALIZAR ACCIÓN" visible="false">
+                                    <Button fx:id="acAccion" layoutX="266.0" layoutY="553.0" mnemonicParsing="false" onAction="#registrarOcupacionElevador" prefHeight="31.0" prefWidth="196.0" text="REALIZAR ACCIÓN" visible="false">
                                        <font>
                                           <Font name="Microsoft New Tai Lue Bold" size="14.0" />
                                        </font>

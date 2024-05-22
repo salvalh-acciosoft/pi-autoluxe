@@ -12,13 +12,13 @@ public class BDautoluxe
     // -----------------------------------------------------------------------------------------------------------------
     // CONEXIÓN Y DESCONEXIÓN CON LA BASE DE DATOS
     // -----------------------------------------------------------------------------------------------------------------
-    private String url="jdbc:mysql://monorail.proxy.rlwy.net:23659/railway";
-    private String user="root";
-    private String password="VqtxFIxDedWebvmMbtzzWNwtdWlSGmAF";
+    private static String url="jdbc:mysql://monorail.proxy.rlwy.net:23659/railway";
+    private static String user="root";
+    private static String password="VqtxFIxDedWebvmMbtzzWNwtdWlSGmAF";
     public static Connection connection=null;
 
     //Método para conectar con la base de datos
-    public void conectar() throws SQLException, ClassNotFoundException
+    public static void conectar() throws SQLException, ClassNotFoundException
     {
         if (connection == null || connection.isClosed())
         {
@@ -27,7 +27,7 @@ public class BDautoluxe
         }
     }
     //Método para desconectar de la base de datos
-    public void desconectar() throws SQLException
+    public static void desconectar() throws SQLException
     {
         if (connection != null && !connection.isClosed())
         {
@@ -950,6 +950,94 @@ public class BDautoluxe
             }
         }
         return false;
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // ELEVADORES
+    // -----------------------------------------------------------------------------------------------------------------
+    //Método saber el estado de los elevadores
+    public static String estadoElevador(int id)
+    {
+        String e="";
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            st=connection.prepareStatement("SELECT estado FROM elevador WHERE idElevador="+id+"");
+            rs = st.executeQuery();
+            while (rs.next()) {
+                String estado = rs.getString("estado");
+                e=estado;
+            }
+        } catch (SQLException i) {
+            throw new RuntimeException(i);
+        }
+        return e;
+    }
+    public static void establecerEstado(int id,String estado)
+    {
+        PreparedStatement st = null;
+        try {
+            String query = "UPDATE elevador SET estado=? WHERE idElevador=?";
+            st = connection.prepareStatement(query);
+            st.setString(1, estado);
+            st.setInt(2, id);
+            st.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+    public static void establecerDatos(int id,String matricula,String dni)
+    {
+        PreparedStatement st = null;
+        try {
+            String query = "UPDATE elevador SET idVehiculo=?,idEmpleado=? WHERE idElevador=?";
+            st = connection.prepareStatement(query);
+            st.setString(1, matricula);
+            st.setString(2, dni);
+            st.setInt(3, id);
+            st.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+    //Método saber el vehiculo de cada elevador
+    public static String vehiculoElevador(int id)
+    {
+        String v="";
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            st=connection.prepareStatement("SELECT idVehiculo FROM elevador WHERE idElevador="+id+"");
+            rs = st.executeQuery();
+            while (rs.next()) {
+                String matricula = rs.getString("idVehiculo");
+                v=matricula;
+            }
+        } catch (SQLException i) {
+            throw new RuntimeException(i);
+        }
+        return v;
+    }
+    public static String empleadoElevador(int id)
+    {
+        String e="";
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            st=connection.prepareStatement("SELECT idEmpleado FROM elevador WHERE idElevador="+id+"");
+            rs = st.executeQuery();
+            while (rs.next()) {
+                String idEmpleado = rs.getString("idEmpleado");
+                e=idEmpleado;
+            }
+        } catch (SQLException i) {
+            throw new RuntimeException(i);
+        }
+        return e;
     }
     // -----------------------------------------------------------------------------------------------------------------
 }

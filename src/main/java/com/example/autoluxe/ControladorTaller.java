@@ -1,10 +1,15 @@
 package com.example.autoluxe;
 
+import ClasesObjetos.BDautoluxe;
+import ClasesObjetos.Clientes;
+import ClasesObjetos.Empleados;
+import ClasesObjetos.Vehiculos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -13,6 +18,7 @@ import javafx.scene.layout.Pane;
 import javax.swing.text.html.CSS;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ControladorTaller  implements Initializable
@@ -54,8 +60,77 @@ public class ControladorTaller  implements Initializable
     private TextField buscar;
     @FXML
     private TextField buscar1;
-
-
+    @FXML
+    private TextField tvMatricula;
+    @FXML
+    private TextField tvDNICliente;
+    @FXML
+    private TextField tvNombreCliente;
+    @FXML
+    private TextField tvDNIEmpleado;
+    @FXML
+    private TextField tvNombreEmpleado;
+    //Listas con los datos de cada elevador
+    @FXML
+    private TextField nombreCliente1;
+    @FXML
+    private TextField nombreCliente2;
+    @FXML
+    private TextField nombreCliente3;
+    @FXML
+    private TextField nombreCliente4;
+    @FXML
+    private TextField nombreCliente5;
+    @FXML
+    private TextField nombreCliente6;
+    @FXML
+    private TextField nombreEmpleado1;
+    @FXML
+    private TextField nombreEmpleado2;
+    @FXML
+    private TextField nombreEmpleado3;
+    @FXML
+    private TextField nombreEmpleado4;
+    @FXML
+    private TextField nombreEmpleado5;
+    @FXML
+    private TextField nombreEmpleado6;
+    @FXML
+    private TextField dniCliente1;
+    @FXML
+    private TextField dniCliente2;
+    @FXML
+    private TextField dniCliente3;
+    @FXML
+    private TextField dniCliente4;
+    @FXML
+    private TextField dniCliente5;
+    @FXML
+    private TextField dniCliente6;
+    @FXML
+    private TextField dniEmpleado1;
+    @FXML
+    private TextField dniEmpleado2;
+    @FXML
+    private TextField dniEmpleado3;
+    @FXML
+    private TextField dniEmpleado4;
+    @FXML
+    private TextField dniEmpleado5;
+    @FXML
+    private TextField dniEmpleado6;
+    @FXML
+    private TextField matricula1;
+    @FXML
+    private TextField matricula2;
+    @FXML
+    private TextField matricula3;
+    @FXML
+    private TextField matricula4;
+    @FXML
+    private TextField matricula5;
+    @FXML
+    private TextField matricula6;
     //Valores del panel editar elevador
     @FXML
     private TextField tvNumeroElevador;
@@ -64,6 +139,13 @@ public class ControladorTaller  implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
+        try {
+            BDautoluxe.conectar();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         acElevador1.setOnAction(event ->
         {
             abrirEditarElevador(1,acElevador1.getText());
@@ -88,146 +170,131 @@ public class ControladorTaller  implements Initializable
         {
             abrirEditarElevador(6,acElevador6.getText());
         });
+        establecerEstados();
+        establecerDatos();
+    }
+     public void establecerEstados()
+     {
+         Button[] botones={acElevador1,acElevador2,acElevador3,acElevador4,acElevador5,acElevador6};
+         for(int i=1;i<=6;i++) {
+             String estado = BDautoluxe.estadoElevador(i);
+             switch (estado) {
+                 case "Libre" -> {
+                     botones[i - 1].getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
+                     botones[i - 1].getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
+                     botones[i - 1].getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
+                     botones[i - 1].setText(estado);
+                 }
+                 case "Ocupado" -> {
+                     botones[i - 1].getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
+                     botones[i - 1].getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
+                     botones[i - 1].getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
+                     botones[i - 1].setText(estado);
+                 }
+                 case "En Revisión" -> {
+                     botones[i - 1].getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
+                     botones[i - 1].getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
+                     botones[i - 1].getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
+                     botones[i - 1].setText(estado);
+                 }
+             }
+         }
+     }
+    public void establecerDatos()
+    {
+        TextField[] nombreCliente={nombreCliente1,nombreCliente2,nombreCliente3,nombreCliente4,nombreCliente5,nombreCliente6};
+        TextField[] nombreEmpledo={nombreEmpleado1,nombreEmpleado2,nombreEmpleado3,nombreEmpleado4,nombreEmpleado5,nombreEmpleado6};
+        TextField[] dniCliente={dniCliente1,dniCliente2,dniCliente3,dniCliente4,dniCliente5,dniCliente6};
+        TextField[] dniEmpleado={dniEmpleado1,dniEmpleado2,dniEmpleado3,dniEmpleado4,dniEmpleado5,dniEmpleado6};
+        TextField[] matricula={matricula1,matricula2,matricula3,matricula4,matricula5,matricula6};
+        try
+        {
+            for(int i=1;i<=6;i++)
+            {
+
+                Vehiculos vehiculo=BDautoluxe.obtenerVehiculoMatricula(BDautoluxe.vehiculoElevador(i));
+                Empleados empleado=BDautoluxe.obtenerEmpleadoDNI(BDautoluxe.empleadoElevador(i));
+                if(vehiculo!=null&&empleado!=null)
+                {
+                    Clientes cliente=BDautoluxe.obtenerClienteDNI(vehiculo.getDNI_cliente());
+                    matricula[i-1].setText(vehiculo.getMatricula());
+                    dniCliente[i-1].setText(vehiculo.getDNI_cliente());
+                    nombreCliente[i-1].setText(cliente.getNombre());
+                    dniEmpleado[i-1].setText(empleado.getDNI());
+                    nombreEmpledo[i-1].setText(empleado.getNombre());
+                }
+                else
+                {
+                    matricula[i-1].setText("");
+                    dniCliente[i-1].setText("");
+                    nombreCliente[i-1].setText("");
+                    dniEmpleado[i-1].setText("");
+                    nombreEmpledo[i-1].setText("");
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
     private void abrirEditarElevador(int elevador,String estado)
     {
         panelEditarElevador.setVisible(true);
         tvNumeroElevador.setText(String.valueOf(elevador));
         tvEstadoActual.setText(estado);
-        acOcupar.setOnAction(event ->
+        try
         {
-            if(elevador==1)
+            Vehiculos vehiculo=BDautoluxe.obtenerVehiculoMatricula(BDautoluxe.vehiculoElevador(elevador));
+            Empleados empleado=BDautoluxe.obtenerEmpleadoDNI(BDautoluxe.empleadoElevador(elevador));
+            if(vehiculo!=null&&empleado!=null)
             {
-                camposOcuparVisibles();
-                camposOcuparOcultados1();
+                Clientes cliente=BDautoluxe.obtenerClienteDNI(vehiculo.getDNI_cliente());
+                tvMatricula.setText(vehiculo.getMatricula());
+                tvDNICliente.setText(vehiculo.getDNI_cliente());
+                tvNombreCliente.setText(cliente.getNombre());
+                tvDNIEmpleado.setText(empleado.getDNI());
+                tvNombreEmpleado.setText(empleado.getNombre());
             }
-            else if (elevador==2)
+            else
             {
-                camposOcuparVisibles();
-                camposOcuparOcultados2();
+                tvMatricula.setText("");
+                tvDNICliente.setText("");
+                tvNombreCliente.setText("");
+                tvDNIEmpleado.setText("");
+                tvNombreEmpleado.setText("");
             }
-            else if (elevador==3)
-            {
-                camposOcuparVisibles();
-                camposOcuparOcultados3();
-            }
-            else if (elevador==4)
-            {
-                camposOcuparVisibles();
-                camposOcuparOcultados4();
-            }
-            else if (elevador==5)
-            {
-                camposOcuparVisibles();
-                camposOcuparOcultados5();
-            }
-            else if (elevador==6)
-            {
-                camposOcuparVisibles();
-                camposOcuparOcultados6();
-            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        acOcupar.setOnAction(event -> {camposOcuparVisibles();});
+        acRevision.setOnAction(event ->{
+            BDautoluxe.establecerDatos(Integer.parseInt(tvNumeroElevador.getText()),null,null);
+            BDautoluxe.establecerEstado(Integer.parseInt(tvNumeroElevador.getText()),"En Revisión");
+            establecerEstados();
+            establecerDatos();
+            acCancelar.setVisible(false);
+            acAccion.setVisible(false);
+            buscar.setVisible(false);
+            buscar1.setVisible(false);
+            btnBuscar.setVisible(false);
+            btnBuscar1.setVisible(false);
+            panelEditarElevador.setVisible(false);
         });
-        acLiberar.setOnAction(event ->
-        {
-            if(elevador==1)
-            {
-                acElevador1.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
-                acElevador1.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
-                acElevador1.getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
-                acElevador1.setText("LIBRE");
-                panelEditarElevador.setVisible(false);
-            }
-            else if (elevador==2)
-            {
-                acElevador2.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
-                acElevador2.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
-                acElevador2.getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
-                acElevador2.setText("LIBRE");
-                panelEditarElevador.setVisible(false);
-            }
-            else if (elevador==3)
-            {
-                acElevador3.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
-                acElevador3.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
-                acElevador3.getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
-                acElevador3.setText("LIBRE");
-                panelEditarElevador.setVisible(false);
-            }
-            else if (elevador==4)
-            {
-                acElevador4.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
-                acElevador4.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
-                acElevador4.getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
-                acElevador4.setText("LIBRE");
-                panelEditarElevador.setVisible(false);
-            }
-            else if (elevador==5)
-            {
-                acElevador5.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
-                acElevador5.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
-                acElevador5.getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
-                acElevador5.setText("LIBRE");
-                panelEditarElevador.setVisible(false);
-            }
-            else if (elevador==6)
-            {
-                acElevador6.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
-                acElevador6.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
-                acElevador6.getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
-                acElevador6.setText("LIBRE");
-                panelEditarElevador.setVisible(false);
-            }
-        });
-        acRevision.setOnAction(event ->
-        {
-            if(elevador==1)
-            {
-                acElevador1.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
-                acElevador1.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
-                acElevador1.getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
-                acElevador1.setText("EN REVISIÓN");
-                panelEditarElevador.setVisible(false);
-            }
-            else if (elevador==2)
-            {
-                acElevador2.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
-                acElevador2.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
-                acElevador2.getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
-                acElevador2.setText("EN REVISIÓN");
-                panelEditarElevador.setVisible(false);
-            }
-            else if (elevador==3)
-            {
-                acElevador3.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
-                acElevador3.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
-                acElevador3.getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
-                acElevador3.setText("EN REVISIÓN");
-                panelEditarElevador.setVisible(false);
-            }
-            else if (elevador==4)
-            {
-                acElevador4.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
-                acElevador4.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
-                acElevador4.getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
-                acElevador4.setText("EN REVISIÓN");
-                panelEditarElevador.setVisible(false);
-            }
-            else if (elevador==5)
-            {
-                acElevador5.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
-                acElevador5.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
-                acElevador5.getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
-                acElevador5.setText("EN REVISIÓN");
-                panelEditarElevador.setVisible(false);
-            }
-            else if (elevador==6)
-            {
-                acElevador6.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
-                acElevador6.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
-                acElevador6.getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
-                acElevador6.setText("EN REVISIÓN");
-                panelEditarElevador.setVisible(false);
-            }
+        acLiberar.setOnAction(event ->{
+            BDautoluxe.establecerDatos(Integer.parseInt(tvNumeroElevador.getText()),null,null);
+            BDautoluxe.establecerEstado(Integer.parseInt(tvNumeroElevador.getText()),"Libre");
+            establecerEstados();
+            establecerDatos();
+            acCancelar.setVisible(false);
+            acAccion.setVisible(false);
+            buscar.setVisible(false);
+            buscar1.setVisible(false);
+            btnBuscar.setVisible(false);
+            btnBuscar1.setVisible(false);
+            panelEditarElevador.setVisible(false);
         });
     }
     private void camposOcuparVisibles()
@@ -239,13 +306,16 @@ public class ControladorTaller  implements Initializable
         btnBuscar.setVisible(true);
         btnBuscar1.setVisible(true);
     }
-    private void camposOcuparOcultados1()
+    @FXML
+    private void registrarOcupacionElevador()
     {
-        acAccion.setOnAction(event ->{
-            acElevador1.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
-            acElevador1.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
-            acElevador1.getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
-            acElevador1.setText("OCUPADO");
+        if(tvMatricula.getText().isEmpty()||tvDNIEmpleado.getText().isEmpty())
+        {
+            mostrarAlerta(Alert.AlertType.WARNING, "Campos vacíos.", "Por favor rellene los campos para realizar la acción.");
+        }
+        else
+        {
+            BDautoluxe.establecerDatos(Integer.parseInt(tvNumeroElevador.getText()),tvMatricula.getText(),tvDNIEmpleado.getText());
             acCancelar.setVisible(false);
             acAccion.setVisible(false);
             buscar.setVisible(false);
@@ -253,89 +323,47 @@ public class ControladorTaller  implements Initializable
             btnBuscar.setVisible(false);
             btnBuscar1.setVisible(false);
             panelEditarElevador.setVisible(false);
-        });
+            tvMatricula.clear();
+            tvDNIEmpleado.clear();
+            tvNombreEmpleado.clear();
+            tvNombreCliente.clear();
+            tvDNICliente.clear();
+            BDautoluxe.establecerEstado(Integer.parseInt(tvNumeroElevador.getText()),"Ocupado");
+            establecerEstados();
+            establecerDatos();
+        }
     }
-    private void camposOcuparOcultados2()
+    @FXML
+    private void buscarVehiculo()
     {
-        acAccion.setOnAction(event ->{
-            acElevador2.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
-            acElevador2.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
-            acElevador2.getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
-            acElevador2.setText("OCUPADO");
-            acCancelar.setVisible(false);
-            acAccion.setVisible(false);
-            buscar.setVisible(false);
-            buscar1.setVisible(false);
-            btnBuscar.setVisible(false);
-            btnBuscar1.setVisible(false);
-            panelEditarElevador.setVisible(false);
-        });
+        if(BDautoluxe.matriculaExisteVehiculo(buscar.getText()))
+        {
+            Vehiculos vehiculo=BDautoluxe.obtenerVehiculoMatricula(buscar.getText());
+            tvMatricula.setText(vehiculo.getMatricula());
+            tvDNICliente.setText(vehiculo.getDNI_cliente());
+            Clientes cliente=BDautoluxe.obtenerClienteDNI(vehiculo.getDNI_cliente());
+            tvNombreCliente.setText(cliente.getNombre());
+            buscar.clear();
+        }
+        else
+        {
+            mostrarAlerta(Alert.AlertType.WARNING, "Matrícula no existente", "Por favor ingrese una matrícula existente.");
+        }
     }
-    private void camposOcuparOcultados3()
+    @FXML
+    private void buscarEmpleado()
     {
-        acAccion.setOnAction(event ->{
-            acElevador3.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
-            acElevador3.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
-            acElevador3.getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
-            acElevador3.setText("OCUPADO");
-            acCancelar.setVisible(false);
-            acAccion.setVisible(false);
-            buscar.setVisible(false);
-            buscar1.setVisible(false);
-            btnBuscar.setVisible(false);
-            btnBuscar1.setVisible(false);
-            panelEditarElevador.setVisible(false);
-        });
-    }
-    private void camposOcuparOcultados4()
-    {
-        acAccion.setOnAction(event ->{
-            acElevador4.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
-            acElevador4.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
-            acElevador4.getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
-            acElevador4.setText("OCUPADO");
-            acCancelar.setVisible(false);
-            acAccion.setVisible(false);
-            buscar.setVisible(false);
-            buscar1.setVisible(false);
-            btnBuscar.setVisible(false);
-            btnBuscar1.setVisible(false);
-            panelEditarElevador.setVisible(false);
-        });
-    }
-    private void camposOcuparOcultados5()
-    {
-
-            acAccion.setOnAction(event ->
-            {
-             acElevador5.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
-             acElevador5.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
-             acElevador5.getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
-             acElevador5.setText("OCUPADO");
-            acCancelar.setVisible(false);
-            acAccion.setVisible(false);
-            buscar.setVisible(false);
-            buscar1.setVisible(false);
-            btnBuscar.setVisible(false);
-            btnBuscar1.setVisible(false);
-            panelEditarElevador.setVisible(false);
-        });
-    }
-    private void camposOcuparOcultados6()
-    {
-        acAccion.setOnAction(event ->{
-            acElevador6.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
-            acElevador6.getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
-            acElevador6.getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
-            acElevador6.setText("OCUPADO");
-            acCancelar.setVisible(false);
-            acAccion.setVisible(false);
-            buscar.setVisible(false);
-            buscar1.setVisible(false);
-            btnBuscar.setVisible(false);
-            btnBuscar1.setVisible(false);
-            panelEditarElevador.setVisible(false);
-        });
+        if(BDautoluxe.dniExisteEmpleado(buscar1.getText()))
+        {
+            Empleados empleado=BDautoluxe.obtenerEmpleadoDNI(buscar1.getText());
+            tvDNIEmpleado.setText(empleado.getDNI());
+            tvNombreEmpleado.setText(empleado.getNombre());
+            buscar1.clear();
+        }
+        else
+        {
+            mostrarAlerta(Alert.AlertType.WARNING, "DNI no existente", "Por favor ingrese un DNI existente.");
+        }
     }
     @FXML
     private void cerrarEditarElevador()
@@ -355,6 +383,17 @@ public class ControladorTaller  implements Initializable
         {
             e.printStackTrace();
         }
+    }
+    private void mostrarAlerta(Alert.AlertType tipo, String encabezado) {
+        mostrarAlerta(tipo, encabezado, null);
+    }
+
+    private void mostrarAlerta(Alert.AlertType tipo, String encabezado, String contenido) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle("Diálogo de Alerta");
+        alert.setHeaderText(encabezado);
+        alert.setContentText(contenido);
+        alert.showAndWait();
     }
     /*
     MENU 8/8

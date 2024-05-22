@@ -21,7 +21,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ControladorClientes implements Initializable {
-    BDautoluxe bd = new BDautoluxe();
     @FXML
     private AnchorPane contenedor;
     @FXML
@@ -305,7 +304,7 @@ public class ControladorClientes implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            bd.conectar();
+            BDautoluxe.conectar();
             //Aplicamos la lista al ChoiceBox
             cbOpcion.getItems().addAll(opcionesBuscarCliente);
             cbOpcion.getSelectionModel().selectFirst();
