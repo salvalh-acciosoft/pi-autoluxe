@@ -18,7 +18,6 @@ CREATE TABLE tareas (
   idEmpleado CHAR(9),
   asunto VARCHAR(50),
   descripcion VARCHAR(300),
-  telefono VARCHAR(12),
   FOREIGN KEY (idEmpleado) REFERENCES empleados(DNI)
 );
 

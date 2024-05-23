@@ -170,11 +170,15 @@ public class ControladorTaller  implements Initializable
         {
             abrirEditarElevador(6,acElevador6.getText());
         });
-        establecerEstados();
         establecerDatos();
     }
-     public void establecerEstados()
+     public void establecerDatos()
      {
+         TextField[] nombreCliente={nombreCliente1,nombreCliente2,nombreCliente3,nombreCliente4,nombreCliente5,nombreCliente6};
+         TextField[] nombreEmpledo={nombreEmpleado1,nombreEmpleado2,nombreEmpleado3,nombreEmpleado4,nombreEmpleado5,nombreEmpleado6};
+         TextField[] dniCliente={dniCliente1,dniCliente2,dniCliente3,dniCliente4,dniCliente5,dniCliente6};
+         TextField[] dniEmpleado={dniEmpleado1,dniEmpleado2,dniEmpleado3,dniEmpleado4,dniEmpleado5,dniEmpleado6};
+         TextField[] matricula={matricula1,matricula2,matricula3,matricula4,matricula5,matricula6};
          Button[] botones={acElevador1,acElevador2,acElevador3,acElevador4,acElevador5,acElevador6};
          for(int i=1;i<=6;i++) {
              String estado = BDautoluxe.estadoElevador(i);
@@ -184,60 +188,65 @@ public class ControladorTaller  implements Initializable
                      botones[i - 1].getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
                      botones[i - 1].getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
                      botones[i - 1].setText(estado);
+                     matricula[i-1].setText("");
+                     dniCliente[i-1].setText("");
+                     nombreCliente[i-1].setText("");
+                     dniEmpleado[i-1].setText("");
+                     nombreEmpledo[i-1].setText("");
                  }
                  case "Ocupado" -> {
                      botones[i - 1].getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
                      botones[i - 1].getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
                      botones[i - 1].getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
                      botones[i - 1].setText(estado);
+                     try
+                     {
+                         Vehiculos vehiculo=BDautoluxe.obtenerVehiculoMatricula(BDautoluxe.vehiculoElevador(i));
+                         Empleados empleado=BDautoluxe.obtenerEmpleadoDNI(BDautoluxe.empleadoElevador(i));
+                         if(empleado!=null||vehiculo!=null)
+                         {
+                             if(vehiculo!=null)
+                             {
+                                 Clientes cliente=BDautoluxe.obtenerClienteDNI(vehiculo.getDNI_cliente());
+                                 matricula[i-1].setText(vehiculo.getMatricula());
+                                 dniCliente[i-1].setText(vehiculo.getDNI_cliente());
+                                 nombreCliente[i-1].setText(cliente.getNombre());
+                             }
+                             if(empleado!=null)
+                             {
+                                 dniEmpleado[i-1].setText(empleado.getDNI());
+                                 nombreEmpledo[i-1].setText(empleado.getNombre());
+                             }
+                         }
+                         else
+                         {
+                             matricula[i-1].setText("");
+                             dniCliente[i-1].setText("");
+                             nombreCliente[i-1].setText("");
+                             dniEmpleado[i-1].setText("");
+                             nombreEmpledo[i-1].setText("");
+                             BDautoluxe.establecerEstado(i,"Libre");
+                         }
+                     }
+                     catch (Exception e)
+                     {
+                         e.printStackTrace();
+                     }
                  }
                  case "En Revisión" -> {
                      botones[i - 1].getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_libre.css")));
                      botones[i - 1].getStylesheets().remove(String.valueOf(getClass().getResource("/style/estilo_ocupado.css")));
                      botones[i - 1].getStylesheets().add(String.valueOf(getClass().getResource("/style/estilo_revision.css")));
                      botones[i - 1].setText(estado);
+                     matricula[i-1].setText("");
+                     dniCliente[i-1].setText("");
+                     nombreCliente[i-1].setText("");
+                     dniEmpleado[i-1].setText("");
+                     nombreEmpledo[i-1].setText("");
                  }
              }
          }
      }
-    public void establecerDatos()
-    {
-        TextField[] nombreCliente={nombreCliente1,nombreCliente2,nombreCliente3,nombreCliente4,nombreCliente5,nombreCliente6};
-        TextField[] nombreEmpledo={nombreEmpleado1,nombreEmpleado2,nombreEmpleado3,nombreEmpleado4,nombreEmpleado5,nombreEmpleado6};
-        TextField[] dniCliente={dniCliente1,dniCliente2,dniCliente3,dniCliente4,dniCliente5,dniCliente6};
-        TextField[] dniEmpleado={dniEmpleado1,dniEmpleado2,dniEmpleado3,dniEmpleado4,dniEmpleado5,dniEmpleado6};
-        TextField[] matricula={matricula1,matricula2,matricula3,matricula4,matricula5,matricula6};
-        try
-        {
-            for(int i=1;i<=6;i++)
-            {
-
-                Vehiculos vehiculo=BDautoluxe.obtenerVehiculoMatricula(BDautoluxe.vehiculoElevador(i));
-                Empleados empleado=BDautoluxe.obtenerEmpleadoDNI(BDautoluxe.empleadoElevador(i));
-                if(vehiculo!=null&&empleado!=null)
-                {
-                    Clientes cliente=BDautoluxe.obtenerClienteDNI(vehiculo.getDNI_cliente());
-                    matricula[i-1].setText(vehiculo.getMatricula());
-                    dniCliente[i-1].setText(vehiculo.getDNI_cliente());
-                    nombreCliente[i-1].setText(cliente.getNombre());
-                    dniEmpleado[i-1].setText(empleado.getDNI());
-                    nombreEmpledo[i-1].setText(empleado.getNombre());
-                }
-                else
-                {
-                    matricula[i-1].setText("");
-                    dniCliente[i-1].setText("");
-                    nombreCliente[i-1].setText("");
-                    dniEmpleado[i-1].setText("");
-                    nombreEmpledo[i-1].setText("");
-                }
-            }
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
     private void abrirEditarElevador(int elevador,String estado)
     {
         panelEditarElevador.setVisible(true);
@@ -273,7 +282,6 @@ public class ControladorTaller  implements Initializable
         acRevision.setOnAction(event ->{
             BDautoluxe.establecerDatos(Integer.parseInt(tvNumeroElevador.getText()),null,null);
             BDautoluxe.establecerEstado(Integer.parseInt(tvNumeroElevador.getText()),"En Revisión");
-            establecerEstados();
             establecerDatos();
             acCancelar.setVisible(false);
             acAccion.setVisible(false);
@@ -286,7 +294,6 @@ public class ControladorTaller  implements Initializable
         acLiberar.setOnAction(event ->{
             BDautoluxe.establecerDatos(Integer.parseInt(tvNumeroElevador.getText()),null,null);
             BDautoluxe.establecerEstado(Integer.parseInt(tvNumeroElevador.getText()),"Libre");
-            establecerEstados();
             establecerDatos();
             acCancelar.setVisible(false);
             acAccion.setVisible(false);
@@ -329,7 +336,6 @@ public class ControladorTaller  implements Initializable
             tvNombreCliente.clear();
             tvDNICliente.clear();
             BDautoluxe.establecerEstado(Integer.parseInt(tvNumeroElevador.getText()),"Ocupado");
-            establecerEstados();
             establecerDatos();
         }
     }

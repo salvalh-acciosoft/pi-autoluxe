@@ -336,10 +336,19 @@ public class BDautoluxe
     public static void borrarEmpleadoBD(String busqueda) {
         PreparedStatement st = null;
         try {
-            String query = "DELETE FROM empleados WHERE DNI=?";
+            String query = "DELETE FROM tareas WHERE idEmpleado=?";
             st = connection.prepareStatement(query);
             st.setString(1, busqueda);
             st.executeUpdate();
+            query = "UPDATE elevador SET idEmpleado=null WHERE idEmpleado=?";
+            st = connection.prepareStatement(query);
+            st.setString(1, busqueda);
+            st.executeUpdate();
+            query = "DELETE FROM empleados WHERE DNI=?";
+            st = connection.prepareStatement(query);
+            st.setString(1, busqueda);
+            st.executeUpdate();
+
 
             mostrarAlerta(Alert.AlertType.INFORMATION, "Empleado eliminado", "El empleado ha sido eliminado correctamente.");
         } catch (SQLException e) {
@@ -871,7 +880,11 @@ public class BDautoluxe
     public static void borrarVehiculoBD(String matricula) {
         PreparedStatement st = null;
         try {
-            String query = "DELETE FROM vehiculos WHERE matricula=?";
+            String query = "UPDATE elevador SET idVehiculo=null WHERE idVehiculo=?";
+            st = connection.prepareStatement(query);
+            st.setString(1, matricula);
+            st.executeUpdate();
+            query = "DELETE FROM vehiculos WHERE matricula=?";
             st = connection.prepareStatement(query);
             st.setString(1, matricula);
             st.executeUpdate();
@@ -1038,6 +1051,202 @@ public class BDautoluxe
             throw new RuntimeException(i);
         }
         return e;
+    }
+    // -----------------------------------------------------------------------------------------------------------------
+    // TAREAS
+    // -----------------------------------------------------------------------------------------------------------------
+    // Método para listar tareas
+    public static List<Tareas> listadoTareasBD()
+    {
+        List<Tareas> listaTareas = FXCollections.observableArrayList();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try
+        {
+            st=connection.prepareStatement("SELECT * FROM tareas");
+
+            rs=st.executeQuery();
+            while (rs.next()) {
+                int idTarea = rs.getInt("idTarea");
+                String idEmpleado = rs.getString("idEmpleado");
+                String asunto = rs.getString("asunto");
+                String descripcion = rs.getString("descripcion");
+                Tareas tarea = new Tareas(idTarea,idEmpleado,asunto,descripcion);
+                listaTareas.add(tarea);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return listaTareas;
+    }
+    //Método mostrar Tareas segun la opcion
+    public static List<Tareas> listadoTareasBD(String opcion, String busqueda)
+    {
+        List<Tareas> listaTareas = FXCollections.observableArrayList();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        if(opcion=="ID Tarea")
+        {
+            try
+            {
+                st=connection.prepareStatement("SELECT * FROM tareas WHERE idTarea='"+busqueda+"'");
+
+                rs=st.executeQuery();
+                while (rs.next()) {
+                    int idTarea = rs.getInt("idTarea");
+                    String idEmpleado = rs.getString("idEmpleado");
+                    String asunto = rs.getString("asunto");
+                    String descripcion = rs.getString("descripcion");
+                    Tareas tarea = new Tareas(idTarea,idEmpleado,asunto,descripcion);
+                    listaTareas.add(tarea);
+                }
+            }
+            catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
+        }
+        else if(opcion=="ID Empleado")
+        {
+            try
+            {
+                st=connection.prepareStatement("SELECT * FROM tareas WHERE idEmpleado='"+busqueda+"'");
+
+                rs=st.executeQuery();
+                while (rs.next()) {
+                    int idTarea = rs.getInt("idTarea");
+                    String idEmpleado = rs.getString("idEmpleado");
+                    String asunto = rs.getString("asunto");
+                    String descripcion = rs.getString("descripcion");
+                    Tareas tarea = new Tareas(idTarea,idEmpleado,asunto,descripcion);
+                    listaTareas.add(tarea);
+                }
+            }
+            catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
+        }
+        else if(opcion=="Asunto")
+        {
+            try
+            {
+                st=connection.prepareStatement("SELECT * FROM tareas WHERE asunto='"+busqueda+"'");
+
+                rs=st.executeQuery();
+                while (rs.next()) {
+                    int idTarea = rs.getInt("idTarea");
+                    String idEmpleado = rs.getString("idEmpleado");
+                    String asunto = rs.getString("asunto");
+                    String descripcion = rs.getString("descripcion");
+                    Tareas tarea = new Tareas(idTarea,idEmpleado,asunto,descripcion);
+                    listaTareas.add(tarea);
+                }
+            }
+            catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return listaTareas;
+    }
+    //Método añadir tareas a la base de datos
+    public static void altaTareaBD(@NotNull Tareas tarea)
+    {
+        PreparedStatement st = null;
+        try {
+            st = connection.prepareStatement("INSERT INTO tareas (idEmpleado, asunto, descripcion) VALUES (?, ?, ?)");
+
+            st.setString(1, tarea.getIdEmpleado());
+            st.setString(2, tarea.getAsunto());
+            st.setString(3, tarea.getDescripcion());
+
+            st.executeUpdate();
+
+            mostrarAlerta(Alert.AlertType.INFORMATION, "Tarea añadida.", "");
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+    // Método para actualizar un empleado
+    public static void actualizarTareaBD(@NotNull Tareas tarea) {
+        PreparedStatement st = null;
+        try {
+            st = connection.prepareStatement("UPDATE tareas SET idEmpleado = ?, asunto = ?, descripcion = ? WHERE idTarea = ?");
+
+            st.setString(1, tarea.getIdEmpleado());
+            st.setString(2, tarea.getAsunto());
+            st.setString(3, tarea.getDescripcion());
+            st.setInt(4, tarea.getIdTarea());
+
+            st.executeUpdate();
+
+            mostrarAlerta(Alert.AlertType.INFORMATION, "Tarea actualizada.", "");
+        } catch (SQLException e) {
+            mostrarAlerta(Alert.AlertType.WARNING, "Error al actualizar la tarea.", "");
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    //Método para obtener un Empleado[DNI]
+    public static Tareas obtenerTareaID(String busqueda)
+    {
+        Tareas t = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try
+        {
+            st=connection.prepareStatement("SELECT * FROM tareas WHERE idTarea='"+busqueda+"'");
+
+            rs=st.executeQuery();
+            while (rs.next()) {
+                int idTarea = rs.getInt("idTarea");
+                String idEmpleado = rs.getString("idEmpleado");
+                String asunto = rs.getString("asunto");
+                String descripcion = rs.getString("descripcion");
+                Tareas tarea = new Tareas(idTarea,idEmpleado,asunto,descripcion);
+                t=tarea;
+
+            }
+        }
+        catch (SQLException i)
+        {
+            i.printStackTrace();
+        }
+        return t;
+    }
+    // Método para eliminar un vehiculo de la base de datos
+    public static void borrarTareaBD(String idTarea) {
+        PreparedStatement st = null;
+        try {
+            String query = "DELETE FROM tareas WHERE idTarea=?";
+            st = connection.prepareStatement(query);
+            st.setString(1, idTarea);
+            st.executeUpdate();
+
+            mostrarAlerta(Alert.AlertType.INFORMATION, "Tarea eliminada", "La tarea ha sido eliminada correctamente.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            mostrarAlerta(Alert.AlertType.ERROR, "Error al eliminar la tarea", "Ha ocurrido un error al intentar eliminar la tarea.");
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
     // -----------------------------------------------------------------------------------------------------------------
 }
