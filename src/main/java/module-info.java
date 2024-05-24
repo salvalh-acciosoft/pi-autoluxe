@@ -6,6 +6,7 @@ module com.example.autoluxe {
     requires java.desktop;
     requires java.sql;
     requires org.jetbrains.annotations;
+    requires itextpdf;
 
     opens com.example.autoluxe to javafx.fxml;
     exports com.example.autoluxe;
