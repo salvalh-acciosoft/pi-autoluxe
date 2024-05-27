@@ -173,36 +173,36 @@
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="137.0" layoutY="255.0" text="Descripción:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="136.0" layoutY="343.0">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
+                              <TextField fx:id="tfNReferencia" layoutX="136.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
                               <Label layoutX="460.0" layoutY="177.0" text="Cantidad:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <Line endX="499.0" layoutX="237.0" layoutY="161.0" startX="-100.0" />
-                              <TextField layoutX="457.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
-                              <TextField layoutX="136.0" layoutY="287.0" prefHeight="30.0" prefWidth="600.0" />
-                              <TextField layoutX="136.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
-                              <Label alignment="CENTER" layoutX="191.0" layoutY="54.0" prefHeight="72.0" prefWidth="492.0" text="GESTOR DE STOCK" textAlignment="CENTER">
+                              <TextField fx:id="tfCantidad" layoutX="457.0" layoutY="203.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label layoutX="137.0" layoutY="255.0" text="Descripción:">
                                  <font>
-                                    <Font name="Microsoft New Tai Lue Bold" size="48.0" />
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="acAnadir1" layoutX="137.0" layoutY="418.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="600.0" text="AÑADIR">
+                              <TextField fx:id="tfDescripcion" layoutX="136.0" layoutY="287.0" prefHeight="30.0" prefWidth="600.0" />
+                              <Label layoutX="138.0" layoutY="331.0" text="Almacén:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="cbAlmacen" layoutX="137.0" layoutY="357.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label layoutX="460.0" layoutY="331.0" text="Precio:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tfPrecio" layoutX="457.0" layoutY="357.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Button fx:id="acAnadir1" layoutX="137.0" layoutY="418.0" mnemonicParsing="false" onAction="#agregarProducto" prefHeight="44.0" prefWidth="600.0" text="AÑADIR">
                                  <font>
                                     <Font name="Microsoft New Tai Lue Bold" size="14.0" />
                                  </font>
                               </Button>
-                              <TextField layoutX="921.0" layoutY="197.0" prefHeight="31.0" prefWidth="285.0" />
                               <Button fx:id="btnBuscar1" layoutX="1206.0" layoutY="197.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: #000000;">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
@@ -215,17 +215,24 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
+                              <TextField layoutX="921.0" layoutY="197.0" prefHeight="31.0" prefWidth="285.0" />
+                              <Label layoutX="136.0" layoutY="343.0">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="499.0" layoutX="237.0" layoutY="161.0" startX="-100.0" />
+                              <Label alignment="CENTER" layoutX="191.0" layoutY="54.0" prefHeight="72.0" prefWidth="492.0" text="GESTOR DE STOCK" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="48.0" />
+                                 </font>
+                              </Label>
                               <Label alignment="CENTER" layoutX="1102.0" layoutY="103.0" prefHeight="47.0" prefWidth="300.0" text="LISTA DE INVENTARIO" textAlignment="CENTER">
                                  <font>
                                     <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                                  </font>
                               </Label>
                               <Line endX="559.0" layoutX="1022.0" layoutY="159.0" startX="-100.0" />
-                              <Label layoutX="138.0" layoutY="331.0" text="Almacén:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
                               <Pane fx:id="submenu2" layoutX="136.0" layoutY="121.0">
                                  <children>
                                     <Button layoutX="437.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#abrirTaller" prefHeight="36.0" prefWidth="161.0" stylesheets="@../../../style/estilo_app.css" text="GESTOR DE TALLER">
@@ -266,14 +273,7 @@
                                     </Button>
                                  </children>
                               </Pane>
-                              <ListView layoutX="926.0" layoutY="284.0" prefHeight="475.0" prefWidth="662.0" />
-                              <ComboBox layoutX="137.0" layoutY="357.0" prefHeight="30.0" prefWidth="280.0" />
-                              <Label layoutX="460.0" layoutY="331.0" text="Precio:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="457.0" layoutY="357.0" prefHeight="30.0" prefWidth="280.0" />
+                              <ListView fx:id="lvProductos" layoutX="926.0" layoutY="284.0" prefHeight="475.0" prefWidth="662.0" />
                               <ComboBox layoutX="1408.0" layoutY="198.0" prefHeight="30.0" prefWidth="180.0" />
                            </children>
                         </Pane>

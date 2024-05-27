@@ -274,7 +274,6 @@ public class ControladorEmpleadosYRoles  {
         }
     }
 
-
     public void establecerEmpleados() throws SQLException, ClassNotFoundException {
         vistaEmpleadosA.getItems().clear();
         List<Empleados> listaEmpleados=BDautoluxe.listadoEmpleadosBD();
@@ -323,18 +322,14 @@ public class ControladorEmpleadosYRoles  {
     //Método para buscar Empleado
     @FXML
     public void buscarEmpleado() throws  ClassNotFoundException {
-        try
-        {
+        try {
             Empleados empleado=BDautoluxe.obtenerEmpleadoDNI(edBuscar1.getText());
-            if(empleado==null)
-            {
+            if(empleado==null) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Diálogo de Alerta");
                 alert.setHeaderText("DNI no existente");
                 alert.showAndWait();
-            }
-            else
-            {
+            } else {
                 edNombreA1.setText(empleado.getNombre());
                 edApellidosA1.setText(empleado.getApellidos());
                 edDNIA1.setText(empleado.getDNI());
@@ -364,9 +359,7 @@ public class ControladorEmpleadosYRoles  {
                 acBorrar.setDisable(true);
                 acEditar.setDisable(true);
             }
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -375,8 +368,7 @@ public class ControladorEmpleadosYRoles  {
     //Método para borrar Empleado
     @FXML
     public void borrarEmpleado() throws ClassNotFoundException {
-        try
-        {
+        try {
             BDautoluxe.borrarEmpleadoBD(edDNIA1.getText());
             edNombreA1.clear();
             edApellidosA1.clear();
@@ -399,9 +391,7 @@ public class ControladorEmpleadosYRoles  {
             edBuscar1.clear();
 
             establecerEmpleados();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -415,8 +405,7 @@ public class ControladorEmpleadosYRoles  {
     }
 
     //Método para inicializar las columnas y que se vean
-    private void iniciarColumnas()
-    {
+    private void iniciarColumnas() {
         colDNIEmpleadoA.setCellValueFactory(new PropertyValueFactory<Empleados,String>("DNI"));
         colNombreEmpleadoA.setCellValueFactory(new PropertyValueFactory<Empleados,String>("nombre"));
         colApellidosEmpleadoA.setCellValueFactory(new PropertyValueFactory<Empleados,String>("apellidos"));
@@ -449,8 +438,7 @@ public class ControladorEmpleadosYRoles  {
             ControladorTareas controlador = loader.getController();
             controlador.setCorreoUsuario(correoUsuario);
             contenedor.getChildren().setAll(root);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -463,8 +451,7 @@ public class ControladorEmpleadosYRoles  {
             ControladorEmpleadosYRoles controlador = loader.getController();
             controlador.setCorreoUsuario(correoUsuario);
             contenedor.getChildren().setAll(root);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -477,8 +464,7 @@ public class ControladorEmpleadosYRoles  {
             ControladorInicio controlador = loader.getController();
             controlador.setCorreoUsuario(correoUsuario);
             contenedor.getChildren().setAll(root);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -491,8 +477,7 @@ public class ControladorEmpleadosYRoles  {
             ControladorClientes controlador = loader.getController();
             controlador.setCorreoUsuario(correoUsuario);
             contenedor.getChildren().setAll(root);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -505,8 +490,7 @@ public class ControladorEmpleadosYRoles  {
             ControladorFacturas controlador = loader.getController();
             controlador.setCorreoUsuario(correoUsuario);
             contenedor.getChildren().setAll(root);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -532,8 +516,7 @@ public class ControladorEmpleadosYRoles  {
             ControladorTaller controlador = loader.getController();
             controlador.setCorreoUsuario(correoUsuario);
             contenedor.getChildren().setAll(root);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -546,8 +529,7 @@ public class ControladorEmpleadosYRoles  {
             ControladorServicios controlador = loader.getController();
             controlador.setCorreoUsuario(correoUsuario);
             contenedor.getChildren().setAll(root);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
