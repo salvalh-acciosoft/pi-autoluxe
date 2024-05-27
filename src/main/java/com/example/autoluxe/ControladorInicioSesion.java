@@ -14,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -77,24 +78,17 @@ public class ControladorInicioSesion implements Initializable {
                 {
                     if(contrasena.equals(edContraseña.getText()))
                     {
-                        abrirAplicacion();
+                        System.out.println("Antes de llamar a abrir aplicacion"+correo);
+                        abrirAplicacion(correo);
                     }
                     else
                     {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Diálogo de Alerta");
-                        alert.setHeaderText("Información Incorrecta");
-                        alert.setContentText("Contraseña incorrecta, estos datos no son válidos.");
-                        alert.showAndWait();
+                        mostrarAlerta(Alert.AlertType.ERROR, "Información Incorrecta", "Contraseña incorrecta, estos datos no son válidos.");
                     }
                 }
                 else
                 {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Diálogo de Alerta");
-                    alert.setHeaderText("Información Incorrecta");
-                    alert.setContentText("Correo incorrecto, estos datos no son existentes.");
-                    alert.showAndWait();
+                    mostrarAlerta(Alert.AlertType.ERROR, "Información Incorrecta", "Correo incorrecto, estos datos no son existentes.");
                 }
             }
             catch(SQLException e)
@@ -104,10 +98,16 @@ public class ControladorInicioSesion implements Initializable {
         }
     }
     @FXML
-    private void abrirAplicacion() {
+    private void abrirAplicacion(String correo) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("vista_inicio.fxml"));
             Parent root = loader.load();
+
+            System.out.println("Metodo abrir aplicacion"+correo);
+            // Obtener el controlador de la nueva vista y pasar el correo
+            ControladorInicio controlador = loader.getController();
+            controlador.setCorreoUsuario(correo);
+
             Stage nuevaVentana = new Stage();
             nuevaVentana.setTitle("AutoLuxe"); // Puedes establecer el título
             nuevaVentana.setScene(new Scene(root,1920,1080));
@@ -119,6 +119,7 @@ public class ControladorInicioSesion implements Initializable {
             e.printStackTrace();
         }
     }
+
     @FXML
     public void abrirGmail()
     {
@@ -148,6 +149,18 @@ public class ControladorInicioSesion implements Initializable {
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
+    }
+
+    private void mostrarAlerta(Alert.AlertType tipo, String encabezado) {
+        mostrarAlerta(tipo, encabezado, null);
+    }
+
+    private void mostrarAlerta(Alert.AlertType tipo, String encabezado, String contenido) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle("Diálogo de Alerta");
+        alert.setHeaderText(encabezado);
+        alert.setContentText(contenido);
+        alert.showAndWait();
     }
 
 

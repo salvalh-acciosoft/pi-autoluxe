@@ -563,31 +563,30 @@
                                  </font>
                               </Label>
                               <TextField fx:id="tfBuscarDNI1" layoutX="138.0" layoutY="209.0" prefHeight="30.0" prefWidth="200.0" />
-                              <ChoiceBox fx:id="cbCombustible1" disable="true" layoutX="459.0" layoutY="539.0" prefHeight="30.0" prefWidth="280.0" />
                               <Label layoutX="139.0" layoutY="360.0" text="Matrícula:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER" layoutX="307.0" layoutY="294.0" prefHeight="47.0" prefWidth="263.0" text="AÑADIR VEHÍCULO" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft New Tai Lue Bold" size="24.0" />
-                                 </font>
-                              </Label>
-                              <Line endX="501.0" layoutX="239.0" layoutY="343.0" startX="-100.0" />
-                              <Label layoutX="140.0" layoutY="438.0" text="Marca:">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="14.0" />
-                                 </font>
-                              </Label>
+                              <TextField fx:id="tfMatricula1" disable="true" layoutX="139.0" layoutY="386.0" prefHeight="30.0" prefWidth="280.0" />
                               <Label layoutX="463.0" layoutY="360.0" text="Nº Bastidor:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
                               <TextField fx:id="tfBastidor1" disable="true" layoutX="460.0" layoutY="386.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label layoutX="140.0" layoutY="438.0" text="Marca:">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="14.0" />
+                                 </font>
+                              </Label>
                               <TextField fx:id="tfMarca1" disable="true" layoutX="139.0" layoutY="470.0" prefHeight="30.0" prefWidth="280.0" />
-                              <TextField fx:id="tfMatricula1" disable="true" layoutX="139.0" layoutY="386.0" prefHeight="30.0" prefWidth="280.0" />
+                              <Label alignment="CENTER" layoutX="307.0" layoutY="294.0" prefHeight="47.0" prefWidth="263.0" text="AÑADIR VEHÍCULO" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="501.0" layoutX="239.0" layoutY="343.0" startX="-100.0" />
                               <Label layoutX="462.0" layoutY="437.0" text="Modelo:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
@@ -599,12 +598,13 @@
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
+                              <TextField fx:id="tfColor1" disable="true" layoutX="139.0" layoutY="539.0" prefHeight="30.0" prefWidth="280.0" />
                               <Label layoutX="465.0" layoutY="513.0" text="Combustible:">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="tfColor1" disable="true" layoutX="139.0" layoutY="539.0" prefHeight="30.0" prefWidth="280.0" />
+                              <ChoiceBox fx:id="cbCombustible1" disable="true" layoutX="459.0" layoutY="539.0" prefHeight="30.0" prefWidth="280.0" />
                               <Button layoutX="338.0" layoutY="208.0" mnemonicParsing="false" onAction="#buscarClienteVehiculo" prefHeight="31.0" prefWidth="80.0" style="-fx-background-color: #000000;">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="14.0" />
